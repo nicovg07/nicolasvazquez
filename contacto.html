@@ -9,23 +9,18 @@
 </head>
 <body>
 
-<header class="site-header">
-  <a href="index.html" class="logo" aria-label="Nicolás Vázquez García — inicio">
-    <img class="logo-mark" src="imagenes/logo.jfif" alt="Nicolás Vázquez García">
-  </a>
-
-  <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
-    <span class="menu-toggle-bar"></span>
-    <span class="menu-toggle-bar"></span>
-    <span class="menu-toggle-bar"></span>
-  </button>
-</header>
+<button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+  <span class="menu-toggle-bar"></span>
+  <span class="menu-toggle-bar"></span>
+  <span class="menu-toggle-bar"></span>
+</button>
 
 <nav id="site-menu" class="site-menu" aria-label="Menú principal">
   <ul class="site-menu-links">
-    <li><a href="tfg.html">TFG</a></li>
-    <li><a href="sobre-mi.html">Sobre mí</a></li>
+    <li><a href="index.html">Inicio</a></li>
     <li><a href="cv.html">CV</a></li>
+    <li><button type="button" data-submenu-toggle>Proyectos</button></li>
+    <li><a href="sobre-mi.html">Sobre mí</a></li>
     <li><a href="contacto.html">Contacto</a></li>
   </ul>
   <div class="lang-switch" role="group" aria-label="Selector de idioma">
@@ -35,9 +30,37 @@
   </div>
 </nav>
 
+<nav id="projects-menu" class="site-menu" aria-label="Menú de proyectos">
+  <button type="button" class="submenu-back" data-submenu-back>‹ Volver</button>
+  <ul class="site-menu-links">
+    <li><a href="tfg.html">TFG</a></li>
+    <li><a href="rail-folding-package.html">Rail Folding Package</a></li>
+    <li><a href="3ds-max-rendering.html">3DS Max Rendering</a></li>
+  </ul>
+</nav>
+
 <main>
-  <section class="page-intro">
-    <h1 class="section-title">Contacto</h1>
+  <section class="contact-hero">
+    <h1 class="section-title">Hablemos!!</h1>
+    <p class="tfg-subtitle">Ingeniero en Diseño Industrial y Desarrollo de Producto. Con ganas de aprender y afrontar nuevos retos.</p>
+  </section>
+
+  <section class="contact">
+    <div class="contact-links">
+      <a class="contact-link" id="contact-email" href="#" data-user="nicovg07" data-domain="gmail.com">Enviar email</a>
+      <a class="contact-link" id="contact-tel" href="#" data-prefix="+34" data-number="600242549">Llamar por teléfono</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/nicolasvazquezgarcia/" target="_blank" rel="noopener noreferrer">Ver LinkedIn</a>
+    </div>
+
+    <p class="contact-location">
+      <span class="contact-location-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path>
+          <circle cx="12" cy="9" r="2.5"></circle>
+        </svg>
+      </span>
+      Ubicado en Asturias, España · Disponibilidad para movilidad total
+    </p>
   </section>
 </main>
 

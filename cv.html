@@ -9,23 +9,18 @@
 </head>
 <body>
 
-<header class="site-header">
-  <a href="index.html" class="logo" aria-label="Nicolás Vázquez García — inicio">
-    <img class="logo-mark" src="imagenes/logo.jfif" alt="Nicolás Vázquez García">
-  </a>
-
-  <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
-    <span class="menu-toggle-bar"></span>
-    <span class="menu-toggle-bar"></span>
-    <span class="menu-toggle-bar"></span>
-  </button>
-</header>
+<button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+  <span class="menu-toggle-bar"></span>
+  <span class="menu-toggle-bar"></span>
+  <span class="menu-toggle-bar"></span>
+</button>
 
 <nav id="site-menu" class="site-menu" aria-label="Menú principal">
   <ul class="site-menu-links">
-    <li><a href="tfg.html">TFG</a></li>
-    <li><a href="sobre-mi.html">Sobre mí</a></li>
+    <li><a href="index.html">Inicio</a></li>
     <li><a href="cv.html">CV</a></li>
+    <li><button type="button" data-submenu-toggle>Proyectos</button></li>
+    <li><a href="sobre-mi.html">Sobre mí</a></li>
     <li><a href="contacto.html">Contacto</a></li>
   </ul>
   <div class="lang-switch" role="group" aria-label="Selector de idioma">
@@ -35,24 +30,122 @@
   </div>
 </nav>
 
+<nav id="projects-menu" class="site-menu" aria-label="Menú de proyectos">
+  <button type="button" class="submenu-back" data-submenu-back>‹ Volver</button>
+  <ul class="site-menu-links">
+    <li><a href="tfg.html">TFG</a></li>
+    <li><a href="rail-folding-package.html">Rail Folding Package</a></li>
+    <li><a href="3ds-max-rendering.html">3DS Max Rendering</a></li>
+  </ul>
+</nav>
+
 <main>
-  <section class="cv">
-    <h1 class="section-title">Currículum</h1>
-    <div class="cv-grid">
-      <article class="cv-card">
-        <h2 class="cv-lang">Español</h2>
-        <div class="cv-actions">
-          <a href="cv/CV_Nicolas_Vazquez.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Ver</a>
-          <a href="cv/CV_Nicolas_Vazquez.pdf" download class="btn btn-primary">Descargar</a>
+  <section class="cv-bio">
+    <h1 class="section-title">Perfil Profesional</h1>
+    <p class="cv-bio-text">
+      <strong>Ingeniero en Diseño Industrial</strong> con experiencia en <strong>automoción</strong> e ingeniería técnica, buscando dar el siguiente paso hacia el sector <strong>retail</strong> o <strong>diseño de producto</strong> en su estado más puro. Combino el <strong>rigor técnico, la gestión de proyectos y la documentación precisa</strong> con una fuerte sensibilidad por la <strong>forma, la función y la experiencia de usuario/cliente</strong>. <strong>Proactivo, adaptable y orientado al trabajo en equipo</strong>. Con residencia en Asturias y <strong>disponibilidad total para movilidad nacional e internacional</strong>.
+    </p>
+  </section>
+
+  <section class="experience">
+    <h2 class="section-title">Experiencia Laboral</h2>
+    <div class="job-list">
+
+      <details class="job-card">
+        <summary class="job-summary">
+          <div class="job-logo-wrap">
+            <img class="job-logo" src="CV/Renault.png" alt="Renault Group">
+          </div>
+          <div class="job-info">
+            <h3 class="job-role">Becario NEXT-GEN – Renault Talent</h3>
+            <a class="job-company" href="https://www.renaultgroup.com/es/" target="_blank" rel="noopener noreferrer">Renault Group</a>
+            <p class="job-meta">Sep. 2025 – Feb. 2026 · Valladolid, España</p>
+          </div>
+          <span class="job-toggle-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="job-details">
+          <p class="job-description">Apoyo a la gestión técnica en vida serie para los modelos Captur y Symbioz.</p>
+          <ul class="job-points">
+            <li>Colaboración directa con el Jefe de Proyecto de Adaptaciones MZK.</li>
+            <li>Elaboración, control y seguimiento de documentación técnica de adaptación.</li>
+            <li>Coordinación de fases de proyecto en un entorno de automoción de alto rendimiento.</li>
+          </ul>
         </div>
-      </article>
-      <article class="cv-card">
-        <h2 class="cv-lang">English</h2>
-        <div class="cv-actions">
-          <a href="cv/CV_Nicolas_Vazquez_EN.pdf" target="_blank" rel="noopener" class="btn btn-secondary">View</a>
-          <a href="cv/CV_Nicolas_Vazquez_EN.pdf" download class="btn btn-primary">Download</a>
+      </details>
+
+      <details class="job-card">
+        <summary class="job-summary">
+          <div class="job-logo-wrap">
+            <img class="job-logo" src="CV/Foncueva.png" alt="Construcciones Foncueva SL">
+          </div>
+          <div class="job-info">
+            <h3 class="job-role">Oficina Técnica</h3>
+            <a class="job-company" href="https://www.construccionesfoncueva.com/" target="_blank" rel="noopener noreferrer">Construcciones Foncueva SL</a>
+            <p class="job-meta">Jul. 2025 – Ago. 2025 · Sariego, Asturias</p>
+          </div>
+          <span class="job-toggle-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="job-details">
+          <p class="job-description">Diseño técnico industrial y supervisión de ejecución.</p>
+          <ul class="job-points">
+            <li>Diseño 3D de piezas y componentes para maquinaria industrial.</li>
+            <li>Elaboración de planos de fabricación y montaje.</li>
+            <li>Supervisión del avance de proyectos y verificación técnica sobre el terreno.</li>
+          </ul>
         </div>
-      </article>
+      </details>
+
+      <details class="job-card">
+        <summary class="job-summary">
+          <div class="job-logo-wrap">
+            <img class="job-logo" src="CV/Cosermo.png" alt="Cosermo">
+          </div>
+          <div class="job-info">
+            <h3 class="job-role">Departamento de Calidad</h3>
+            <a class="job-company" href="https://www.cosermo.com/" target="_blank" rel="noopener noreferrer">Cosermo</a>
+            <p class="job-meta">Jul. 2024 – Ago. 2024 · Gijón, Asturias</p>
+          </div>
+          <span class="job-toggle-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="job-details">
+          <p class="job-description">Garantía e inspección del sistema de calidad en taller.</p>
+          <ul class="job-points">
+            <li>Inspecciones de calidad y verificación del cumplimiento normativo.</li>
+            <li>Enlace continuo entre la oficina de calidad y el equipo de taller.</li>
+            <li>Gestión de incidencias técnicas en el proceso de fabricación.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="job-card">
+        <summary class="job-summary">
+          <div class="job-logo-wrap">
+            <img class="job-logo" src="CV/ZeroTek.png" alt="ZeroTeK Co.">
+          </div>
+          <div class="job-info">
+            <h3 class="job-role">Diseñador Multidisciplinar</h3>
+            <a class="job-company" href="https://zerotek.es/" target="_blank" rel="noopener noreferrer">ZeroTeK Co.</a>
+            <p class="job-meta">Jun. 2023 – Sep. 2023 · Gijón, Asturias</p>
+          </div>
+          <span class="job-toggle-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="job-details">
+          <p class="job-description">Creación de contenido visual, desarrollo web y comunicación de marca.</p>
+          <ul class="job-points">
+            <li>Diseño y desarrollo de sitios web sobre WordPress.</li>
+            <li>Producción fotográfica, edición de vídeo y material gráfico digital.</li>
+            <li>Implementación de identidad visual según las necesidades del cliente.</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <section class="cv-download">
+    <div class="cv-download-actions">
+      <a class="cv-download-link" href="cv/CV_Nicolas_Vazquez.pdf" target="_blank" rel="noopener noreferrer">Descargar CV en PDF</a>
+      <a class="cv-download-link" href="cv/CV_Nicolas_Vazquez_EN.pdf" target="_blank" rel="noopener noreferrer">Download CV in English</a>
     </div>
   </section>
 </main>
