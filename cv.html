@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Nicolás Vázquez García</title>
+<meta name="description" content="Currículum de Nicolás Vázquez García, ingeniero en diseño industrial y desarrollo de producto.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo" aria-label="Nicolás Vázquez García — inicio">
+    <img class="logo-mark" src="imagenes/logo.jfif" alt="Nicolás Vázquez García">
+  </a>
+
+  <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+    <span class="menu-toggle-bar"></span>
+    <span class="menu-toggle-bar"></span>
+    <span class="menu-toggle-bar"></span>
+  </button>
+</header>
+
+<nav id="site-menu" class="site-menu" aria-label="Menú principal">
+  <ul class="site-menu-links">
+    <li><a href="tfg.html">TFG</a></li>
+    <li><a href="sobre-mi.html">Sobre mí</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="lang-switch" role="group" aria-label="Selector de idioma">
+    <button type="button" class="lang-option is-active" data-lang="es">ES</button>
+    <span class="lang-divider" aria-hidden="true">/</span>
+    <button type="button" class="lang-option" data-lang="en">EN</button>
+  </div>
+</nav>
+
+<main>
+  <section class="cv">
+    <h1 class="section-title">Currículum</h1>
+    <div class="cv-grid">
+      <article class="cv-card">
+        <h2 class="cv-lang">Español</h2>
+        <div class="cv-actions">
+          <a href="cv/CV_Nicolas_Vazquez.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Ver</a>
+          <a href="cv/CV_Nicolas_Vazquez.pdf" download class="btn btn-primary">Descargar</a>
+        </div>
+      </article>
+      <article class="cv-card">
+        <h2 class="cv-lang">English</h2>
+        <div class="cv-actions">
+          <a href="cv/CV_Nicolas_Vazquez_EN.pdf" target="_blank" rel="noopener" class="btn btn-secondary">View</a>
+          <a href="cv/CV_Nicolas_Vazquez_EN.pdf" download class="btn btn-primary">Download</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
