@@ -49,97 +49,116 @@
 
   <section class="experience">
     <h2 class="section-title">Experiencia Laboral</h2>
-    <div class="job-list">
 
-      <details class="job-card">
-        <summary class="job-summary">
-          <div class="job-logo-wrap">
-            <img class="job-logo" src="CV/Renault.png" alt="Renault Group">
-          </div>
-          <div class="job-info">
-            <h3 class="job-role">Becario NEXT-GEN – Renault Talent</h3>
-            <a class="job-company" href="https://www.renaultgroup.com/es/" target="_blank" rel="noopener noreferrer">Renault Group</a>
-            <p class="job-meta">Sep. 2025 – Feb. 2026 · Valladolid, España</p>
-          </div>
-          <span class="job-toggle-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="job-details">
-          <p class="job-description">Apoyo a la gestión técnica en vida serie para los modelos Captur y Symbioz.</p>
-          <ul class="job-points">
-            <li>Colaboración directa con el Jefe de Proyecto de Adaptaciones MZK.</li>
-            <li>Elaboración, control y seguimiento de documentación técnica de adaptación.</li>
-            <li>Coordinación de fases de proyecto en un entorno de automoción de alto rendimiento.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="job-card">
-        <summary class="job-summary">
-          <div class="job-logo-wrap">
-            <img class="job-logo" src="CV/Foncueva.png" alt="Construcciones Foncueva SL">
-          </div>
-          <div class="job-info">
-            <h3 class="job-role">Oficina Técnica</h3>
-            <a class="job-company" href="https://www.construccionesfoncueva.com/" target="_blank" rel="noopener noreferrer">Construcciones Foncueva SL</a>
-            <p class="job-meta">Jul. 2025 – Ago. 2025 · Sariego, Asturias</p>
-          </div>
-          <span class="job-toggle-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="job-details">
-          <p class="job-description">Diseño técnico industrial y supervisión de ejecución.</p>
-          <ul class="job-points">
-            <li>Diseño 3D de piezas y componentes para maquinaria industrial.</li>
-            <li>Elaboración de planos de fabricación y montaje.</li>
-            <li>Supervisión del avance de proyectos y verificación técnica sobre el terreno.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="job-card">
-        <summary class="job-summary">
-          <div class="job-logo-wrap">
-            <img class="job-logo" src="CV/Cosermo.png" alt="Cosermo">
-          </div>
-          <div class="job-info">
-            <h3 class="job-role">Departamento de Calidad</h3>
-            <a class="job-company" href="https://www.cosermo.com/" target="_blank" rel="noopener noreferrer">Cosermo</a>
-            <p class="job-meta">Jul. 2024 – Ago. 2024 · Gijón, Asturias</p>
-          </div>
-          <span class="job-toggle-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="job-details">
-          <p class="job-description">Garantía e inspección del sistema de calidad en taller.</p>
-          <ul class="job-points">
-            <li>Inspecciones de calidad y verificación del cumplimiento normativo.</li>
-            <li>Enlace continuo entre la oficina de calidad y el equipo de taller.</li>
-            <li>Gestión de incidencias técnicas en el proceso de fabricación.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="job-card">
-        <summary class="job-summary">
-          <div class="job-logo-wrap">
-            <img class="job-logo" src="CV/ZeroTek.png" alt="ZeroTeK Co.">
-          </div>
-          <div class="job-info">
-            <h3 class="job-role">Diseñador Multidisciplinar</h3>
-            <a class="job-company" href="https://zerotek.es/" target="_blank" rel="noopener noreferrer">ZeroTeK Co.</a>
-            <p class="job-meta">Jun. 2023 – Sep. 2023 · Gijón, Asturias</p>
-          </div>
-          <span class="job-toggle-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="job-details">
-          <p class="job-description">Creación de contenido visual, desarrollo web y comunicación de marca.</p>
-          <ul class="job-points">
-            <li>Diseño y desarrollo de sitios web sobre WordPress.</li>
-            <li>Producción fotográfica, edición de vídeo y material gráfico digital.</li>
-            <li>Implementación de identidad visual según las necesidades del cliente.</li>
-          </ul>
-        </div>
-      </details>
-
+    <div class="job-tabs" role="tablist">
+      <button type="button" class="job-tab" data-job-tab="renault" aria-expanded="false" aria-controls="panel-renault" aria-label="Renault Group">
+        <img class="job-tab-logo" src="CV/Renault.png" alt="Renault Group">
+      </button>
+      <button type="button" class="job-tab" data-job-tab="foncueva" aria-expanded="false" aria-controls="panel-foncueva" aria-label="Construcciones Foncueva SL">
+        <img class="job-tab-logo" src="CV/Foncueva.png" alt="Construcciones Foncueva SL">
+      </button>
+      <button type="button" class="job-tab" data-job-tab="cosermo" aria-expanded="false" aria-controls="panel-cosermo" aria-label="Cosermo">
+        <img class="job-tab-logo" src="CV/Cosermo.png" alt="Cosermo">
+      </button>
+      <button type="button" class="job-tab" data-job-tab="zerotek" aria-expanded="false" aria-controls="panel-zerotek" aria-label="ZeroTeK Co.">
+        <img class="job-tab-logo" src="CV/ZeroTek.png" alt="ZeroTeK Co.">
+      </button>
     </div>
+
+    <div class="job-panel-wrap" data-job-panel="renault" id="panel-renault">
+      <div class="job-panel-inner">
+        <h3 class="job-role">Becario NEXT-GEN – Renault Talent</h3>
+        <a class="job-company" href="https://www.renaultgroup.com/es/" target="_blank" rel="noopener noreferrer">Renault Group</a>
+        <p class="job-meta">Sep. 2025 – Feb. 2026 · Valladolid, España</p>
+        <p class="job-description">Apoyo a la gestión técnica en vida serie para los modelos Captur y Symbioz.</p>
+        <ul class="job-points">
+          <li>Colaboración directa con el Jefe de Proyecto de Adaptaciones MZK.</li>
+          <li>Elaboración, control y seguimiento de documentación técnica de adaptación.</li>
+          <li>Coordinación de fases de proyecto en un entorno de automoción de alto rendimiento.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job-panel-wrap" data-job-panel="foncueva" id="panel-foncueva">
+      <div class="job-panel-inner">
+        <h3 class="job-role">Oficina Técnica</h3>
+        <a class="job-company" href="https://www.construccionesfoncueva.com/" target="_blank" rel="noopener noreferrer">Construcciones Foncueva SL</a>
+        <p class="job-meta">Jul. 2025 – Ago. 2025 · Sariego, Asturias</p>
+        <p class="job-description">Diseño técnico industrial y supervisión de ejecución.</p>
+        <ul class="job-points">
+          <li>Diseño 3D de piezas y componentes para maquinaria industrial.</li>
+          <li>Elaboración de planos de fabricación y montaje.</li>
+          <li>Supervisión del avance de proyectos y verificación técnica sobre el terreno.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job-panel-wrap" data-job-panel="cosermo" id="panel-cosermo">
+      <div class="job-panel-inner">
+        <h3 class="job-role">Departamento de Calidad</h3>
+        <a class="job-company" href="https://www.cosermo.com/" target="_blank" rel="noopener noreferrer">Cosermo</a>
+        <p class="job-meta">Jul. 2024 – Ago. 2024 · Gijón, Asturias</p>
+        <p class="job-description">Garantía e inspección del sistema de calidad en taller.</p>
+        <ul class="job-points">
+          <li>Inspecciones de calidad y verificación del cumplimiento normativo.</li>
+          <li>Enlace continuo entre la oficina de calidad y el equipo de taller.</li>
+          <li>Gestión de incidencias técnicas en el proceso de fabricación.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job-panel-wrap" data-job-panel="zerotek" id="panel-zerotek">
+      <div class="job-panel-inner">
+        <h3 class="job-role">Diseñador Multidisciplinar</h3>
+        <a class="job-company" href="https://zerotek.es/" target="_blank" rel="noopener noreferrer">ZeroTeK Co.</a>
+        <p class="job-meta">Jun. 2023 – Sep. 2023 · Gijón, Asturias</p>
+        <p class="job-description">Creación de contenido visual, desarrollo web y comunicación de marca.</p>
+        <ul class="job-points">
+          <li>Diseño y desarrollo de sitios web sobre WordPress.</li>
+          <li>Producción fotográfica, edición de vídeo y material gráfico digital.</li>
+          <li>Implementación de identidad visual según las necesidades del cliente.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="education">
+    <h2 class="section-title">Formación</h2>
+    <div class="education-card">
+      <div class="education-main">
+        <h3 class="education-degree">Grado en Ingeniería en Diseño Industrial y Desarrollo de Producto</h3>
+        <p class="education-institution">Universidad de Valladolid</p>
+        <p class="job-meta">2021 – 2026</p>
+        <p class="education-tfg">TFG: «Belleza y velocidad — el diseño automovilístico como expresión estética»</p>
+      </div>
+      <ul class="education-awards">
+        <li>Speciality Packaging Bronze Award, WorldStar Student (2025)</li>
+        <li>Premio Liderpack, Diseño Joven (2024)</li>
+        <li>Finalista, XV Premios Nacionales de Envase y Embalaje (2024)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="software">
+    <h2 class="section-title">Software</h2>
+    <ul class="software-tags">
+      <li>CATIA V5</li>
+      <li>SolidWorks</li>
+      <li>AutoCAD</li>
+      <li>3ds Max</li>
+      <li>Illustrator</li>
+      <li>Photoshop</li>
+      <li>InDesign</li>
+      <li>Microsoft Office</li>
+    </ul>
+  </section>
+
+  <section class="additional-training">
+    <h2 class="section-title">Formación Complementaria</h2>
+    <ul class="training-list">
+      <li>Inglés B2</li>
+      <li>Curso Michelin Soft Skills (2026)</li>
+    </ul>
   </section>
 
   <section class="cv-download">
@@ -149,6 +168,18 @@
     </div>
   </section>
 </main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <img class="site-footer-logo" src="imagenes/NVG_blanco_nombre.png" alt="Nicolás Vázquez García">
+    <nav class="site-footer-nav" aria-label="Pie de página">
+      <a href="cv.html">CV</a>
+      <a href="tfg.html">Proyectos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</footer>
 
 <script src="js/main.js"></script>
 </body>

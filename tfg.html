@@ -7,7 +7,7 @@
 <meta name="description" content="Trabajo Fin de Grado de Nicolás Vázquez García: Belleza y velocidad, el diseño automovilístico como expresión estética.">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-red">
 
 <button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
   <span class="menu-toggle-bar"></span>
@@ -41,9 +41,17 @@
 
 <main>
   <section class="tfg">
-    <div class="tfg-header">
-      <h1 class="section-title">Trabajo Fin de Grado</h1>
-      <p class="tfg-subtitle">Belleza y velocidad: el diseño automovilístico como expresión estética</p>
+    <div class="tfg-hero reveal">
+      <h1 class="tfg-hero-title">Belleza <span class="tfg-hero-accent">y</span> velocidad</h1>
+      <p class="tfg-hero-subtitle">el diseño automovilístico como expresión estética</p>
+    </div>
+
+    <div class="tfg-statement">
+      <div class="tfg-statement-inner reveal">
+        <p class="tfg-statement-lead">De medio de transporte a icono cultural.</p>
+        <p class="tfg-statement-body">Un recorrido por los coches del pueblo, las leyendas de los años 60 y el impacto del diseño automotriz en la relojería, accesorios y la arquitectura.</p>
+        <p class="tfg-statement-conclusion">La belleza no es un añadido: es la consecuencia de una ingeniería brillante.</p>
+      </div>
     </div>
 
     <div class="tfg-block">
@@ -131,8 +139,48 @@
         </article>
       </div>
     </div>
+
+    <div class="tfg-gallery">
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/bmw.jpeg" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/bmw.jpeg" alt="">
+      </button>
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/ferrari.jpeg" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/ferrari.jpeg" alt="">
+      </button>
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/ferrari2.jpeg" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/ferrari2.jpeg" alt="">
+      </button>
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/mcqueen.jpeg" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/mcqueen.jpeg" alt="">
+      </button>
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/mini.jpeg" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/mini.jpeg" alt="">
+      </button>
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/miura.jpeg" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/miura.jpeg" alt="">
+      </button>
+    </div>
   </section>
 </main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <img class="site-footer-logo" src="imagenes/NVG_blanco_nombre.png" alt="Nicolás Vázquez García">
+    <nav class="site-footer-nav" aria-label="Pie de página">
+      <a href="cv.html">CV</a>
+      <a href="tfg.html">Proyectos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button type="button" class="lightbox-close" aria-label="Cerrar imagen">&times;</button>
+  <button type="button" class="lightbox-nav lightbox-prev" aria-label="Imagen anterior">&#8249;</button>
+  <img class="lightbox-img" src="" alt="">
+  <button type="button" class="lightbox-nav lightbox-next" aria-label="Imagen siguiente">&#8250;</button>
+</div>
 
 <script src="js/main.js"></script>
 </body>
