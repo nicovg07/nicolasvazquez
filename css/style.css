@@ -936,8 +936,8 @@ body.page-cv .experience {
   position: sticky;
   top: 0;
   align-self: flex-start;
-  flex: 0 0 46vw;
-  width: 46vw;
+  flex: 0 0 33.3333%;
+  width: 33.3333%;
   height: 100vh;
   overflow: hidden;
 }
@@ -1010,90 +1010,1147 @@ body.page-cv .cv-download-actions {
   margin-bottom: 0;
 }
 
-.page-intro.is-tight {
-  padding-bottom: 48px;
+/* =========================================================================
+   3DS Max Rendering — bento box a pantalla completa
+   ========================================================================= */
+
+body.page-dark {
+  background: #0b0b0d;
+  color: #ffffff;
 }
 
-/* Galería de proyecto — collage editorial asimétrico.
-   Cada imagen lleva su posición en el HTML vía --col (columna/ancho en una
-   rejilla de 12) y --shift (desplazamiento vertical, en múltiplos del paso). */
-
-.project-gallery {
-  --gallery-pad: clamp(24px, 8vw, 120px);
-  padding: 0 var(--gallery-pad) 120px;
-  overflow-x: clip;
+body.page-dark .menu-toggle-bar {
+  background: #ffffff;
 }
 
-.project-gallery-grid {
+body.page-dark .menu-toggle:hover .menu-toggle-bar {
+  background: var(--color-accent);
+}
+
+.bento {
+  --bento-gap: clamp(8px, 0.8vw, 14px);
+  --bento-radius: 14px;
+  background: #0b0b0d;
+}
+
+.bento-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: clamp(16px, 2.2vw, 32px);
-  align-items: start;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: var(--bento-gap);
+  padding: var(--bento-gap);
+  height: 100vh;
+  height: 100dvh;
 }
 
-.project-gallery-item {
-  grid-column: var(--col, 1 / span 12);
-  margin-top: calc(var(--shift, 0) * clamp(8px, 1.2vw, 18px));
+.bento-cell {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--bento-radius);
+  background: #141417;
+}
+
+.bento-scene   { grid-column: 1 / 12;  grid-row: 1 / 8; }
+.bento-text    { grid-column: 12 / 21; grid-row: 1 / 8; }
+.bento-process { grid-column: 1 / 9;   grid-row: 8 / 11; }
+
+/* Los cuatro detalles se auto-colocan a continuación del "behind the scenes",
+   rellenando las doce columnas que quedan libres en la banda inferior. */
+.bento-shot { grid-row: 8 / 11; grid-column: span 3; }
+
+/* --- Escena principal: crossfade entre los estudios de luz --------------- */
+
+.scene-stage {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
+  height: 100%;
   padding: 0;
-  border: none;
-  border-radius: 2px;
-  overflow: hidden;
-  background: #f2f2f2;
+  border: 0;
+  background: #000000;
   cursor: zoom-in;
 }
 
-/* Banda a sangre: rompe el padding lateral y se recorta a formato cine */
-.project-gallery-item.is-bleed {
-  grid-column: 1 / -1;
-  width: auto;
-  margin-inline: calc(-1 * var(--gallery-pad));
-  border-radius: 0;
-}
-
-.project-gallery-item.is-bleed img {
-  aspect-ratio: 21 / 9;
+.scene-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
-.project-gallery-item img {
+/* El fotograma saliente se queda opaco por debajo para que el fundido
+   no deje ver el fondo negro a mitad de camino. */
+.scene-frame.is-prev {
+  z-index: 1;
+  opacity: 1;
+  transition: none;
+}
+
+.scene-frame.is-active {
+  z-index: 2;
+  opacity: 1;
+}
+
+.scene-zoom {
+  position: absolute;
+  z-index: 3;
+  top: clamp(14px, 1.6vw, 22px);
+  right: clamp(14px, 1.6vw, 22px);
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scene-stage:hover .scene-zoom,
+.scene-stage:focus-visible .scene-zoom {
+  opacity: 1;
+  transform: none;
+}
+
+.scene-panel {
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: clamp(48px, 8vh, 96px) clamp(18px, 2vw, 32px) clamp(16px, 2vh, 26px);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 30%, rgba(0, 0, 0, 0));
+}
+
+.scene-panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.scene-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.scene-mode {
+  font-size: clamp(17px, 1.9vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+/* Punto cálido que se enciende en los renders con la lámpara encendida */
+.scene-panel.is-lamp-on .scene-mode::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: #ffd27d;
+  box-shadow: 0 0 10px 2px rgba(255, 210, 125, 0.8);
+  vertical-align: middle;
+}
+
+.scene-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.scene-slider::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffe0b0, #ff9d4d 45%, #35507e);
+}
+
+.scene-slider::-moz-range-track {
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffe0b0, #ff9d4d 45%, #35507e);
+}
+
+.scene-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -7.5px;
+  border: 3px solid var(--color-accent);
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 0 0 rgba(216, 35, 49, 0);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.scene-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 3px solid var(--color-accent);
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 0 0 rgba(216, 35, 49, 0);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.scene-slider:hover::-webkit-slider-thumb { transform: scale(1.15); }
+.scene-slider:hover::-moz-range-thumb     { transform: scale(1.15); }
+
+.scene-slider:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 6px rgba(216, 35, 49, 0.4); }
+.scene-slider:focus-visible::-moz-range-thumb     { box-shadow: 0 0 0 6px rgba(216, 35, 49, 0.4); }
+
+.scene-slider:focus { outline: none; }
+
+.scene-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- Tarjeta de texto --------------------------------------------------- */
+
+.bento-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(10px, 1.6vh, 20px);
+  padding: clamp(64px, 6vw, 92px) clamp(24px, 2.6vw, 44px) clamp(24px, 2.6vw, 44px);
+  border-color: transparent;
+  background: var(--color-brand);
+}
+
+.bento-badge {
+  align-self: flex-start;
+  padding: 7px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  font-size: clamp(9px, 0.75vw, 11px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #ffffff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.bento-text:hover .bento-badge {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.bento-title {
+  margin: 0;
+  font-size: clamp(28px, 3.2vw, 56px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.bento-copy {
+  margin: 0;
+  max-width: 48ch;
+  font-size: clamp(12px, 1vw, 16px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.bento-copy strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.bento-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* --- Behind the scenes -------------------------------------------------- */
+
+.bento-process {
+  background: #101013;
+}
+
+.process-logo {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  right: 14px;
+  width: clamp(28px, 2.4vw, 38px);
+  height: auto;
+  padding: 5px;
+  border-radius: 9px;
+  background: rgba(10, 10, 12, 0.65);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.bento-process.is-missing .process-logo {
+  background: none;
+  backdrop-filter: none;
+  padding: 0;
+  opacity: 0.85;
+}
+
+.process-stage {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.process-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.4s ease, transform 0.6s ease;
+}
+
+.process-stage:hover .process-img,
+.process-stage:focus-visible .process-img {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+.process-fallback {
+  display: none;
+}
+
+/* Si la captura todavía no existe, la tarjeta explica dónde ponerla */
+.bento-process.is-missing .process-stage {
+  display: none;
+}
+
+.bento-process.is-missing .process-fallback {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  margin: 0;
+  padding: clamp(20px, 2.4vw, 34px);
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  border-radius: var(--bento-radius);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.bento-process.is-missing .process-fallback strong {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.process-fallback code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 11px;
+  color: var(--color-accent-light);
+  overflow-wrap: anywhere;
+}
+
+/* --- Detalles con tilt 3D ----------------------------------------------- */
+
+.bento-shot {
+  --rx: 0deg;
+  --ry: 0deg;
+  padding: 0;
+  cursor: zoom-in;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.5s ease, border-color 0.3s ease, box-shadow 0.4s ease;
+}
+
+.bento-shot:hover,
+.bento-shot:focus-visible {
+  transition-duration: 0.15s;
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 18px 50px -18px rgba(0, 0, 0, 0.9);
+}
+
+.bento-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.bento-shot:hover img,
+.bento-shot:focus-visible img {
+  transform: scale(1.06);
+}
+
+.shot-tag,
+.process-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.bento-shot:hover .shot-tag,
+.bento-shot:focus-visible .shot-tag,
+.process-stage:hover .process-tag,
+.process-stage:focus-visible .process-tag {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Tablet, móvil y pantallas bajas: el bento pasa a flujo vertical ----- */
+
+@media (max-width: 1023px), (max-height: 639px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+    height: auto;
+  }
+
+  .bento-scene,
+  .bento-text,
+  .bento-process {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .bento-scene   { aspect-ratio: 16 / 10; }
+  .bento-process { aspect-ratio: 16 / 9; }
+
+  .bento-text {
+    padding: clamp(64px, 12vw, 88px) clamp(24px, 6vw, 44px) clamp(28px, 6vw, 44px);
+  }
+
+  .bento-shot {
+    grid-column: span 1;
+    grid-row: auto;
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* En móvil el panel del slider tapaba media escena: lo sacamos debajo del render */
+@media (max-width: 560px) {
+  .bento-scene {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: auto;
+  }
+
+  .scene-stage {
+    position: relative;
+    inset: auto;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .scene-panel {
+    position: static;
+    padding: 14px 16px 16px;
+    background: #141417;
+  }
+
+  .bento-shot { aspect-ratio: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-frame,
+  .bento-shot,
+  .bento-shot img,
+  .process-img {
+    transition-duration: 0.01ms;
+  }
+
+  .bento-shot {
+    transform: none;
+  }
+}
+
+/* =========================================================================
+   Rail Folding Package — case study
+   ========================================================================= */
+
+body.page-rail {
+  /* Paleta tomada del póster original del dossier (Principal.jpeg):
+     salvia de fondo + el mismo verde oscuro de su título como único acento.
+     Al redefinir estas variables aquí, todo lo que ya usa var(--color-*)
+     en el resto de la hoja de estilos hereda el verde sin tocarlo de nuevo. */
+  --color-bg: #C8DED2;
+  --color-text: #0E3D2A;
+  --color-text-muted: #4C6E60;
+  --color-brand: #0E3D2A;
+  --color-accent: #1F6B47;
+  --color-accent-light: #3E9169;
+  --rail-sage-deep: #B7D6C4;
+  --rail-panel: #E9F4EE;
+  --rail-line: rgba(14, 61, 42, 0.16);
+  --rail-line-strong: rgba(14, 61, 42, 0.32);
+  --rail-chip-bg: rgba(14, 61, 42, 0.88);
+  --rail-mist: #F3FAF6;
+  --rail-shadow: rgba(14, 61, 42, 0.28);
+  background: var(--color-bg);
+}
+
+body.page-rail.nav-dark .menu-toggle-bar {
+  background: var(--rail-mist);
+}
+
+body.page-rail.nav-dark .menu-toggle:hover .menu-toggle-bar {
+  background: var(--color-bg);
+}
+
+/* Los títulos de sección (compartidos con el resto del sitio) se agrandan
+   solo en esta página: en un monitor de escritorio se quedaban pequeños. */
+body.page-rail .section-title {
+  font-size: clamp(32px, 4.6vw, 50px);
+}
+
+/* --- Póster del dossier -------------------------------------------------- */
+
+.rail-poster {
+  margin: 0;
+  padding: clamp(32px, 6vh, 64px) clamp(24px, 8vw, 120px);
+  background: var(--color-bg);
+}
+
+.rail-poster img {
+  display: block;
+  width: 100%;
+  max-width: 1680px;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid var(--rail-line);
+  border-radius: 14px;
+  box-shadow: 0 30px 70px -36px var(--rail-shadow);
+}
+
+/* --- Portada ------------------------------------------------------------ */
+
+.rail-hero {
+  display: flex;
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+  min-height: 100vh;
+  padding: clamp(96px, 12vh, 140px) clamp(24px, 8vw, 120px) clamp(48px, 8vh, 96px);
+}
+
+.rail-hero-text {
+  flex: 1 1 44%;
+  min-width: 0;
+}
+
+.rail-hero-media {
+  position: relative;
+  flex: 1 1 56%;
+  min-width: 0;
+}
+
+.rail-eyebrow {
+  margin: 0 0 24px;
+  max-width: 46ch;
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.rail-title {
+  margin: 0 0 24px;
+  font-size: clamp(48px, 7.4vw, 128px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.rail-lead {
+  margin: 0 0 32px;
+  max-width: 48ch;
+  font-size: clamp(18px, 1.8vw, 25px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.rail-lead strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.rail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.rail-tags li {
+  padding: 10px 20px;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.rail-chip {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 11px 21px;
+  border-radius: 999px;
+  background: var(--rail-chip-bg);
+  backdrop-filter: blur(6px);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rail-mist);
+}
+
+/* --- Marco de imagen reutilizable (con tilt 3D) ------------------------- */
+
+.rail-frame {
+  --rx: 0deg;
+  --ry: 0deg;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--rail-line);
+  border-radius: 10px;
+  background: var(--rail-panel);
+  cursor: zoom-in;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.5s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.rail-frame:hover,
+.rail-frame:focus-visible {
+  transition-duration: 0.15s;
+  border-color: var(--rail-line-strong);
+  box-shadow: 0 22px 50px -24px var(--rail-shadow);
+}
+
+.rail-frame img {
   display: block;
   width: 100%;
   height: auto;
-  transition: transform 0.6s ease, opacity 0.4s ease;
+  transition: transform 0.6s ease;
 }
 
-.project-gallery-item:hover img,
-.project-gallery-item:focus-visible img {
+.rail-frame:hover img,
+.rail-frame:focus-visible img {
   transform: scale(1.03);
-  opacity: 0.88;
 }
+
+/* Variante no interactiva: mismo marco visual, sin cursor de zoom,
+   sin lightbox y sin las reacciones de hover propias de una miniatura. */
+.rail-frame-static {
+  cursor: default;
+}
+
+.rail-frame-static:hover,
+.rail-frame-static:focus-visible {
+  border-color: var(--rail-line);
+  box-shadow: none;
+}
+
+.rail-frame-static:hover img,
+.rail-frame-static:focus-visible img {
+  transform: none;
+}
+
+.rail-frame-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--rail-chip-bg);
+  backdrop-filter: blur(6px);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rail-mist);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.rail-frame:hover .rail-frame-tag,
+.rail-frame:focus-visible .rail-frame-tag {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- El reto ------------------------------------------------------------ */
+
+.rail-challenge {
+  padding: clamp(64px, 10vh, 120px) clamp(24px, 8vw, 120px);
+  background: var(--color-brand);
+  color: var(--rail-mist);
+}
+
+.rail-challenge-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rail-challenge-label {
+  margin: 0 0 20px;
+  font-size: clamp(15px, 1.15vw, 18px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(243, 250, 246, 0.78);
+}
+
+.rail-challenge-text {
+  margin: 0;
+  font-size: clamp(28px, 4.4vw, 62px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* --- Secciones ---------------------------------------------------------- */
+
+.rail-section {
+  padding: clamp(64px, 9vh, 110px) clamp(24px, 8vw, 120px);
+}
+
+.rail-section-alt {
+  background: var(--rail-sage-deep);
+}
+
+.rail-section-intro {
+  margin: -16px 0 40px;
+  font-size: clamp(17px, 1.4vw, 21px);
+  font-weight: 300;
+  color: var(--color-text-muted);
+}
+
+.rail-h2 {
+  margin: 0 0 20px;
+  font-size: clamp(16px, 1.3vw, 19px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.rail-cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+}
+
+.rail-list {
+  display: grid;
+  gap: 14px;
+  padding-left: 22px;
+  list-style: disc;
+  font-size: clamp(16px, 1.35vw, 20px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* --- La solución -------------------------------------------------------- */
+
+.rail-solution {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+}
+
+.rail-solution-primary {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.rail-solution-text {
+  max-width: 68ch;
+}
+
+.rail-solution-text p {
+  margin: 0 0 16px;
+  font-size: clamp(17px, 1.5vw, 22px);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.rail-solution-text strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* --- Piezas y materiales ------------------------------------------------ */
+
+.rail-parts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2.4vw, 32px);
+}
+
+/* Los renders de origen tienen proporciones distintas (retrato y paisaje);
+   se encajan en una caja común para que las cuatro tarjetas midan lo mismo. */
+.rail-parts .rail-frame {
+  aspect-ratio: 4 / 3;
+}
+
+.rail-parts .rail-frame img {
+  height: 100%;
+  object-fit: contain;
+  padding: clamp(12px, 1.6vw, 20px);
+}
+
+.rail-part-title {
+  margin: 18px 0 8px;
+  font-size: clamp(19px, 1.7vw, 24px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.rail-part-text {
+  margin: 0;
+  font-size: clamp(15px, 1.2vw, 17px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.rail-materials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 3vw, 44px);
+}
+
+.rail-material {
+  padding-top: 20px;
+  border-top: 2px solid var(--color-accent);
+}
+
+.rail-material .rail-part-title {
+  margin-top: 0;
+}
+
+.rail-certs {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 40px);
+  margin-top: clamp(40px, 6vh, 64px);
+  padding: clamp(20px, 2.4vw, 32px);
+  border-radius: 10px;
+  background: var(--rail-panel);
+}
+
+.rail-certs-mark {
+  flex-shrink: 0;
+  width: clamp(88px, 10vw, 128px);
+  height: auto;
+}
+
+.rail-certs-text {
+  margin: 0;
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.rail-certs-text strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* --- Sistema de plegado paso a paso ------------------------------------- */
+
+.rail-steps {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(24px, 3.5vw, 56px);
+  align-items: center;
+}
+
+.rail-steps-stage {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--rail-line);
+  border-radius: 10px;
+  background: var(--rail-panel);
+}
+
+/* Los renders van sin fondo (transparentes) y a tamaño distinto entre sí:
+   contain para no recortarlos. El fotograma saliente y el entrante cruzan
+   su opacidad a la vez; con fondo transparente no hay nada que "tapar". */
+.rail-step-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.rail-step-frame.is-active {
+  z-index: 1;
+  opacity: 1;
+}
+
+.rail-steps-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.rail-step-dot {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--rail-line-strong);
+  border-radius: 50%;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.rail-step-dot:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.rail-step-dot.is-active {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--rail-mist);
+  transform: scale(1.08);
+}
+
+.rail-step-caption {
+  margin: 0;
+}
+
+.rail-step-caption strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.rail-step-caption span {
+  font-size: clamp(16px, 1.3vw, 19px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.rail-stacked {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(24px, 3.5vw, 56px);
+  align-items: center;
+  margin-top: clamp(40px, 6vh, 72px);
+}
+
+.rail-stacked-text {
+  margin: 0;
+  font-size: clamp(18px, 1.7vw, 24px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* --- Premios (reutiliza el bloque del CV) ------------------------------- */
+
+.rail-awards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4.5vw, 64px);
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.rail-awards li:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.rail-awards .education-award {
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  font-size: clamp(16px, 1.35vw, 19px);
+}
+
+.rail-awards .education-award-logo {
+  height: 92px;
+  max-width: 240px;
+}
+
+@media (max-width: 760px) {
+  .rail-awards {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* --- Puntos a destacar -------------------------------------------------- */
+
+.rail-highlights {
+  display: grid;
+  gap: 16px;
+  max-width: 900px;
+}
+
+.rail-highlights li {
+  position: relative;
+  padding-left: 34px;
+  font-size: clamp(17px, 1.5vw, 21px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.rail-highlights li::before {
+  content: "";
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.rail-highlights strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* --- Responsive --------------------------------------------------------- */
 
 @media (max-width: 900px) {
-  .project-gallery-grid {
+  .rail-hero {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding-top: clamp(88px, 16vw, 120px);
+  }
+
+  .rail-cols,
+  .rail-solution,
+  .rail-materials,
+  .rail-steps,
+  .rail-stacked {
+    grid-template-columns: 1fr;
+  }
+
+  .rail-parts {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .project-gallery-item,
-  .project-gallery-item.is-bleed {
-    grid-column: auto / span 1;
-    width: 100%;
-    margin-top: 0;
-    margin-inline: 0;
-    border-radius: 2px;
-  }
-
-  .project-gallery-item.is-bleed img {
-    aspect-ratio: auto;
-    height: auto;
+  .rail-certs {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 @media (max-width: 560px) {
-  .project-gallery-grid {
+  .rail-parts {
     grid-template-columns: 1fr;
+  }
+
+  .rail-step-dot {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-frame,
+  .rail-frame img,
+  .rail-step-frame {
+    transition-duration: 0.01ms;
+  }
+
+  .rail-frame {
+    transform: none;
   }
 }
 

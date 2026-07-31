@@ -207,14 +207,18 @@ if (revealEls.length && 'IntersectionObserver' in window) {
   }, 6000);
 }
 
-const lightSection = document.querySelector('.tfg-statement');
-if (lightSection && 'IntersectionObserver' in window) {
+// Secciones que invierten el contraste habitual del fondo de su página
+// (una franja clara en una página oscura, o al revés): mientras estén
+// bajo el botón de menú fijo, la clase "nav-dark" deja que el CSS de
+// cada página decida cómo recolorear ese botón para que siga visible.
+const navContrastSections = document.querySelectorAll('.tfg-statement, .rail-challenge');
+if (navContrastSections.length && 'IntersectionObserver' in window) {
   const navObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       document.body.classList.toggle('nav-dark', entry.isIntersecting);
     });
   }, { rootMargin: '0px 0px -85% 0px' });
-  navObserver.observe(lightSection);
+  navContrastSections.forEach((section) => navObserver.observe(section));
 }
 
 const scrollProgressBar = document.querySelector('[data-scroll-progress]');
@@ -234,7 +238,7 @@ if (scrollProgressBar) {
 }
 
 if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  document.querySelectorAll('.job-tab, .tfg-gallery-item, .software-card, .about-focus-card').forEach((card) => {
+  document.querySelectorAll('.job-tab, .tfg-gallery-item, .software-card, .about-focus-card, .bento-shot, .rail-frame:not(.rail-frame-static)').forEach((card) => {
     const maxTilt = 6;
     let targetX = 0;
     let targetY = 0;
@@ -302,4 +306,87 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       if (!magnetRaf) magnetRaf = requestAnimationFrame(loop);
     });
   });
+}
+
+/* Selector de iluminación del bento (3DS Max Rendering).
+   Recorre los renders de la misma escena del día a la penumbra. */
+const lightSlider = document.querySelector('[data-light-slider]');
+if (lightSlider) {
+  const frames = Array.from(document.querySelectorAll('[data-light-frame]'));
+  const label = document.querySelector('[data-light-label]');
+  const stage = document.querySelector('[data-light-stage]');
+  const panel = document.querySelector('.scene-panel');
+  let currentFrame = 0;
+
+  const showFrame = (value) => {
+    const next = Math.min(frames.length - 1, Math.max(0, Number(value) || 0));
+    if (!frames.length) return;
+
+    frames.forEach((frame, index) => {
+      frame.classList.toggle('is-active', index === next);
+      frame.classList.toggle('is-prev', index === currentFrame && index !== next);
+    });
+
+    currentFrame = next;
+    const active = frames[next];
+    if (label) label.textContent = active.dataset.lightName || '';
+    if (panel) panel.classList.toggle('is-lamp-on', active.dataset.lightLamp === 'on');
+    // El lightbox lee este atributo al abrirse, así amplía el render visible
+    if (stage) stage.dataset.lightboxSrc = active.getAttribute('src');
+  };
+
+  lightSlider.max = String(Math.max(0, frames.length - 1));
+  lightSlider.addEventListener('input', (event) => showFrame(event.target.value));
+  showFrame(lightSlider.value);
+}
+
+/* Secuencia paso a paso (sistema de plegado del Rail Folding Package).
+   Los renders van sin fondo (transparentes), así que un frame anterior que
+   se quede opaco por debajo del activo se transparentaría a través suyo.
+   Por eso aquí ambos fotogramas cruzan su opacidad a la vez, sin frame "prev". */
+const stepGroup = document.querySelector('[data-steps]');
+if (stepGroup) {
+  const stepFrames = Array.from(stepGroup.querySelectorAll('[data-step-frame]'));
+  const stepDots = Array.from(stepGroup.querySelectorAll('[data-step-dot]'));
+  const stepTitle = stepGroup.querySelector('.rail-step-caption [data-step-title]');
+  const stepText = stepGroup.querySelector('.rail-step-caption [data-step-text]');
+
+  const showStep = (index) => {
+    if (!stepFrames.length) return;
+    const next = Math.min(stepFrames.length - 1, Math.max(0, index));
+
+    stepFrames.forEach((frame, i) => {
+      frame.classList.toggle('is-active', i === next);
+    });
+
+    stepDots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === next);
+      dot.setAttribute('aria-current', i === next ? 'true' : 'false');
+    });
+
+    const active = stepFrames[next];
+    if (stepTitle) stepTitle.textContent = active.dataset.stepTitle || '';
+    if (stepText) stepText.textContent = active.dataset.stepText || '';
+  };
+
+  stepDots.forEach((dot, i) => dot.addEventListener('click', () => showStep(i)));
+  showStep(0);
+}
+
+/* Si la captura de 3ds Max aún no está subida, la tarjeta muestra el hueco */
+const processCard = document.querySelector('[data-process]');
+if (processCard) {
+  const processImg = processCard.querySelector('[data-process-img]');
+  const markMissing = () => {
+    processCard.classList.add('is-missing');
+    const trigger = processCard.querySelector('.process-stage');
+    if (trigger) trigger.disabled = true;
+  };
+
+  if (!processImg) {
+    markMissing();
+  } else {
+    processImg.addEventListener('error', markMissing);
+    if (processImg.complete && processImg.naturalWidth === 0) markMissing();
+  }
 }
