@@ -42,8 +42,46 @@
 </nav>
 
 <main>
-  <section class="page-intro">
+  <section class="page-intro is-tight">
     <h1 class="section-title">3DS Max Rendering</h1>
+  </section>
+
+  <section class="project-gallery" aria-label="Galería de renders">
+    <div class="project-gallery-grid" data-reveal-group>
+      <button type="button" class="project-gallery-item" style="--col: 1 / span 4; --shift: 0" data-lightbox-src="imagenes/3DS%20Max%20Rendering/1.webp" aria-label="Ampliar render: lámpara de pie sobre fondo neutro">
+        <img src="imagenes/3DS%20Max%20Rendering/1.webp" width="1125" height="2000" loading="lazy" decoding="async" alt="">
+      </button>
+      <button type="button" class="project-gallery-item" style="--col: 6 / span 7; --shift: 9" data-lightbox-src="imagenes/3DS%20Max%20Rendering/3.webp" aria-label="Ampliar render: salón con luz de día">
+        <img src="imagenes/3DS%20Max%20Rendering/3.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="">
+      </button>
+      <button type="button" class="project-gallery-item" style="--col: 1 / span 6; --shift: 0" data-lightbox-src="imagenes/3DS%20Max%20Rendering/3.2.webp" aria-label="Ampliar render: catálogo sobre mesa de mármol">
+        <img src="imagenes/3DS%20Max%20Rendering/3.2.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="">
+      </button>
+      <button type="button" class="project-gallery-item" style="--col: 8 / span 4; --shift: 7" data-lightbox-src="imagenes/3DS%20Max%20Rendering/6.1.webp" aria-label="Ampliar render: detalle de la unión de madera">
+        <img src="imagenes/3DS%20Max%20Rendering/6.1.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="">
+      </button>
+      <button type="button" class="project-gallery-item is-bleed" style="--shift: 3" data-lightbox-src="imagenes/3DS%20Max%20Rendering/5.2.webp" aria-label="Ampliar render: la lámpara encendida en penumbra">
+        <img src="imagenes/3DS%20Max%20Rendering/5.2.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="">
+      </button>
+      <button type="button" class="project-gallery-item" style="--col: 2 / span 4; --shift: 0" data-lightbox-src="imagenes/3DS%20Max%20Rendering/2.webp" aria-label="Ampliar render: la lámpara encendida en la oscuridad">
+        <img src="imagenes/3DS%20Max%20Rendering/2.webp" width="1125" height="2000" loading="lazy" decoding="async" alt="">
+      </button>
+      <button type="button" class="project-gallery-item" style="--col: 7 / span 6; --shift: 8" data-lightbox-src="imagenes/3DS%20Max%20Rendering/4.1.webp" aria-label="Ampliar render: salón con luz cálida">
+        <img src="imagenes/3DS%20Max%20Rendering/4.1.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="">
+      </button>
+      <button type="button" class="project-gallery-item" style="--col: 1 / span 5; --shift: 0" data-lightbox-src="imagenes/3DS%20Max%20Rendering/5.webp" aria-label="Ampliar render: salón al atardecer">
+        <img src="imagenes/3DS%20Max%20Rendering/5.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="">
+      </button>
+      <button type="button" class="project-gallery-item" style="--col: 7 / span 6; --shift: 6" data-lightbox-src="imagenes/3DS%20Max%20Rendering/3.1.webp" aria-label="Ampliar render: salón con planta en primer plano">
+        <img src="imagenes/3DS%20Max%20Rendering/3.1.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="">
+      </button>
+      <button type="button" class="project-gallery-item" style="--col: 1 / span 6; --shift: 5" data-lightbox-src="imagenes/3DS%20Max%20Rendering/5.1.webp" aria-label="Ampliar render: salón de noche">
+        <img src="imagenes/3DS%20Max%20Rendering/5.1.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="">
+      </button>
+      <button type="button" class="project-gallery-item" style="--col: 8 / span 5; --shift: 0" data-lightbox-src="imagenes/3DS%20Max%20Rendering/4.webp" aria-label="Ampliar render: salón al anochecer">
+        <img src="imagenes/3DS%20Max%20Rendering/4.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="">
+      </button>
+    </div>
   </section>
 </main>
 
@@ -58,6 +96,13 @@
     </nav>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button type="button" class="lightbox-close" aria-label="Cerrar imagen">&times;</button>
+  <button type="button" class="lightbox-nav lightbox-prev" aria-label="Imagen anterior">&#8249;</button>
+  <img class="lightbox-img" src="" alt="">
+  <button type="button" class="lightbox-nav lightbox-next" aria-label="Imagen siguiente">&#8250;</button>
+</div>
 
 <script src="js/main.js"></script>
 </body>
