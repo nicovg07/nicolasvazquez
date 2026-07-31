@@ -178,6 +178,13 @@ if (lightboxImg) {
   });
 }
 
+document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+  Array.from(group.children).forEach((child, index) => {
+    child.classList.add('reveal');
+    child.style.transitionDelay = `${Math.min(index * 60, 480)}ms`;
+  });
+});
+
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length && 'IntersectionObserver' in window) {
   document.body.classList.add('has-js');
@@ -188,8 +195,16 @@ if (revealEls.length && 'IntersectionObserver' in window) {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.05, rootMargin: '0px 0px -2% 0px' });
   revealEls.forEach((el) => revealObserver.observe(el));
+
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('is-visible');
+      }
+    });
+  }, 6000);
 }
 
 const lightSection = document.querySelector('.tfg-statement');
@@ -200,4 +215,91 @@ if (lightSection && 'IntersectionObserver' in window) {
     });
   }, { rootMargin: '0px 0px -85% 0px' });
   navObserver.observe(lightSection);
+}
+
+const scrollProgressBar = document.querySelector('[data-scroll-progress]');
+if (scrollProgressBar) {
+  let progressRaf = null;
+  const updateScrollProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    scrollProgressBar.style.transform = `scaleX(${pct})`;
+    progressRaf = null;
+  };
+  window.addEventListener('scroll', () => {
+    if (!progressRaf) progressRaf = requestAnimationFrame(updateScrollProgress);
+  }, { passive: true });
+  window.addEventListener('resize', updateScrollProgress);
+  updateScrollProgress();
+}
+
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.querySelectorAll('.job-tab, .tfg-gallery-item, .software-card, .about-focus-card').forEach((card) => {
+    const maxTilt = 6;
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let tiltRaf = null;
+
+    const loop = () => {
+      currentX += (targetX - currentX) * 0.2;
+      currentY += (targetY - currentY) * 0.2;
+      card.style.setProperty('--rx', `${currentX.toFixed(2)}deg`);
+      card.style.setProperty('--ry', `${currentY.toFixed(2)}deg`);
+      tiltRaf = (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05)
+        ? requestAnimationFrame(loop)
+        : null;
+    };
+
+    card.addEventListener('mousemove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const px = (event.clientX - rect.left) / rect.width - 0.5;
+      const py = (event.clientY - rect.top) / rect.height - 0.5;
+      targetX = -py * maxTilt;
+      targetY = px * maxTilt;
+      if (!tiltRaf) tiltRaf = requestAnimationFrame(loop);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      targetX = 0;
+      targetY = 0;
+      if (!tiltRaf) tiltRaf = requestAnimationFrame(loop);
+    });
+  });
+}
+
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.querySelectorAll('.about-cta-link').forEach((link) => {
+    const inner = link.querySelector('.about-cta-link-inner');
+    if (!inner) return;
+    const strength = 0.3;
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let magnetRaf = null;
+
+    const loop = () => {
+      currentX += (targetX - currentX) * 0.2;
+      currentY += (targetY - currentY) * 0.2;
+      inner.style.transform = `translate3d(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px, 0)`;
+      magnetRaf = (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1)
+        ? requestAnimationFrame(loop)
+        : null;
+    };
+
+    link.addEventListener('mousemove', (event) => {
+      const rect = link.getBoundingClientRect();
+      targetX = ((event.clientX - rect.left) - rect.width / 2) * strength;
+      targetY = ((event.clientY - rect.top) - rect.height / 2) * strength;
+      if (!magnetRaf) magnetRaf = requestAnimationFrame(loop);
+    });
+
+    link.addEventListener('mouseleave', () => {
+      targetX = 0;
+      targetY = 0;
+      if (!magnetRaf) magnetRaf = requestAnimationFrame(loop);
+    });
+  });
 }

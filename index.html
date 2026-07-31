@@ -7,7 +7,9 @@
 <meta name="description" content="Portfolio de Nicolás Vázquez García, ingeniero en diseño industrial y desarrollo de producto.">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="hero-page">
+
+<div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
 
 <button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
   <span class="menu-toggle-bar"></span>
@@ -40,10 +42,14 @@
 </nav>
 
 <main>
-  <section class="hero">
-    <img class="hero-logo" src="imagenes/logo.jfif" alt="Nicolás Vázquez García">
-    <h1 class="hero-name">Nicolás Vázquez García</h1>
-    <p class="hero-subtitle">Ingeniero en Diseño Industrial y Desarrollo de Producto</p>
+  <section class="hero-split">
+    <div class="hero-photo">
+      <img src="imagenes/Inicio.png" alt="Nicolás Vázquez García">
+    </div>
+    <div class="hero-info reveal">
+      <img class="hero-info-logo" src="imagenes/NVG_blanco_nombre_crop.png" alt="Nicolás Vázquez García">
+      <p class="hero-info-subtitle">Ingeniero en Diseño Industrial y Desarrollo de Producto</p>
+    </div>
   </section>
 </main>
 

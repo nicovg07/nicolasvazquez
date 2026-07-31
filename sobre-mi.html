@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
 <button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
   <span class="menu-toggle-bar"></span>
   <span class="menu-toggle-bar"></span>
@@ -40,8 +42,91 @@
 </nav>
 
 <main>
-  <section class="page-intro">
-    <h1 class="section-title">Sobre mí</h1>
+  <section class="about-hero">
+    <h1 class="about-hero-title">
+      <span class="about-hero-word reveal" style="transition-delay:0ms">Nacido</span> <span class="about-hero-word reveal" style="transition-delay:90ms">para</span> <span class="about-hero-word about-hero-accent reveal" style="transition-delay:180ms">atreverse</span><span class="about-hero-word reveal" style="transition-delay:260ms">.</span>
+    </h1>
+    <p class="about-hero-subtitle reveal" style="transition-delay:360ms">La ingeniería, su precisión técnica y el diseño de producto se adaptan a mi forma de ser, de ver el mundo, a mis pasiones y a mi estilo de vida.</p>
+  </section>
+
+  <section class="about-story">
+    <div class="about-story-inner" data-reveal-group>
+      <p class="about-story-text">Mi pasión por la ingeniería y los objetos viene de lejos. Podría decir que esa fascinación comenzó casi de bebé, observando obsesionadamente cada coche por la calle. Y aunque la automoción siempre ha sido un pilar central en mi vida, el momento de transformación que vive el sector me hace reflexionar sobre cómo la tecnología debe evolucionar sin perder la esencia y la emoción del producto.</p>
+      <p class="about-story-text">Siempre he sido una persona curiosa por naturaleza. La primera opción que consideré fue Arquitectura, con tan solo 7 años, atraído por la capacidad de proyectar espacios. Sin embargo, tras valorar otras ingenierías como la mecánica o la industrial, me decanté por el <strong>Grado en Ingeniería en Diseño Industrial y Desarrollo de Producto</strong>, movido por una constante atracción hacia la convergencia entre lo estético y lo mecánico.</p>
+      <p class="about-story-text">Para mí, el diseño nunca ha sido un mero acabado superficial, sino la respuesta técnica a una necesidad real: un proceso donde la forma es consecuencia directa de la función, la viabilidad y el rendimiento.</p>
+      <p class="about-story-text">Con el tiempo, he comprendido que la visión analítica con la que observaba los coches es aplicable a cualquier campo del diseño. Mi formación me permite fusionar el rigor técnico de la ingeniería con la sensibilidad por el detalle, entendiendo todo el ciclo de vida del producto: desde la idea en un boceto hasta su materialización final.</p>
+    </div>
+  </section>
+
+  <section class="about-focus">
+    <p class="about-focus-intro reveal">Busco enfocar mi desarrollo profesional en entornos dinámicos donde el diseño se trabaje con la máxima exigencia técnica y estética, orientándome principalmente a:</p>
+    <div class="about-focus-grid" data-reveal-group>
+      <div class="about-focus-card" data-num="01">
+        <span class="about-focus-index">01</span>
+        <h3 class="about-focus-title">Sector Retail y Diseño Espacial / Mobiliario</h3>
+        <p class="about-focus-text">Mobiliario comercial, expositores (PLV), estructuras a medida y soluciones para puntos de venta con el objetivo de aprender, aportar valor, trabajar y lograr forjarme como gran profesional.</p>
+        <p class="about-focus-text">Visión técnica para transformar la identidad de una marca en elementos físicos tangibles, equilibrando estética visual, resistencia y viabilidad de costes.</p>
+      </div>
+      <div class="about-focus-card" data-num="02">
+        <span class="about-focus-index">02</span>
+        <h3 class="about-focus-title">Agencias y Estudios de Desarrollo Puro de Producto</h3>
+        <p class="about-focus-text">Concepto, bocetado, modelado 3D de alta precisión y desarrollo técnico de producto físico para aprender, aportar valor, trabajar y lograr forjarme como gran profesional.</p>
+        <p class="about-focus-text">Capacidad para enfrentarme a proyectos transversales, resolviendo la complejidad geométrica, la selección de materiales y la optimización para fabricación.</p>
+      </div>
+      <div class="about-focus-card" data-num="03">
+        <span class="about-focus-index">03</span>
+        <h3 class="about-focus-title">Sectores de Ingeniería Técnica</h3>
+        <p class="about-focus-text">Proyectos en Defensa, Automoción, Aeroespacial, Naval o Ferroviario de alta exigencia donde la precisión técnica es fundamental.</p>
+        <p class="about-focus-text">Total disposición para formarme y trabajar en sectores de ingeniería pura, integrando mis conocimientos para aportar valor, aprender continuamente y forjarme como un gran profesional.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-passions">
+    <p class="about-passions-intro reveal">Detrás de mi trabajo como diseñador hay una cultura visual y técnica en constante evolución que nutre mi manera de proyectar:</p>
+    <div class="about-passions-grid" data-reveal-group>
+      <div class="about-passion-item">
+        <span class="about-passion-icon" aria-hidden="true">🏎️</span>
+        <h3 class="about-passion-title">Ingeniería y cultura del motor</h3>
+        <p class="about-passion-text">Pasión por el diseño automotriz, la mecánica y el rendimiento técnico donde cada componente tiene una razón de ser.</p>
+      </div>
+      <div class="about-passion-item">
+        <span class="about-passion-icon" aria-hidden="true">⏱️</span>
+        <h3 class="about-passion-title">Horología y microingeniería</h3>
+        <p class="about-passion-text">Fascinación por la precisión, la durabilidad y la estética atemporal de la relojería técnica y deportiva.</p>
+      </div>
+      <div class="about-passion-item">
+        <span class="about-passion-icon" aria-hidden="true">🚵</span>
+        <h3 class="about-passion-title">Rendimiento y detalle técnico</h3>
+        <p class="about-passion-text">Interés por el equipamiento deportivo, la geometría de cuadro y los materiales de alta exigencia, como en el mountain bike.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-cta reveal">
+    <p class="about-cta-text">¿Quieres ver cómo aplico esta filosofía en proyectos reales?</p>
+    <div class="about-cta-actions">
+      <a class="cv-download-link about-cta-link" href="tfg.html">
+        <span class="about-cta-link-inner">
+          <span class="cv-download-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14m0 0l-5-5m5 5l-5 5"></path>
+            </svg>
+          </span>
+          Explora mis proyectos
+        </span>
+      </a>
+      <a class="cv-download-link about-cta-link" href="cv.html">
+        <span class="about-cta-link-inner">
+          <span class="cv-download-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14m0 0l-5-5m5 5l-5 5"></path>
+            </svg>
+          </span>
+          Consulta mi CV
+        </span>
+      </a>
+    </div>
   </section>
 </main>
 

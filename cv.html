@@ -7,7 +7,9 @@
 <meta name="description" content="Currículum de Nicolás Vázquez García, ingeniero en diseño industrial y desarrollo de producto.">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-cv">
+
+<div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
 
 <button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
   <span class="menu-toggle-bar"></span>
@@ -40,17 +42,22 @@
 </nav>
 
 <main>
-  <section class="cv-bio">
-    <h1 class="section-title">Perfil Profesional</h1>
-    <p class="cv-bio-text">
-      <strong>Ingeniero en Diseño Industrial</strong> con experiencia en <strong>automoción</strong> e ingeniería técnica, buscando dar el siguiente paso hacia el sector <strong>retail</strong> o <strong>diseño de producto</strong> en su estado más puro. Combino el <strong>rigor técnico, la gestión de proyectos y la documentación precisa</strong> con una fuerte sensibilidad por la <strong>forma, la función y la experiencia de usuario/cliente</strong>. <strong>Proactivo, adaptable y orientado al trabajo en equipo</strong>. Con residencia en Asturias y <strong>disponibilidad total para movilidad nacional e internacional</strong>.
-    </p>
+  <section class="cv-bio reveal">
+    <div class="cv-bio-text-wrap">
+      <h1 class="section-title">Perfil profesional</h1>
+      <p class="cv-bio-text">
+        <strong>Ingeniero en Diseño Industrial</strong> con experiencia en <strong>automoción</strong> e ingeniería técnica, buscando dar el siguiente paso hacia el sector <strong>retail</strong> o <strong>diseño de producto</strong> en su estado más puro. Combino el <strong>rigor técnico, la gestión de proyectos y la documentación precisa</strong> con una fuerte sensibilidad por la <strong>forma, la función y la experiencia de usuario/cliente</strong>. <strong>Proactivo, adaptable y orientado al trabajo en equipo</strong>. Con residencia en Asturias y <strong>disponibilidad total para movilidad nacional e internacional</strong>.
+      </p>
+    </div>
+    <div class="cv-bio-photo">
+      <img src="imagenes/Inicio.png" alt="Nicolás Vázquez García">
+    </div>
   </section>
 
   <section class="experience">
-    <h2 class="section-title">Experiencia Laboral</h2>
+    <h2 class="section-title reveal">Experiencia <span class="section-title-hint">haz clic en cada logo</span></h2>
 
-    <div class="job-tabs" role="tablist">
+    <div class="job-tabs" role="tablist" data-reveal-group>
       <button type="button" class="job-tab" data-job-tab="renault" aria-expanded="false" aria-controls="panel-renault" aria-label="Renault Group">
         <img class="job-tab-logo" src="CV/Renault.png" alt="Renault Group">
       </button>
@@ -123,48 +130,159 @@
   </section>
 
   <section class="education">
-    <h2 class="section-title">Formación</h2>
-    <div class="education-card">
+    <h2 class="section-title reveal">Formación</h2>
+    <div class="education-card reveal">
       <div class="education-main">
-        <h3 class="education-degree">Grado en Ingeniería en Diseño Industrial y Desarrollo de Producto</h3>
+        <div class="education-logos">
+          <img class="education-logo education-logo-uva" src="CV/UniversidadValladolid.webp" alt="Universidad de Valladolid">
+          <img class="education-logo education-logo-eii" src="CV/eii Uva.jpg" alt="Escuela de Ingenierías Industriales">
+        </div>
+        <h3 class="education-degree">Grado en Ingeniería en Diseño Industrial y<br>Desarrollo de Producto</h3>
         <p class="education-institution">Universidad de Valladolid</p>
         <p class="job-meta">2021 – 2026</p>
-        <p class="education-tfg">TFG: «Belleza y velocidad — el diseño automovilístico como expresión estética»</p>
+        <a class="education-tfg" href="tfg.html">TFG: «Belleza y velocidad: el diseño automovilístico como expresión estética»</a>
       </div>
-      <ul class="education-awards">
-        <li>Speciality Packaging Bronze Award, WorldStar Student (2025)</li>
-        <li>Premio Liderpack, Diseño Joven (2024)</li>
-        <li>Finalista, XV Premios Nacionales de Envase y Embalaje (2024)</li>
+      <ul class="education-awards" data-reveal-group>
+        <li>
+          <a class="education-award" href="rail-folding-package.html">
+            <img class="education-award-logo" src="CV/Worldstar.jpg" alt="">
+            <span>Speciality Packaging Bronze Award, WorldStar Student (2025)</span>
+          </a>
+        </li>
+        <li>
+          <a class="education-award" href="rail-folding-package.html">
+            <img class="education-award-logo" src="CV/Liderpack.png" alt="">
+            <span>Premio Liderpack, Diseño Joven (2024)</span>
+          </a>
+        </li>
+        <li>
+          <a class="education-award" href="rail-folding-package.html">
+            <img class="education-award-logo" src="CV/envase y embalaje.png" alt="">
+            <span>Finalista, XV Premios Nacionales de Envase y Embalaje (2024)</span>
+          </a>
+        </li>
       </ul>
     </div>
   </section>
 
   <section class="software">
-    <h2 class="section-title">Software</h2>
-    <ul class="software-tags">
-      <li>CATIA V5</li>
-      <li>SolidWorks</li>
-      <li>AutoCAD</li>
-      <li>3ds Max</li>
-      <li>Illustrator</li>
-      <li>Photoshop</li>
-      <li>InDesign</li>
-      <li>Microsoft Office</li>
-    </ul>
+    <h2 class="section-title reveal">Software</h2>
+    <div class="software-marquee reveal">
+      <div class="software-track">
+        <div class="software-card">
+          <img class="software-card-icon" src="CV/Catia.png" alt="CATIA V5">
+          <span class="software-card-label">CATIA V5</span>
+        </div>
+        <div class="software-card">
+          <img class="software-card-icon" src="CV/solid.png" alt="SolidWorks">
+          <span class="software-card-label">SolidWorks</span>
+        </div>
+        <div class="software-card">
+          <img class="software-card-icon" src="CV/autocad.webp" alt="AutoCAD">
+          <span class="software-card-label">AutoCAD</span>
+        </div>
+        <div class="software-card">
+          <img class="software-card-icon" src="CV/3ds.png" alt="3ds Max">
+          <span class="software-card-label">3ds Max</span>
+        </div>
+        <div class="software-card">
+          <img class="software-card-icon" src="CV/illustrator.webp" alt="Illustrator">
+          <span class="software-card-label">Illustrator</span>
+        </div>
+        <div class="software-card">
+          <img class="software-card-icon" src="CV/photoshop.webp" alt="Photoshop">
+          <span class="software-card-label">Photoshop</span>
+        </div>
+        <div class="software-card">
+          <img class="software-card-icon" src="CV/indesign.webp" alt="InDesign">
+          <span class="software-card-label">InDesign</span>
+        </div>
+        <div class="software-card">
+          <img class="software-card-icon" src="CV/Microsoft.webp" alt="Office">
+          <span class="software-card-label">Office</span>
+        </div>
+        <div class="software-card">
+          <img class="software-card-icon" src="CV/AItools.jpg" alt="AI Tools">
+          <span class="software-card-label">AI Tools</span>
+        </div>
+        <div class="software-card" aria-hidden="true">
+          <img class="software-card-icon" src="CV/Catia.png" alt="">
+          <span class="software-card-label">CATIA V5</span>
+        </div>
+        <div class="software-card" aria-hidden="true">
+          <img class="software-card-icon" src="CV/solid.png" alt="">
+          <span class="software-card-label">SolidWorks</span>
+        </div>
+        <div class="software-card" aria-hidden="true">
+          <img class="software-card-icon" src="CV/autocad.webp" alt="">
+          <span class="software-card-label">AutoCAD</span>
+        </div>
+        <div class="software-card" aria-hidden="true">
+          <img class="software-card-icon" src="CV/3ds.png" alt="">
+          <span class="software-card-label">3ds Max</span>
+        </div>
+        <div class="software-card" aria-hidden="true">
+          <img class="software-card-icon" src="CV/illustrator.webp" alt="">
+          <span class="software-card-label">Illustrator</span>
+        </div>
+        <div class="software-card" aria-hidden="true">
+          <img class="software-card-icon" src="CV/photoshop.webp" alt="">
+          <span class="software-card-label">Photoshop</span>
+        </div>
+        <div class="software-card" aria-hidden="true">
+          <img class="software-card-icon" src="CV/indesign.webp" alt="">
+          <span class="software-card-label">InDesign</span>
+        </div>
+        <div class="software-card" aria-hidden="true">
+          <img class="software-card-icon" src="CV/Microsoft.webp" alt="">
+          <span class="software-card-label">Office</span>
+        </div>
+        <div class="software-card" aria-hidden="true">
+          <img class="software-card-icon" src="CV/AItools.jpg" alt="">
+          <span class="software-card-label">AI Tools</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="additional-training">
-    <h2 class="section-title">Formación Complementaria</h2>
-    <ul class="training-list">
-      <li>Inglés B2</li>
-      <li>Curso Michelin Soft Skills (2026)</li>
+    <h2 class="section-title reveal">Formación Complementaria</h2>
+    <ul class="training-list" data-reveal-group>
+      <li class="training-item">
+        <img class="training-icon" src="CV/inglés.svg" alt="">
+        <span>Inglés B2</span>
+      </li>
+      <li class="training-item">
+        <img class="training-icon" src="CV/michelin.png" alt="">
+        <span>Curso Michelin Soft Skills (2026)</span>
+      </li>
+      <li class="training-item">
+        <img class="training-icon" src="CV/Carnet.jpg" alt="">
+        <span>Carnet de conducir y coche propio</span>
+      </li>
     </ul>
   </section>
 
   <section class="cv-download">
-    <div class="cv-download-actions">
-      <a class="cv-download-link" href="cv/CV_Nicolas_Vazquez.pdf" target="_blank" rel="noopener noreferrer">Descargar CV en PDF</a>
-      <a class="cv-download-link" href="cv/CV_Nicolas_Vazquez_EN.pdf" target="_blank" rel="noopener noreferrer">Download CV in English</a>
+    <div class="cv-download-actions" data-reveal-group>
+      <a class="cv-download-link" href="cv/CV_Nicolas_Vazquez.pdf" target="_blank" rel="noopener noreferrer">
+        <span class="cv-download-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v10m0 0l-3.5-3.5M12 14l3.5-3.5"></path>
+            <path d="M5 18h14"></path>
+          </svg>
+        </span>
+        CV en PDF
+      </a>
+      <a class="cv-download-link" href="cv/CV_Nicolas_Vazquez_EN.pdf" target="_blank" rel="noopener noreferrer">
+        <span class="cv-download-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v10m0 0l-3.5-3.5M12 14l3.5-3.5"></path>
+            <path d="M5 18h14"></path>
+          </svg>
+        </span>
+        CV in English
+      </a>
     </div>
   </section>
 </main>
