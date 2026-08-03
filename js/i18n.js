@@ -40,7 +40,7 @@ const I18N_EN = {
   /* --- Inicio ---------------------------------------------------------- */
   'home.docTitle': 'Nicolás Vázquez García — Industrial Design Engineer',
   'home.docDesc': 'Portfolio of Nicolás Vázquez García, industrial design and product development engineer.',
-  'home.subtitle': 'Industrial Design and Product Development Engineer',
+  'home.subtitle': 'Industrial Design and<br> Product Development Engineer',
 
   /* --- CV -------------------------------------------------------------- */
   'cv.docTitle': 'CV — Nicolás Vázquez García',

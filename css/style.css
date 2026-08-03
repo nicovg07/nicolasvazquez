@@ -518,6 +518,12 @@ html:has(body.hero-page) {
   color: #ffffff;
 }
 
+/* En escritorio el subtítulo va en una sola línea, así que el <br> sobra.
+   Ojo: white-space:nowrap no frena a un <br>, hay que anularlo aparte. */
+.hero-info-subtitle br {
+  display: none;
+}
+
 /* El mismo selector ES/EN del menú, pero sobre el rojo de la portada: aquí
    el activo va en blanco (en el menú, sobre fondo oscuro, va en claro). */
 .lang-switch--hero {
@@ -563,6 +569,11 @@ html:has(body.hero-page) {
   .hero-info-subtitle {
     white-space: normal;
     font-size: clamp(13px, 3.6vw, 17px);
+  }
+
+  /* Corte fijo para que no quede una palabra suelta en la última línea. */
+  .hero-info-subtitle br {
+    display: inline;
   }
 }
 
