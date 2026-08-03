@@ -3,37 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3DS Max Rendering — Nicolás Vázquez García</title>
-<meta name="description" content="Proyecto 3DS Max Rendering de Nicolás Vázquez García, ingeniero en diseño industrial y desarrollo de producto.">
+<title data-i18n="render.docTitle">3DS Max Rendering — Nicolás Vázquez García</title>
+<meta name="description" data-i18n-content="render.docDesc" content="Proyecto 3DS Max Rendering de Nicolás Vázquez García, ingeniero en diseño industrial y desarrollo de producto.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="page-dark">
 
 <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
 
-<button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+<button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú" data-i18n-aria="nav.openMenu">
   <span class="menu-toggle-bar"></span>
   <span class="menu-toggle-bar"></span>
   <span class="menu-toggle-bar"></span>
 </button>
 
-<nav id="site-menu" class="site-menu" aria-label="Menú principal">
+<nav id="site-menu" class="site-menu" aria-label="Menú principal" data-i18n-aria="nav.mainMenu">
   <ul class="site-menu-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="cv.html">CV</a></li>
-    <li><button type="button" data-submenu-toggle>Proyectos</button></li>
-    <li><a href="sobre-mi.html">Sobre mí</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+    <li><button type="button" data-submenu-toggle data-i18n="nav.projects">Proyectos</button></li>
+    <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
+    <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
   </ul>
-  <div class="lang-switch" role="group" aria-label="Selector de idioma">
+  <div class="lang-switch" role="group" aria-label="Selector de idioma" data-i18n-aria="nav.langSelector">
     <button type="button" class="lang-option is-active" data-lang="es">ES</button>
     <span class="lang-divider" aria-hidden="true">/</span>
     <button type="button" class="lang-option" data-lang="en">EN</button>
   </div>
 </nav>
 
-<nav id="projects-menu" class="site-menu" aria-label="Menú de proyectos">
-  <button type="button" class="submenu-back" data-submenu-back>‹ Volver</button>
+<nav id="projects-menu" class="site-menu" aria-label="Menú de proyectos" data-i18n-aria="nav.projectsMenu">
+  <button type="button" class="submenu-back" data-submenu-back data-i18n="nav.back">‹ Volver</button>
   <ul class="site-menu-links">
     <li><a href="tfg.html">TFG</a></li>
     <li><a href="rail-folding-package.html">Rail Folding Package</a></li>
@@ -47,67 +50,67 @@
 
       <!-- Escena principal: estudio de iluminación con slider -->
       <article class="bento-cell bento-scene">
-        <button type="button" class="scene-stage" data-light-stage data-lightbox-src="imagenes/3DS%20Max%20Rendering/3.webp" aria-label="Ampliar la escena en el momento del día seleccionado">
+        <button type="button" class="scene-stage" data-light-stage data-lightbox-src="imagenes/3DS%20Max%20Rendering/3.webp" aria-label="Ampliar la escena en el momento del día seleccionado" data-i18n-aria="render.sceneStageAria">
           <!-- Orden: de más a menos luz. Primero los cuatro con la lámpara
                apagada (solo luz natural), después los tres con la lámpara encendida. -->
-          <img class="scene-frame is-active" data-light-frame data-light-name="Día" src="imagenes/3DS%20Max%20Rendering/3.webp" width="2000" height="1125" decoding="async" alt="Salón renderizado con luz de día">
-          <img class="scene-frame" data-light-frame data-light-name="Media tarde" src="imagenes/3DS%20Max%20Rendering/3.1.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Salón renderizado a media tarde">
-          <img class="scene-frame" data-light-frame data-light-name="Tarde" src="imagenes/3DS%20Max%20Rendering/4.1.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Salón renderizado por la tarde">
-          <img class="scene-frame" data-light-frame data-light-name="Anochecer" src="imagenes/3DS%20Max%20Rendering/4.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="Salón renderizado al anochecer">
-          <img class="scene-frame" data-light-frame data-light-name="Luz cálida" data-light-lamp="on" src="imagenes/3DS%20Max%20Rendering/5.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="Salón renderizado con la lámpara encendida">
-          <img class="scene-frame" data-light-frame data-light-name="Noche" data-light-lamp="on" src="imagenes/3DS%20Max%20Rendering/5.1.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Salón renderizado de noche con la lámpara encendida">
-          <img class="scene-frame" data-light-frame data-light-name="Penumbra" data-light-lamp="on" src="imagenes/3DS%20Max%20Rendering/5.2.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Salón renderizado en penumbra con la lámpara encendida">
-          <span class="scene-zoom" aria-hidden="true">Ampliar</span>
+          <img class="scene-frame is-active" data-light-frame data-light-name="Día" data-i18n-light-name="render.light1" src="imagenes/3DS%20Max%20Rendering/3.webp" width="2000" height="1125" decoding="async" alt="Salón renderizado con luz de día" data-i18n-alt="render.altLight1">
+          <img class="scene-frame" data-light-frame data-light-name="Media tarde" data-i18n-light-name="render.light2" src="imagenes/3DS%20Max%20Rendering/3.1.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Salón renderizado a media tarde" data-i18n-alt="render.altLight2">
+          <img class="scene-frame" data-light-frame data-light-name="Tarde" data-i18n-light-name="render.light3" src="imagenes/3DS%20Max%20Rendering/4.1.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Salón renderizado por la tarde" data-i18n-alt="render.altLight3">
+          <img class="scene-frame" data-light-frame data-light-name="Anochecer" data-i18n-light-name="render.light4" src="imagenes/3DS%20Max%20Rendering/4.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="Salón renderizado al anochecer" data-i18n-alt="render.altLight4">
+          <img class="scene-frame" data-light-frame data-light-name="Luz cálida" data-i18n-light-name="render.light5" data-light-lamp="on" src="imagenes/3DS%20Max%20Rendering/5.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="Salón renderizado con la lámpara encendida" data-i18n-alt="render.altLight5">
+          <img class="scene-frame" data-light-frame data-light-name="Noche" data-i18n-light-name="render.light6" data-light-lamp="on" src="imagenes/3DS%20Max%20Rendering/5.1.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Salón renderizado de noche con la lámpara encendida" data-i18n-alt="render.altLight6">
+          <img class="scene-frame" data-light-frame data-light-name="Penumbra" data-i18n-light-name="render.light7" data-light-lamp="on" src="imagenes/3DS%20Max%20Rendering/5.2.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Salón renderizado en penumbra con la lámpara encendida" data-i18n-alt="render.altLight7">
+          <span class="scene-zoom" aria-hidden="true" data-i18n="render.zoom">Ampliar</span>
         </button>
 
         <img class="scene-logo" src="imagenes/3DS%20Max%20Rendering/3ds.png" width="600" height="600" loading="lazy" decoding="async" alt="Autodesk 3ds Max">
 
         <div class="scene-panel">
           <div class="scene-panel-head">
-            <span class="scene-eyebrow">Estudio de iluminación</span>
+            <span class="scene-eyebrow" data-i18n="render.sceneEyebrow">Estudio de iluminación</span>
             <output class="scene-mode" data-light-label for="light-slider">Mediodía</output>
           </div>
-          <input class="scene-slider" id="light-slider" type="range" min="0" max="6" step="1" value="0" data-light-slider aria-label="Momento del día">
+          <input class="scene-slider" id="light-slider" type="range" min="0" max="6" step="1" value="0" data-light-slider aria-label="Momento del día" data-i18n-aria="render.sceneAria">
           <div class="scene-scale" aria-hidden="true">
-            <span>Luz natural</span>
-            <span>Lámpara encendida</span>
+            <span data-i18n="render.scaleNatural">Luz natural</span>
+            <span data-i18n="render.scaleLamp">Lámpara encendida</span>
           </div>
         </div>
       </article>
 
       <!-- Texto del proyecto -->
       <article class="bento-cell bento-text">
-        <span class="bento-badge">3D Render without AI</span>
+        <span class="bento-badge" data-i18n="render.badge">3D Render without AI</span>
         <h1 class="bento-title" id="bento-title">3DS Max<br>Rendering</h1>
-        <p class="bento-copy">
+        <p class="bento-copy" data-i18n="render.copy">
           Proyectos de renderizado e interiorismo desarrollados en la asignatura de Informática
           Gráfica utilizando <strong>Autodesk 3ds Max</strong>. Un trabajo 100% tradicional previo
           a la aparición de herramientas generativas por IA, centrado en el dominio de la
           iluminación, el detallado de materiales y la composición espacial 3D.
         </p>
         <ul class="bento-meta">
-          <li>Autodesk 3ds Max</li>
-          <li>Informática Gráfica</li>
-          <li>Modelado · Iluminación · Materiales</li>
+          <li data-i18n="render.meta1">Autodesk 3ds Max</li>
+          <li data-i18n="render.meta2">Informática Gráfica</li>
+          <li data-i18n="render.meta3">Modelado · Iluminación · Materiales</li>
         </ul>
       </article>
 
       <!-- Detalles: producto y texturas -->
-      <button type="button" class="bento-cell bento-shot bento-shot-portrait" data-lightbox-src="imagenes/3DS%20Max%20Rendering/1.webp" aria-label="Ampliar: la lámpara sobre fondo claro">
-        <img src="imagenes/3DS%20Max%20Rendering/1.webp" width="1125" height="2000" loading="lazy" decoding="async" alt="Lámpara de pie renderizada sobre fondo claro">
-        <span class="shot-tag">Producto · fondo claro</span>
+      <button type="button" class="bento-cell bento-shot bento-shot-portrait" data-lightbox-src="imagenes/3DS%20Max%20Rendering/1.webp" aria-label="Ampliar: la lámpara sobre fondo claro" data-i18n-aria="render.shot1Aria">
+        <img src="imagenes/3DS%20Max%20Rendering/1.webp" width="1125" height="2000" loading="lazy" decoding="async" alt="Lámpara de pie renderizada sobre fondo claro" data-i18n-alt="render.shot1Alt">
+        <span class="shot-tag" data-i18n="render.shot1Tag">Producto · fondo claro</span>
       </button>
-      <button type="button" class="bento-cell bento-shot bento-shot-portrait" data-lightbox-src="imagenes/3DS%20Max%20Rendering/2.webp" aria-label="Ampliar: la lámpara sobre fondo oscuro">
-        <img src="imagenes/3DS%20Max%20Rendering/2.webp" width="1125" height="2000" loading="lazy" decoding="async" alt="Lámpara de pie encendida renderizada sobre fondo oscuro">
-        <span class="shot-tag">Producto · fondo oscuro</span>
+      <button type="button" class="bento-cell bento-shot bento-shot-portrait" data-lightbox-src="imagenes/3DS%20Max%20Rendering/2.webp" aria-label="Ampliar: la lámpara sobre fondo oscuro" data-i18n-aria="render.shot2Aria">
+        <img src="imagenes/3DS%20Max%20Rendering/2.webp" width="1125" height="2000" loading="lazy" decoding="async" alt="Lámpara de pie encendida renderizada sobre fondo oscuro" data-i18n-alt="render.shot2Alt">
+        <span class="shot-tag" data-i18n="render.shot2Tag">Producto · fondo oscuro</span>
       </button>
-      <button type="button" class="bento-cell bento-shot bento-shot-wide" data-lightbox-src="imagenes/3DS%20Max%20Rendering/3.2.webp" aria-label="Ampliar: detalle de la mesa con revistas">
-        <img src="imagenes/3DS%20Max%20Rendering/3.2.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Detalle de la mesa de mármol con revistas">
-        <span class="shot-tag">Materiales · mármol y papel</span>
+      <button type="button" class="bento-cell bento-shot bento-shot-wide" data-lightbox-src="imagenes/3DS%20Max%20Rendering/3.2.webp" aria-label="Ampliar: detalle de la mesa con revistas" data-i18n-aria="render.shot3Aria">
+        <img src="imagenes/3DS%20Max%20Rendering/3.2.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Detalle de la mesa de mármol con revistas" data-i18n-alt="render.shot3Alt">
+        <span class="shot-tag" data-i18n="render.shot3Tag">Materiales · mármol y papel</span>
       </button>
-      <button type="button" class="bento-cell bento-shot bento-shot-wide" data-lightbox-src="imagenes/3DS%20Max%20Rendering/6.1.webp" aria-label="Ampliar: detalle de la estructura de madera">
-        <img src="imagenes/3DS%20Max%20Rendering/6.1.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="Detalle de la unión de la estructura de madera">
-        <span class="shot-tag">Detalle · estructura</span>
+      <button type="button" class="bento-cell bento-shot bento-shot-wide" data-lightbox-src="imagenes/3DS%20Max%20Rendering/6.1.webp" aria-label="Ampliar: detalle de la estructura de madera" data-i18n-aria="render.shot4Aria">
+        <img src="imagenes/3DS%20Max%20Rendering/6.1.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="Detalle de la unión de la estructura de madera" data-i18n-alt="render.shot4Alt">
+        <span class="shot-tag" data-i18n="render.shot4Tag">Detalle · estructura</span>
       </button>
 
     </div>
@@ -116,23 +119,26 @@
 
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <img class="site-footer-logo" src="imagenes/nvg-blanco-nombre.webp" alt="Nicolás Vázquez García">
-    <nav class="site-footer-nav" aria-label="Pie de página">
-      <a href="cv.html">CV</a>
-      <a href="tfg.html">Proyectos</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="contacto.html">Contacto</a>
+    <a class="site-footer-logo-link" href="index.html" aria-label="Inicio" data-i18n-aria="nav.home">
+      <img class="site-footer-logo" src="imagenes/nvg-blanco-nombre.webp" alt="Nicolás Vázquez García">
+    </a>
+    <nav class="site-footer-nav" aria-label="Pie de página" data-i18n-aria="nav.footer">
+      <a href="cv.html" data-i18n="nav.cv">CV</a>
+      <button type="button" data-submenu-toggle data-i18n="nav.projects">Proyectos</button>
+      <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
     </nav>
   </div>
 </footer>
 
 <div class="lightbox" id="lightbox" aria-hidden="true">
-  <button type="button" class="lightbox-close" aria-label="Cerrar imagen">&times;</button>
-  <button type="button" class="lightbox-nav lightbox-prev" aria-label="Imagen anterior">&#8249;</button>
+  <button type="button" class="lightbox-close" aria-label="Cerrar imagen" data-i18n-aria="lightbox.close">&times;</button>
+  <button type="button" class="lightbox-nav lightbox-prev" aria-label="Imagen anterior" data-i18n-aria="lightbox.prev">&#8249;</button>
   <img class="lightbox-img" src="" alt="">
-  <button type="button" class="lightbox-nav lightbox-next" aria-label="Imagen siguiente">&#8250;</button>
+  <button type="button" class="lightbox-nav lightbox-next" aria-label="Imagen siguiente" data-i18n-aria="lightbox.next">&#8250;</button>
 </div>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

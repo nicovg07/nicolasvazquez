@@ -1,7 +1,9 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const siteMenu = document.getElementById('site-menu');
 const projectsMenu = document.getElementById('projects-menu');
-const projectsToggle = document.querySelector('[data-submenu-toggle]');
+// Hay dos: el del menú principal y el del pie de página.
+const projectsToggles = document.querySelectorAll('[data-submenu-toggle]');
+const menuProjectsToggle = siteMenu.querySelector('[data-submenu-toggle]');
 const projectsBack = document.querySelector('[data-submenu-back]');
 
 function openMenu() {
@@ -22,9 +24,16 @@ menuToggle.addEventListener('click', () => {
   isOpen ? closeMenu() : openMenu();
 });
 
-projectsToggle.addEventListener('click', () => {
-  siteMenu.classList.remove('is-open');
-  projectsMenu.classList.add('is-open');
+projectsToggles.forEach((toggle) => {
+  toggle.addEventListener('click', () => {
+    siteMenu.classList.remove('is-open');
+    projectsMenu.classList.add('is-open');
+    // Desde el pie el menú no estaba abierto, así que el scroll sigue suelto
+    // y el botón hamburguesa sigue marcado como cerrado: hay que igualarlo
+    // a openMenu() para que ese botón cierre el panel al pulsarlo.
+    document.body.classList.add('menu-open');
+    menuToggle.setAttribute('aria-expanded', 'true');
+  });
 });
 
 projectsBack.addEventListener('click', () => {
@@ -57,7 +66,8 @@ document.querySelectorAll('#site-menu a[href], #projects-menu a[href]').forEach(
 });
 
 if (projectPages.includes(currentPage)) {
-  projectsToggle.classList.add('is-current');
+  // Solo el del menú: el pie no marca la página actual en ningún enlace.
+  menuProjectsToggle.classList.add('is-current');
 }
 
 const emailLink = document.getElementById('contact-email');
@@ -342,6 +352,10 @@ if (lightSlider) {
   lightSlider.max = String(Math.max(0, frames.length - 1));
   lightSlider.addEventListener('input', (event) => showFrame(event.target.value));
   showFrame(lightSlider.value);
+
+  // El nombre del momento del día sale de un data-*, así que al cambiar de
+  // idioma hay que releerlo sin mover el fotograma que se está viendo.
+  document.addEventListener('i18n:change', () => showFrame(currentFrame));
 }
 
 /* Secuencia paso a paso (sistema de plegado del Rail Folding Package).
@@ -355,9 +369,12 @@ if (stepGroup) {
   const stepTitle = stepGroup.querySelector('.rail-step-caption [data-step-title]');
   const stepText = stepGroup.querySelector('.rail-step-caption [data-step-text]');
 
+  let currentStep = 0;
+
   const showStep = (index) => {
     if (!stepFrames.length) return;
     const next = Math.min(stepFrames.length - 1, Math.max(0, index));
+    currentStep = next;
 
     stepFrames.forEach((frame, i) => {
       frame.classList.toggle('is-active', i === next);
@@ -375,4 +392,7 @@ if (stepGroup) {
 
   stepDots.forEach((dot, i) => dot.addEventListener('click', () => showStep(i)));
   showStep(0);
+
+  // El pie del paso también sale de data-*: se relee sin perder el paso actual.
+  document.addEventListener('i18n:change', () => showStep(currentStep));
 }

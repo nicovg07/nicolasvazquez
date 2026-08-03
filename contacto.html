@@ -3,37 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto — Nicolás Vázquez García</title>
-<meta name="description" content="Contacta con Nicolás Vázquez García, ingeniero en diseño industrial y desarrollo de producto.">
+<title data-i18n="contact.docTitle">Contacto — Nicolás Vázquez García</title>
+<meta name="description" data-i18n-content="contact.docDesc" content="Contacta con Nicolás Vázquez García, ingeniero en diseño industrial y desarrollo de producto.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="page-lime">
 
 <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
 
-<button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+<button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú" data-i18n-aria="nav.openMenu">
   <span class="menu-toggle-bar"></span>
   <span class="menu-toggle-bar"></span>
   <span class="menu-toggle-bar"></span>
 </button>
 
-<nav id="site-menu" class="site-menu" aria-label="Menú principal">
+<nav id="site-menu" class="site-menu" aria-label="Menú principal" data-i18n-aria="nav.mainMenu">
   <ul class="site-menu-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="cv.html">CV</a></li>
-    <li><button type="button" data-submenu-toggle>Proyectos</button></li>
-    <li><a href="sobre-mi.html">Sobre mí</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+    <li><button type="button" data-submenu-toggle data-i18n="nav.projects">Proyectos</button></li>
+    <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
+    <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
   </ul>
-  <div class="lang-switch" role="group" aria-label="Selector de idioma">
+  <div class="lang-switch" role="group" aria-label="Selector de idioma" data-i18n-aria="nav.langSelector">
     <button type="button" class="lang-option is-active" data-lang="es">ES</button>
     <span class="lang-divider" aria-hidden="true">/</span>
     <button type="button" class="lang-option" data-lang="en">EN</button>
   </div>
 </nav>
 
-<nav id="projects-menu" class="site-menu" aria-label="Menú de proyectos">
-  <button type="button" class="submenu-back" data-submenu-back>‹ Volver</button>
+<nav id="projects-menu" class="site-menu" aria-label="Menú de proyectos" data-i18n-aria="nav.projectsMenu">
+  <button type="button" class="submenu-back" data-submenu-back data-i18n="nav.back">‹ Volver</button>
   <ul class="site-menu-links">
     <li><a href="tfg.html">TFG</a></li>
     <li><a href="rail-folding-package.html">Rail Folding Package</a></li>
@@ -43,14 +46,14 @@
 
 <main>
   <section class="contact-hero reveal">
-    <h1 class="section-title">Hablemos!</h1>
-    <p class="tfg-subtitle">Ingeniero en Diseño Industrial y Desarrollo de Producto.<br>Con ganas de aprender y afrontar nuevos retos.</p>
+    <h1 class="section-title" data-i18n="contact.title">Hablemos!</h1>
+    <p class="tfg-subtitle" data-i18n="contact.subtitle">Ingeniero en Diseño Industrial y Desarrollo de Producto.<br>Con ganas de aprender y afrontar nuevos retos.</p>
   </section>
 
   <section class="contact">
     <div class="contact-links" data-reveal-group>
-      <a class="contact-link" id="contact-email" href="#" data-user="nicovg07" data-domain="gmail.com">Mail</a>
-      <a class="contact-link" id="contact-tel" href="#" data-prefix="+34" data-number="600242549">Telefono</a>
+      <a class="contact-link" id="contact-email" href="#" data-user="nicovg07" data-domain="gmail.com" data-i18n="contact.mail">Mail</a>
+      <a class="contact-link" id="contact-tel" href="#" data-prefix="+34" data-number="600242549" data-i18n="contact.tel">Telefono</a>
       <a class="contact-link" href="https://www.linkedin.com/in/nicolasvazquezgarcia/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
 
@@ -61,23 +64,26 @@
           <circle cx="12" cy="9" r="2.5"></circle>
         </svg>
       </span>
-      Ubicado en Asturias, España · Disponibilidad para movilidad total
+      <span data-i18n="contact.location">Ubicado en Asturias, España · Disponibilidad para movilidad total</span>
     </p>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <img class="site-footer-logo" src="imagenes/nvg-blanco-nombre.webp" alt="Nicolás Vázquez García">
-    <nav class="site-footer-nav" aria-label="Pie de página">
-      <a href="cv.html">CV</a>
-      <a href="tfg.html">Proyectos</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="contacto.html">Contacto</a>
+    <a class="site-footer-logo-link" href="index.html" aria-label="Inicio" data-i18n-aria="nav.home">
+      <img class="site-footer-logo" src="imagenes/nvg-blanco-nombre.webp" alt="Nicolás Vázquez García">
+    </a>
+    <nav class="site-footer-nav" aria-label="Pie de página" data-i18n-aria="nav.footer">
+      <a href="cv.html" data-i18n="nav.cv">CV</a>
+      <button type="button" data-submenu-toggle data-i18n="nav.projects">Proyectos</button>
+      <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
     </nav>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

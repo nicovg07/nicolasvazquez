@@ -3,37 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rail Folding Package — Nicolás Vázquez García</title>
-<meta name="description" content="Rail Folding Package: embalaje industrial reutilizable y plegable mediante un sistema de carriles mecanizados. Proyecto premiado de Nicolás Vázquez García.">
+<title data-i18n="rail.docTitle">Rail Folding Package — Nicolás Vázquez García</title>
+<meta name="description" data-i18n-content="rail.docDesc" content="Rail Folding Package: embalaje industrial reutilizable y plegable mediante un sistema de carriles mecanizados. Proyecto premiado de Nicolás Vázquez García.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="page-rail">
 
 <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
 
-<button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+<button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú" data-i18n-aria="nav.openMenu">
   <span class="menu-toggle-bar"></span>
   <span class="menu-toggle-bar"></span>
   <span class="menu-toggle-bar"></span>
 </button>
 
-<nav id="site-menu" class="site-menu" aria-label="Menú principal">
+<nav id="site-menu" class="site-menu" aria-label="Menú principal" data-i18n-aria="nav.mainMenu">
   <ul class="site-menu-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="cv.html">CV</a></li>
-    <li><button type="button" data-submenu-toggle>Proyectos</button></li>
-    <li><a href="sobre-mi.html">Sobre mí</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+    <li><button type="button" data-submenu-toggle data-i18n="nav.projects">Proyectos</button></li>
+    <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
+    <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
   </ul>
-  <div class="lang-switch" role="group" aria-label="Selector de idioma">
+  <div class="lang-switch" role="group" aria-label="Selector de idioma" data-i18n-aria="nav.langSelector">
     <button type="button" class="lang-option is-active" data-lang="es">ES</button>
     <span class="lang-divider" aria-hidden="true">/</span>
     <button type="button" class="lang-option" data-lang="en">EN</button>
   </div>
 </nav>
 
-<nav id="projects-menu" class="site-menu" aria-label="Menú de proyectos">
-  <button type="button" class="submenu-back" data-submenu-back>‹ Volver</button>
+<nav id="projects-menu" class="site-menu" aria-label="Menú de proyectos" data-i18n-aria="nav.projectsMenu">
+  <button type="button" class="submenu-back" data-submenu-back data-i18n="nav.back">‹ Volver</button>
   <ul class="site-menu-links">
     <li><a href="tfg.html">TFG</a></li>
     <li><a href="rail-folding-package.html">Rail Folding Package</a></li>
@@ -45,27 +48,27 @@
 
   <!-- Póster del dossier original -->
   <figure class="rail-poster">
-    <img src="imagenes/rail-folding-package/Principal.jpeg" width="1600" height="900" decoding="async" alt="Póster del dossier de Rail Folding Package: vista despiezada, montaje plegado, certificados y logo de Encaja">
+    <img src="imagenes/rail-folding-package/Principal.jpeg" width="1600" height="900" decoding="async" alt="Póster del dossier de Rail Folding Package: vista despiezada, montaje plegado, certificados y logo de Encaja" data-i18n-alt="rail.altPoster">
   </figure>
 
   <!-- Portada -->
   <section class="rail-hero">
     <div class="rail-hero-text">
-      <p class="rail-eyebrow">Envase y Embalaje · 3.º de Ingeniería en Diseño Industrial y Desarrollo de Producto · Universidad de Valladolid</p>
+      <p class="rail-eyebrow" data-i18n="rail.eyebrow">Envase y Embalaje · 3.º de Ingeniería en Diseño Industrial y Desarrollo de Producto · Universidad de Valladolid</p>
       <h1 class="rail-title">Rail Folding<br>Package</h1>
-      <p class="rail-lead">Embalaje industrial reutilizable, plegable y personalizable, desarrollado a partir de un briefing real de <strong>Encaja</strong>, junto a mis compañeros Mónica Lara Moreno, Marcos Muñoz y David Silva.</p>
+      <p class="rail-lead" data-i18n="rail.lead">Embalaje industrial reutilizable, plegable y personalizable, desarrollado a partir de un briefing real de <strong>Encaja</strong>, junto a mis compañeros Mónica Lara Moreno, Marcos Muñoz y David Silva.</p>
       <ul class="rail-tags">
-        <li>Desmontable</li>
-        <li>Plegable</li>
-        <li>Reciclable</li>
-        <li>Reutilizable</li>
+        <li data-i18n="rail.tag1">Desmontable</li>
+        <li data-i18n="rail.tag2">Plegable</li>
+        <li data-i18n="rail.tag3">Reciclable</li>
+        <li data-i18n="rail.tag4">Reutilizable</li>
       </ul>
     </div>
     <div class="rail-hero-media">
-      <button type="button" class="rail-frame" data-lightbox-src="imagenes/rail-folding-package/montado.webp" aria-label="Ampliar el render del embalaje montado">
-        <img src="imagenes/rail-folding-package/montado.webp" width="1600" height="900" decoding="async" alt="Embalaje Rail Folding Package montado sobre su palet">
+      <button type="button" class="rail-frame" data-lightbox-src="imagenes/rail-folding-package/montado.webp" aria-label="Ampliar el render del embalaje montado" data-i18n-aria="rail.ariaAssembled">
+        <img src="imagenes/rail-folding-package/montado.webp" width="1600" height="900" decoding="async" alt="Embalaje Rail Folding Package montado sobre su palet" data-i18n-alt="rail.altAssembled">
       </button>
-      <span class="rail-chip">Palet europeo 1200 × 800 mm</span>
+      <span class="rail-chip" data-i18n="rail.chip">Palet europeo 1200 × 800 mm</span>
     </div>
   </section>
 
@@ -74,36 +77,36 @@
     <div class="rail-brief-challenge">
       <img class="rail-brief-art" src="imagenes/rail-folding-package/montado-brief.webp" width="716" height="644" loading="lazy" decoding="async" alt="" aria-hidden="true">
       <div class="rail-brief-challenge-inner reveal">
-        <p class="rail-challenge-label">El reto</p>
-        <p class="rail-challenge-text">Desarrollar un embalaje reutilizable, plegable, ergonómico y personalizable para uso industrial.</p>
+        <p class="rail-challenge-label" data-i18n="rail.challengeLabel">El reto</p>
+        <p class="rail-challenge-text" data-i18n="rail.challengeText">Desarrollar un embalaje reutilizable, plegable, ergonómico y personalizable para uso industrial.</p>
       </div>
     </div>
     <div class="rail-brief-info">
       <ul class="rail-tags reveal">
-        <li>Desmontable</li>
-        <li>Plegable</li>
-        <li>Reciclable</li>
-        <li>Reutilizable</li>
+        <li data-i18n="rail.tag1">Desmontable</li>
+        <li data-i18n="rail.tag2">Plegable</li>
+        <li data-i18n="rail.tag3">Reciclable</li>
+        <li data-i18n="rail.tag4">Reutilizable</li>
       </ul>
       <div class="rail-cols">
         <div class="reveal">
-          <h2 class="rail-h2">Objetivos</h2>
+          <h2 class="rail-h2" data-i18n="rail.objectivesTitle">Objetivos</h2>
           <ul class="rail-list">
-            <li>Optimizar la carga y la descarga, y reducir el peso del conjunto.</li>
-            <li>Emplear materiales sostenibles.</li>
-            <li>Garantizar la protección de los materiales transportados.</li>
-            <li>Llegar a una solución innovadora que no existiera en el mercado.</li>
+            <li data-i18n="rail.objective1">Optimizar la carga y la descarga, y reducir el peso del conjunto.</li>
+            <li data-i18n="rail.objective2">Emplear materiales sostenibles.</li>
+            <li data-i18n="rail.objective3">Garantizar la protección de los materiales transportados.</li>
+            <li data-i18n="rail.objective4">Llegar a una solución innovadora que no existiera en el mercado.</li>
           </ul>
         </div>
         <div class="reveal">
-          <h2 class="rail-h2">Requisitos</h2>
+          <h2 class="rail-h2" data-i18n="rail.requirementsTitle">Requisitos</h2>
           <ul class="rail-list">
-            <li>Resistente y apto para envíos internacionales.</li>
-            <li>Alta reutilización y capacidad de personalización.</li>
-            <li>Medidas versátiles, optimizadas para palet estándar de 1200 × 800 mm.</li>
-            <li>Ergonómico, con un lado abatible que facilite la carga.</li>
-            <li>Madera, tablero procesado y perfilería mecánica.</li>
-            <li>Plegable con la propia perfilería del embalaje.</li>
+            <li data-i18n="rail.requirement1">Resistente y apto para envíos internacionales.</li>
+            <li data-i18n="rail.requirement2">Alta reutilización y capacidad de personalización.</li>
+            <li data-i18n="rail.requirement3">Medidas versátiles, optimizadas para palet estándar de 1200 × 800 mm.</li>
+            <li data-i18n="rail.requirement4">Ergonómico, con un lado abatible que facilite la carga.</li>
+            <li data-i18n="rail.requirement5">Madera, tablero procesado y perfilería mecánica.</li>
+            <li data-i18n="rail.requirement6">Plegable con la propia perfilería del embalaje.</li>
           </ul>
         </div>
       </div>
@@ -112,82 +115,82 @@
 
   <!-- Solución -->
   <section class="rail-section">
-    <h2 class="section-title reveal">La solución</h2>
+    <h2 class="section-title reveal" data-i18n="rail.solutionTitle">La solución</h2>
     <div class="rail-solution">
       <div class="rail-solution-primary">
-        <button type="button" class="rail-frame reveal" data-lightbox-src="imagenes/rail-folding-package/detalle-carril.webp" aria-label="Ampliar el detalle del perfil de aluminio">
-          <img src="imagenes/rail-folding-package/detalle-carril.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Detalle del perfil de aluminio y la esquina del embalaje">
-          <span class="rail-frame-tag">Detalle del carril</span>
+        <button type="button" class="rail-frame reveal" data-lightbox-src="imagenes/rail-folding-package/detalle-carril.webp" aria-label="Ampliar el detalle del perfil de aluminio" data-i18n-aria="rail.ariaRailDetail">
+          <img src="imagenes/rail-folding-package/detalle-carril.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Detalle del perfil de aluminio y la esquina del embalaje" data-i18n-alt="rail.altRailDetail">
+          <span class="rail-frame-tag" data-i18n="rail.tagRailDetail">Detalle del carril</span>
         </button>
         <div class="rail-solution-text reveal">
-          <p>La base no es un palet más una caja: es <strong>una sola pieza</strong>. Sobre el palet va una superficie con <strong>carriles mecanizados</strong> por los que corren los perfiles metálicos de las paredes.</p>
-          <p>Ese mismo carril que mantiene el embalaje rígido cuando está montado es el que guía el plegado. No hacen falta herramientas ni piezas sueltas para desmontarlo, y no hay nada que se pueda perder por el camino.</p>
+          <p data-i18n="rail.solutionText1">La base no es un palet más una caja: es <strong>una sola pieza</strong>. Sobre el palet va una superficie con <strong>carriles mecanizados</strong> por los que corren los perfiles metálicos de las paredes.</p>
+          <p data-i18n="rail.solutionText2">Ese mismo carril que mantiene el embalaje rígido cuando está montado es el que guía el plegado. No hacen falta herramientas ni piezas sueltas para desmontarlo, y no hay nada que se pueda perder por el camino.</p>
         </div>
       </div>
-      <button type="button" class="rail-frame reveal" data-lightbox-src="imagenes/rail-folding-package/despiece.webp" aria-label="Ampliar el despiece del embalaje">
-        <img src="imagenes/rail-folding-package/despiece.webp" width="1111" height="1079" loading="lazy" decoding="async" alt="Despiece del embalaje con todas sus piezas separadas">
-        <span class="rail-frame-tag">Despiece</span>
+      <button type="button" class="rail-frame reveal" data-lightbox-src="imagenes/rail-folding-package/despiece.webp" aria-label="Ampliar el despiece del embalaje" data-i18n-aria="rail.ariaExploded">
+        <img src="imagenes/rail-folding-package/despiece.webp" width="1111" height="1079" loading="lazy" decoding="async" alt="Despiece del embalaje con todas sus piezas separadas" data-i18n-alt="rail.altExploded">
+        <span class="rail-frame-tag" data-i18n="rail.tagExploded">Despiece</span>
       </button>
     </div>
   </section>
 
   <!-- Piezas -->
   <section class="rail-section">
-    <h2 class="section-title reveal">Las cuatro piezas</h2>
+    <h2 class="section-title reveal" data-i18n="rail.partsTitle">Las cuatro piezas</h2>
     <div class="rail-parts" data-reveal-group>
       <article class="rail-part">
-        <button type="button" class="rail-frame" data-lightbox-src="imagenes/rail-folding-package/pieza-base.webp" aria-label="Ampliar la pieza base">
-          <img src="imagenes/rail-folding-package/pieza-base.webp" width="1301" height="1080" loading="lazy" decoding="async" alt="Base del embalaje: palet con superficie de carriles">
+        <button type="button" class="rail-frame" data-lightbox-src="imagenes/rail-folding-package/pieza-base.webp" aria-label="Ampliar la pieza base" data-i18n-aria="rail.part1Aria">
+          <img src="imagenes/rail-folding-package/pieza-base.webp" width="1301" height="1080" loading="lazy" decoding="async" alt="Base del embalaje: palet con superficie de carriles" data-i18n-alt="rail.part1Alt">
         </button>
-        <h3 class="rail-part-title">Base</h3>
-        <p class="rail-part-text">Palet y superficie mecanizada fusionados en una única pieza. Los carriles dejan pasar los perfiles metálicos de las paredes.</p>
+        <h3 class="rail-part-title" data-i18n="rail.part1Title">Base</h3>
+        <p class="rail-part-text" data-i18n="rail.part1Text">Palet y superficie mecanizada fusionados en una única pieza. Los carriles dejan pasar los perfiles metálicos de las paredes.</p>
       </article>
       <article class="rail-part">
-        <button type="button" class="rail-frame" data-lightbox-src="imagenes/rail-folding-package/pieza-lateral.webp" aria-label="Ampliar la cara lateral">
-          <img src="imagenes/rail-folding-package/pieza-lateral.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Cara lateral con perfiles metálicos en sus cuatro lados">
+        <button type="button" class="rail-frame" data-lightbox-src="imagenes/rail-folding-package/pieza-lateral.webp" aria-label="Ampliar la cara lateral" data-i18n-aria="rail.part2Aria">
+          <img src="imagenes/rail-folding-package/pieza-lateral.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Cara lateral con perfiles metálicos en sus cuatro lados" data-i18n-alt="rail.part2Alt">
         </button>
-        <h3 class="rail-part-title">Cara lateral</h3>
-        <p class="rail-part-text">Tablón de madera con perfiles metálicos atornillados en sus cuatro lados.</p>
+        <h3 class="rail-part-title" data-i18n="rail.part2Title">Cara lateral</h3>
+        <p class="rail-part-text" data-i18n="rail.part2Text">Tablón de madera con perfiles metálicos atornillados en sus cuatro lados.</p>
       </article>
       <article class="rail-part">
-        <button type="button" class="rail-frame" data-lightbox-src="imagenes/rail-folding-package/pieza-frontal.webp" aria-label="Ampliar la cara anterior y posterior">
-          <img src="imagenes/rail-folding-package/pieza-frontal.webp" width="810" height="1080" loading="lazy" decoding="async" alt="Cara anterior dividida en dos mitades unidas por bisagras">
+        <button type="button" class="rail-frame" data-lightbox-src="imagenes/rail-folding-package/pieza-frontal.webp" aria-label="Ampliar la cara anterior y posterior" data-i18n-aria="rail.part3Aria">
+          <img src="imagenes/rail-folding-package/pieza-frontal.webp" width="810" height="1080" loading="lazy" decoding="async" alt="Cara anterior dividida en dos mitades unidas por bisagras" data-i18n-alt="rail.part3Alt">
         </button>
-        <h3 class="rail-part-title">Cara anterior / posterior</h3>
-        <p class="rail-part-text">Dividida en dos mitades iguales unidas por bisagras, para que pliegue. Sus carriles garantizan el cierre.</p>
+        <h3 class="rail-part-title" data-i18n="rail.part3Title">Cara anterior / posterior</h3>
+        <p class="rail-part-text" data-i18n="rail.part3Text">Dividida en dos mitades iguales unidas por bisagras, para que pliegue. Sus carriles garantizan el cierre.</p>
       </article>
       <article class="rail-part">
-        <button type="button" class="rail-frame" data-lightbox-src="imagenes/rail-folding-package/pieza-tapa.webp" aria-label="Ampliar la tapa">
-          <img src="imagenes/rail-folding-package/pieza-tapa.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Tapa dividida en tres partes unidas por bisagras">
+        <button type="button" class="rail-frame" data-lightbox-src="imagenes/rail-folding-package/pieza-tapa.webp" aria-label="Ampliar la tapa" data-i18n-aria="rail.part4Aria">
+          <img src="imagenes/rail-folding-package/pieza-tapa.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Tapa dividida en tres partes unidas por bisagras" data-i18n-alt="rail.part4Alt">
         </button>
-        <h3 class="rail-part-title">Tapa</h3>
-        <p class="rail-part-text">Dividida en tres partes iguales unidas por bisagras, se dobla sobre sí misma al plegarse.</p>
+        <h3 class="rail-part-title" data-i18n="rail.part4Title">Tapa</h3>
+        <p class="rail-part-text" data-i18n="rail.part4Text">Dividida en tres partes iguales unidas por bisagras, se dobla sobre sí misma al plegarse.</p>
       </article>
     </div>
   </section>
 
   <!-- Sistema de plegado, paso a paso -->
   <section class="rail-section rail-section-alt">
-    <h2 class="section-title reveal">Sistema de plegado</h2>
-    <p class="rail-section-intro reveal">De montado a plano sin una sola herramienta. Recorre los pasos:</p>
+    <h2 class="section-title reveal" data-i18n="rail.foldingTitle">Sistema de plegado</h2>
+    <p class="rail-section-intro reveal" data-i18n="rail.foldingIntro">De montado a plano sin una sola herramienta. Recorre los pasos:</p>
 
     <div class="rail-steps reveal" data-steps>
       <div class="rail-steps-stage">
-        <img class="rail-step-frame is-active" data-step-frame data-step-title="Montado" data-step-text="El embalaje cerrado sobre su palet, listo para transportar." src="imagenes/rail-folding-package/montado.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Embalaje montado y cerrado">
-        <img class="rail-step-frame" data-step-frame data-step-title="Se abre la tapa" data-step-text="La tapa se libera del carril perimetral que la mantenía cerrada." src="imagenes/rail-folding-package/plegado-2.webp" width="1231" height="851" loading="lazy" decoding="async" alt="La tapa del embalaje empieza a abrirse">
-        <img class="rail-step-frame" data-step-frame data-step-title="Tapa plegada" data-step-text="Se dobla en tres por sus bisagras y queda apoyada." src="imagenes/rail-folding-package/plegado-3.webp" width="1600" height="900" loading="lazy" decoding="async" alt="La tapa plegada en tres partes">
-        <img class="rail-step-frame" data-step-frame data-step-title="Caras abatidas" data-step-text="Las caras anterior y posterior se pliegan por la mitad hacia dentro." src="imagenes/rail-folding-package/plegado-4.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Las caras anterior y posterior plegadas hacia dentro">
-        <img class="rail-step-frame" data-step-frame data-step-title="Laterales fuera" data-step-text="Los laterales salen del carril y se apoyan sobre la base." src="imagenes/rail-folding-package/plegado-5.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Los laterales apoyados sobre la base">
-        <img class="rail-step-frame" data-step-frame data-step-title="Plegado plano" data-step-text="Todo el conjunto queda apilado sobre el propio palet." src="imagenes/rail-folding-package/plegado-6.webp" width="1600" height="900" loading="lazy" decoding="async" alt="El embalaje completamente plegado sobre el palet">
+        <img class="rail-step-frame is-active" data-step-frame data-step-title="Montado" data-step-text="El embalaje cerrado sobre su palet, listo para transportar." data-i18n-step-title="rail.step1Title" data-i18n-step-text="rail.step1Text" src="imagenes/rail-folding-package/montado.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Embalaje montado y cerrado" data-i18n-alt="rail.step1Alt">
+        <img class="rail-step-frame" data-step-frame data-step-title="Se abre la tapa" data-step-text="La tapa se libera del carril perimetral que la mantenía cerrada." data-i18n-step-title="rail.step2Title" data-i18n-step-text="rail.step2Text" src="imagenes/rail-folding-package/plegado-2.webp" width="1231" height="851" loading="lazy" decoding="async" alt="La tapa del embalaje empieza a abrirse" data-i18n-alt="rail.step2Alt">
+        <img class="rail-step-frame" data-step-frame data-step-title="Tapa plegada" data-step-text="Se dobla en tres por sus bisagras y queda apoyada." data-i18n-step-title="rail.step3Title" data-i18n-step-text="rail.step3Text" src="imagenes/rail-folding-package/plegado-3.webp" width="1600" height="900" loading="lazy" decoding="async" alt="La tapa plegada en tres partes" data-i18n-alt="rail.step3Alt">
+        <img class="rail-step-frame" data-step-frame data-step-title="Caras abatidas" data-step-text="Las caras anterior y posterior se pliegan por la mitad hacia dentro." data-i18n-step-title="rail.step4Title" data-i18n-step-text="rail.step4Text" src="imagenes/rail-folding-package/plegado-4.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Las caras anterior y posterior plegadas hacia dentro" data-i18n-alt="rail.step4Alt">
+        <img class="rail-step-frame" data-step-frame data-step-title="Laterales fuera" data-step-text="Los laterales salen del carril y se apoyan sobre la base." data-i18n-step-title="rail.step5Title" data-i18n-step-text="rail.step5Text" src="imagenes/rail-folding-package/plegado-5.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Los laterales apoyados sobre la base" data-i18n-alt="rail.step5Alt">
+        <img class="rail-step-frame" data-step-frame data-step-title="Plegado plano" data-step-text="Todo el conjunto queda apilado sobre el propio palet." data-i18n-step-title="rail.step6Title" data-i18n-step-text="rail.step6Text" src="imagenes/rail-folding-package/plegado-6.webp" width="1600" height="900" loading="lazy" decoding="async" alt="El embalaje completamente plegado sobre el palet" data-i18n-alt="rail.step6Alt">
       </div>
       <div class="rail-steps-ui">
-        <div class="rail-steps-dots" role="group" aria-label="Pasos del plegado">
-          <button type="button" class="rail-step-dot is-active" data-step-dot aria-label="Paso 1">1</button>
-          <button type="button" class="rail-step-dot" data-step-dot aria-label="Paso 2">2</button>
-          <button type="button" class="rail-step-dot" data-step-dot aria-label="Paso 3">3</button>
-          <button type="button" class="rail-step-dot" data-step-dot aria-label="Paso 4">4</button>
-          <button type="button" class="rail-step-dot" data-step-dot aria-label="Paso 5">5</button>
-          <button type="button" class="rail-step-dot" data-step-dot aria-label="Paso 6">6</button>
+        <div class="rail-steps-dots" role="group" aria-label="Pasos del plegado" data-i18n-aria="rail.stepsAria">
+          <button type="button" class="rail-step-dot is-active" data-step-dot aria-label="Paso 1" data-i18n-aria="rail.stepAria1">1</button>
+          <button type="button" class="rail-step-dot" data-step-dot aria-label="Paso 2" data-i18n-aria="rail.stepAria2">2</button>
+          <button type="button" class="rail-step-dot" data-step-dot aria-label="Paso 3" data-i18n-aria="rail.stepAria3">3</button>
+          <button type="button" class="rail-step-dot" data-step-dot aria-label="Paso 4" data-i18n-aria="rail.stepAria4">4</button>
+          <button type="button" class="rail-step-dot" data-step-dot aria-label="Paso 5" data-i18n-aria="rail.stepAria5">5</button>
+          <button type="button" class="rail-step-dot" data-step-dot aria-label="Paso 6" data-i18n-aria="rail.stepAria6">6</button>
         </div>
         <p class="rail-step-caption">
           <strong data-step-title>Montado</strong>
@@ -198,56 +201,56 @@
 
     <div class="rail-stacked reveal">
       <div class="rail-frame rail-frame-static">
-        <img src="imagenes/rail-folding-package/apilado.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Dos embalajes plegados y apilados uno sobre otro">
+        <img src="imagenes/rail-folding-package/apilado.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Dos embalajes plegados y apilados uno sobre otro" data-i18n-alt="rail.stackedAlt">
       </div>
-      <p class="rail-stacked-text">Plegado ocupa una fracción de su volumen, así que el retorno en vacío deja de ser transportar aire.</p>
+      <p class="rail-stacked-text" data-i18n="rail.stackedText">Plegado ocupa una fracción de su volumen, así que el retorno en vacío deja de ser transportar aire.</p>
     </div>
   </section>
 
   <!-- Materiales -->
   <section class="rail-section">
-    <h2 class="section-title reveal">Materiales y fabricación</h2>
+    <h2 class="section-title reveal" data-i18n="rail.materialsTitle">Materiales y fabricación</h2>
     <div class="rail-materials" data-reveal-group>
       <article class="rail-material">
-        <h3 class="rail-part-title">Madera de pino</h3>
-        <p class="rail-part-text">Históricamente el material de palets y embalajes por su abundancia y sus propiedades. Se emplea pino y no chopo porque el embalaje soporta cargas mayores que el envase.</p>
+        <h3 class="rail-part-title" data-i18n="rail.material1Title">Madera de pino</h3>
+        <p class="rail-part-text" data-i18n="rail.material1Text">Históricamente el material de palets y embalajes por su abundancia y sus propiedades. Se emplea pino y no chopo porque el embalaje soporta cargas mayores que el envase.</p>
       </article>
       <article class="rail-material">
-        <h3 class="rail-part-title">Aluminio</h3>
-        <p class="rail-part-text">Para carriles y bisagras: no se oxida ni se corroe, aguanta la intemperie, los cambios de temperatura y los golpes. Perfiles huecos, por coste y para que el carril deslice mejor.</p>
+        <h3 class="rail-part-title" data-i18n="rail.material2Title">Aluminio</h3>
+        <p class="rail-part-text" data-i18n="rail.material2Text">Para carriles y bisagras: no se oxida ni se corroe, aguanta la intemperie, los cambios de temperatura y los golpes. Perfiles huecos, por coste y para que el carril deslice mejor.</p>
       </article>
       <article class="rail-material">
-        <h3 class="rail-part-title">Proceso</h3>
-        <p class="rail-part-text">Corte de tablones, tratamientos térmicos y químicos (lasures, barnices, aceites), mecanizado de los carriles con fresadora, cortes de plegado y atornillado de bisagras y perfiles.</p>
+        <h3 class="rail-part-title" data-i18n="rail.material3Title">Proceso</h3>
+        <p class="rail-part-text" data-i18n="rail.material3Text">Corte de tablones, tratamientos térmicos y químicos (lasures, barnices, aceites), mecanizado de los carriles con fresadora, cortes de plegado y atornillado de bisagras y perfiles.</p>
       </article>
     </div>
 
     <div class="rail-certs reveal">
-      <img class="rail-certs-mark" src="imagenes/rail-folding-package/ispm15.webp" width="425" height="250" loading="lazy" decoding="async" alt="Marcado IPPC / NIMF 15 de tratamiento térmico">
-      <p class="rail-certs-text">El embalaje se apoya en los certificados con los que ya trabaja Encaja: <strong>FSC®</strong>, <strong>PEFC</strong> y el marcado <strong>NIMF 15 / ISPM 15</strong> que exige el tratamiento térmico de la madera en envíos internacionales.</p>
+      <img class="rail-certs-mark" src="imagenes/rail-folding-package/ispm15.webp" width="425" height="250" loading="lazy" decoding="async" alt="Marcado IPPC / NIMF 15 de tratamiento térmico" data-i18n-alt="rail.certsAlt">
+      <p class="rail-certs-text" data-i18n="rail.certsText">El embalaje se apoya en los certificados con los que ya trabaja Encaja: <strong>FSC®</strong>, <strong>PEFC</strong> y el marcado <strong>NIMF 15 / ISPM 15</strong> que exige el tratamiento térmico de la madera en envíos internacionales.</p>
     </div>
   </section>
 
   <!-- Premios -->
   <section class="rail-section">
-    <h2 class="section-title reveal">Premios</h2>
+    <h2 class="section-title reveal" data-i18n="rail.awardsTitle">Premios</h2>
     <ul class="education-awards rail-awards" data-reveal-group>
       <li>
         <span class="education-award">
           <img class="education-award-logo" src="CV/Worldstar.webp" alt="">
-          <span>Speciality Packaging Bronze Award WorldStar Student (2025)</span>
+          <span data-i18n="rail.award1">Speciality Packaging Bronze Award WorldStar Student (2025)</span>
         </span>
       </li>
       <li>
         <span class="education-award">
           <img class="education-award-logo" src="CV/Liderpack.png" alt="">
-          <span>Premio Liderpack Diseño Joven (2024)</span>
+          <span data-i18n="rail.award2">Premio Liderpack Diseño Joven (2024)</span>
         </span>
       </li>
       <li>
         <span class="education-award">
           <img class="education-award-logo" src="CV/envase y embalaje.png" alt="">
-          <span>Finalista XV Premios Nacionales de Envase y Embalaje (2024)</span>
+          <span data-i18n="rail.award3">Finalista XV Premios Nacionales de Envase y Embalaje (2024)</span>
         </span>
       </li>
     </ul>
@@ -255,13 +258,13 @@
 
   <!-- Puntos a destacar -->
   <section class="rail-section rail-section-alt">
-    <h2 class="section-title reveal">Puntos a destacar</h2>
+    <h2 class="section-title reveal" data-i18n="rail.highlightsTitle">Puntos a destacar</h2>
     <ul class="rail-highlights" data-reveal-group>
-      <li><strong>Piezas reemplazables.</strong> Que se estropee una no obliga a cambiar el embalaje entero.</li>
-      <li><strong>Montaje y desmontaje rápidos.</strong> Sin herramientas y sin piezas sueltas.</li>
-      <li><strong>Incorpora el palet.</strong> Se opera únicamente con este diseño, sin elementos añadidos.</li>
-      <li><strong>Materiales de casa.</strong> Madera y uniones metálicas, los que ya emplea Encaja.</li>
-      <li><strong>Personalizable.</strong> Los tablones macizos admiten logo y etiquetado corporativo.</li>
+      <li data-i18n="rail.highlight1"><strong>Piezas reemplazables.</strong> Que se estropee una no obliga a cambiar el embalaje entero.</li>
+      <li data-i18n="rail.highlight2"><strong>Montaje y desmontaje rápidos.</strong> Sin herramientas y sin piezas sueltas.</li>
+      <li data-i18n="rail.highlight3"><strong>Incorpora el palet.</strong> Se opera únicamente con este diseño, sin elementos añadidos.</li>
+      <li data-i18n="rail.highlight4"><strong>Materiales de casa.</strong> Madera y uniones metálicas, los que ya emplea Encaja.</li>
+      <li data-i18n="rail.highlight5"><strong>Personalizable.</strong> Los tablones macizos admiten logo y etiquetado corporativo.</li>
     </ul>
   </section>
 
@@ -269,23 +272,26 @@
 
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <img class="site-footer-logo" src="imagenes/nvg-blanco-nombre.webp" alt="Nicolás Vázquez García">
-    <nav class="site-footer-nav" aria-label="Pie de página">
-      <a href="cv.html">CV</a>
-      <a href="tfg.html">Proyectos</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="contacto.html">Contacto</a>
+    <a class="site-footer-logo-link" href="index.html" aria-label="Inicio" data-i18n-aria="nav.home">
+      <img class="site-footer-logo" src="imagenes/nvg-blanco-nombre.webp" alt="Nicolás Vázquez García">
+    </a>
+    <nav class="site-footer-nav" aria-label="Pie de página" data-i18n-aria="nav.footer">
+      <a href="cv.html" data-i18n="nav.cv">CV</a>
+      <button type="button" data-submenu-toggle data-i18n="nav.projects">Proyectos</button>
+      <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
     </nav>
   </div>
 </footer>
 
 <div class="lightbox" id="lightbox" aria-hidden="true">
-  <button type="button" class="lightbox-close" aria-label="Cerrar imagen">&times;</button>
-  <button type="button" class="lightbox-nav lightbox-prev" aria-label="Imagen anterior">&#8249;</button>
+  <button type="button" class="lightbox-close" aria-label="Cerrar imagen" data-i18n-aria="lightbox.close">&times;</button>
+  <button type="button" class="lightbox-nav lightbox-prev" aria-label="Imagen anterior" data-i18n-aria="lightbox.prev">&#8249;</button>
   <img class="lightbox-img" src="" alt="">
-  <button type="button" class="lightbox-nav lightbox-next" aria-label="Imagen siguiente">&#8250;</button>
+  <button type="button" class="lightbox-nav lightbox-next" aria-label="Imagen siguiente" data-i18n-aria="lightbox.next">&#8250;</button>
 </div>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

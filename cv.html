@@ -3,37 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV — Nicolás Vázquez García</title>
-<meta name="description" content="Currículum de Nicolás Vázquez García, ingeniero en diseño industrial y desarrollo de producto.">
+<title data-i18n="cv.docTitle">CV — Nicolás Vázquez García</title>
+<meta name="description" data-i18n-content="cv.docDesc" content="Currículum de Nicolás Vázquez García, ingeniero en diseño industrial y desarrollo de producto.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="page-cv">
 
 <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
 
-<button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+<button type="button" class="menu-toggle menu-toggle-floating" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú" data-i18n-aria="nav.openMenu">
   <span class="menu-toggle-bar"></span>
   <span class="menu-toggle-bar"></span>
   <span class="menu-toggle-bar"></span>
 </button>
 
-<nav id="site-menu" class="site-menu" aria-label="Menú principal">
+<nav id="site-menu" class="site-menu" aria-label="Menú principal" data-i18n-aria="nav.mainMenu">
   <ul class="site-menu-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="cv.html">CV</a></li>
-    <li><button type="button" data-submenu-toggle>Proyectos</button></li>
-    <li><a href="sobre-mi.html">Sobre mí</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+    <li><button type="button" data-submenu-toggle data-i18n="nav.projects">Proyectos</button></li>
+    <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
+    <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
   </ul>
-  <div class="lang-switch" role="group" aria-label="Selector de idioma">
+  <div class="lang-switch" role="group" aria-label="Selector de idioma" data-i18n-aria="nav.langSelector">
     <button type="button" class="lang-option is-active" data-lang="es">ES</button>
     <span class="lang-divider" aria-hidden="true">/</span>
     <button type="button" class="lang-option" data-lang="en">EN</button>
   </div>
 </nav>
 
-<nav id="projects-menu" class="site-menu" aria-label="Menú de proyectos">
-  <button type="button" class="submenu-back" data-submenu-back>‹ Volver</button>
+<nav id="projects-menu" class="site-menu" aria-label="Menú de proyectos" data-i18n-aria="nav.projectsMenu">
+  <button type="button" class="submenu-back" data-submenu-back data-i18n="nav.back">‹ Volver</button>
   <ul class="site-menu-links">
     <li><a href="tfg.html">TFG</a></li>
     <li><a href="rail-folding-package.html">Rail Folding Package</a></li>
@@ -44,8 +47,8 @@
 <main>
   <section class="cv-bio reveal">
     <div class="cv-bio-text-wrap">
-      <h1 class="section-title">Perfil profesional</h1>
-      <p class="cv-bio-text">
+      <h1 class="section-title" data-i18n="cv.profileTitle">Perfil profesional</h1>
+      <p class="cv-bio-text" data-i18n="cv.profileText">
         <strong>Ingeniero en Diseño Industrial</strong> con experiencia en <strong>automoción</strong> e ingeniería técnica, buscando dar el siguiente paso hacia el sector <strong>retail</strong> o <strong>diseño de producto</strong> en su estado más puro. Combino el <strong>rigor técnico, la gestión de proyectos y la documentación precisa</strong> con una fuerte sensibilidad por la <strong>forma, la función y la experiencia de usuario/cliente</strong>. <strong>Proactivo, adaptable y orientado al trabajo en equipo</strong>. Con residencia en Asturias y <strong>disponibilidad total para movilidad nacional e internacional</strong>.
       </p>
     </div>
@@ -55,31 +58,31 @@
   </section>
 
   <section class="cv-focus">
-    <h2 class="section-title reveal">Áreas de enfoque <span class="section-title-hint">dónde aporto valor</span></h2>
+    <h2 class="section-title reveal"><span data-i18n="cv.focusTitle">Áreas de enfoque</span> <span class="section-title-hint" data-i18n="cv.focusHint">dónde aporto valor</span></h2>
     <div class="cv-focus-grid" data-reveal-group>
       <div class="cv-focus-card" data-num="01">
         <span class="cv-focus-index">01</span>
-        <h3 class="cv-focus-title">Desarrollo Puro de Producto</h3>
-        <p class="cv-focus-text">Concepto, bocetado, modelado 3D de alta precisión y desarrollo técnico.</p>
-        <p class="cv-focus-text">Gestión de proyectos transversales: análisis de viabilidad, selección de materiales, optimización de costes y visualización 3D (rendering).</p>
+        <h3 class="cv-focus-title" data-i18n="cv.focus1Title">Desarrollo Puro de Producto</h3>
+        <p class="cv-focus-text" data-i18n="cv.focus1TextA">Concepto, bocetado, modelado 3D de alta precisión y desarrollo técnico.</p>
+        <p class="cv-focus-text" data-i18n="cv.focus1TextB">Gestión de proyectos transversales: análisis de viabilidad, selección de materiales, optimización de costes y visualización 3D (rendering).</p>
       </div>
       <div class="cv-focus-card" data-num="02">
         <span class="cv-focus-index">02</span>
-        <h3 class="cv-focus-title">Sector Retail, Espacio Comercial y Mobiliario</h3>
-        <p class="cv-focus-text">Mobiliario técnico, expositores (PLV), estructuras a medida y arquitectura efímera.</p>
-        <p class="cv-focus-text">Adaptación de la identidad de marca a elementos físicos tangibles, optimizando recursos, estética y costes de fabricación.</p>
+        <h3 class="cv-focus-title" data-i18n="cv.focus2Title">Sector Retail, Espacio Comercial y Mobiliario</h3>
+        <p class="cv-focus-text" data-i18n="cv.focus2TextA">Mobiliario técnico, expositores (PLV), estructuras a medida y arquitectura efímera.</p>
+        <p class="cv-focus-text" data-i18n="cv.focus2TextB">Adaptación de la identidad de marca a elementos físicos tangibles, optimizando recursos, estética y costes de fabricación.</p>
       </div>
       <div class="cv-focus-card" data-num="03">
         <span class="cv-focus-index">03</span>
-        <h3 class="cv-focus-title">Ingeniería de Alta Exigencia</h3>
-        <p class="cv-focus-text">Automoción, Defensa, Aeroespacial, Naval y Ferroviario.</p>
-        <p class="cv-focus-text">Integración en entornos dinámicos de alta precisión técnica, aplicando rigor analítico y capacidad de aprendizaje continuo con una visión holística del desarrollo de producto.</p>
+        <h3 class="cv-focus-title" data-i18n="cv.focus3Title">Ingeniería de Alta Exigencia</h3>
+        <p class="cv-focus-text" data-i18n="cv.focus3TextA">Automoción, Defensa, Aeroespacial, Naval y Ferroviario.</p>
+        <p class="cv-focus-text" data-i18n="cv.focus3TextB">Integración en entornos dinámicos de alta precisión técnica, aplicando rigor analítico y capacidad de aprendizaje continuo con una visión holística del desarrollo de producto.</p>
       </div>
     </div>
   </section>
 
   <section class="experience">
-    <h2 class="section-title reveal">Experiencia <span class="section-title-hint">haz clic en cada logo</span></h2>
+    <h2 class="section-title reveal"><span data-i18n="cv.experienceTitle">Experiencia</span> <span class="section-title-hint" data-i18n="cv.experienceHint">haz clic en cada logo</span></h2>
 
     <div class="job-tabs" role="tablist" data-reveal-group>
       <button type="button" class="job-tab" data-job-tab="renault" aria-expanded="false" aria-controls="panel-renault" aria-label="Renault Group">
@@ -98,91 +101,91 @@
 
     <div class="job-panel-wrap" data-job-panel="renault" id="panel-renault">
       <div class="job-panel-inner">
-        <h3 class="job-role">Becario NEXT-GEN – Renault Talent</h3>
+        <h3 class="job-role" data-i18n="cv.renaultRole">Becario NEXT-GEN – Renault Talent</h3>
         <a class="job-company" href="https://www.renaultgroup.com/es/" target="_blank" rel="noopener noreferrer">Renault Group</a>
-        <p class="job-meta">Sep. 2025 – Feb. 2026 · Valladolid, España</p>
-        <p class="job-description">Apoyo a la gestión técnica en vida serie para los modelos Captur y Symbioz.</p>
+        <p class="job-meta" data-i18n="cv.renaultMeta">Sep. 2025 – Feb. 2026 · Valladolid, España</p>
+        <p class="job-description" data-i18n="cv.renaultDesc">Apoyo a la gestión técnica en vida serie para los modelos Captur y Symbioz.</p>
         <ul class="job-points">
-          <li>Colaboración directa con el Jefe de Proyecto de Adaptaciones MZK.</li>
-          <li>Elaboración, control y seguimiento de documentación técnica de adaptación.</li>
-          <li>Coordinación de fases de proyecto en un entorno de automoción de alto rendimiento.</li>
+          <li data-i18n="cv.renaultPoint1">Colaboración directa con el Jefe de Proyecto de Adaptaciones MZK.</li>
+          <li data-i18n="cv.renaultPoint2">Elaboración, control y seguimiento de documentación técnica de adaptación.</li>
+          <li data-i18n="cv.renaultPoint3">Coordinación de fases de proyecto en un entorno de automoción de alto rendimiento.</li>
         </ul>
       </div>
     </div>
 
     <div class="job-panel-wrap" data-job-panel="foncueva" id="panel-foncueva">
       <div class="job-panel-inner">
-        <h3 class="job-role">Oficina Técnica</h3>
+        <h3 class="job-role" data-i18n="cv.foncuevaRole">Oficina Técnica</h3>
         <a class="job-company" href="https://www.construccionesfoncueva.com/" target="_blank" rel="noopener noreferrer">Construcciones Foncueva SL</a>
-        <p class="job-meta">Jul. 2025 – Ago. 2025 · Sariego, Asturias</p>
-        <p class="job-description">Diseño técnico industrial y supervisión de ejecución.</p>
+        <p class="job-meta" data-i18n="cv.foncuevaMeta">Jul. 2025 – Ago. 2025 · Sariego, Asturias</p>
+        <p class="job-description" data-i18n="cv.foncuevaDesc">Diseño técnico industrial y supervisión de ejecución.</p>
         <ul class="job-points">
-          <li>Diseño 3D de piezas y componentes para maquinaria industrial.</li>
-          <li>Elaboración de planos de fabricación y montaje.</li>
-          <li>Supervisión del avance de proyectos y verificación técnica sobre el terreno.</li>
+          <li data-i18n="cv.foncuevaPoint1">Diseño 3D de piezas y componentes para maquinaria industrial.</li>
+          <li data-i18n="cv.foncuevaPoint2">Elaboración de planos de fabricación y montaje.</li>
+          <li data-i18n="cv.foncuevaPoint3">Supervisión del avance de proyectos y verificación técnica sobre el terreno.</li>
         </ul>
       </div>
     </div>
 
     <div class="job-panel-wrap" data-job-panel="cosermo" id="panel-cosermo">
       <div class="job-panel-inner">
-        <h3 class="job-role">Departamento de Calidad</h3>
+        <h3 class="job-role" data-i18n="cv.cosermoRole">Departamento de Calidad</h3>
         <a class="job-company" href="https://www.cosermo.com/" target="_blank" rel="noopener noreferrer">Cosermo</a>
-        <p class="job-meta">Jul. 2024 – Ago. 2024 · Gijón, Asturias</p>
-        <p class="job-description">Garantía e inspección del sistema de calidad en taller.</p>
+        <p class="job-meta" data-i18n="cv.cosermoMeta">Jul. 2024 – Ago. 2024 · Gijón, Asturias</p>
+        <p class="job-description" data-i18n="cv.cosermoDesc">Garantía e inspección del sistema de calidad en taller.</p>
         <ul class="job-points">
-          <li>Inspecciones de calidad y verificación del cumplimiento normativo.</li>
-          <li>Enlace continuo entre la oficina de calidad y el equipo de taller.</li>
-          <li>Gestión de incidencias técnicas en el proceso de fabricación.</li>
+          <li data-i18n="cv.cosermoPoint1">Inspecciones de calidad y verificación del cumplimiento normativo.</li>
+          <li data-i18n="cv.cosermoPoint2">Enlace continuo entre la oficina de calidad y el equipo de taller.</li>
+          <li data-i18n="cv.cosermoPoint3">Gestión de incidencias técnicas en el proceso de fabricación.</li>
         </ul>
       </div>
     </div>
 
     <div class="job-panel-wrap" data-job-panel="zerotek" id="panel-zerotek">
       <div class="job-panel-inner">
-        <h3 class="job-role">Diseñador Multidisciplinar</h3>
+        <h3 class="job-role" data-i18n="cv.zerotekRole">Diseñador Multidisciplinar</h3>
         <a class="job-company" href="https://zerotek.es/" target="_blank" rel="noopener noreferrer">ZeroTeK Co.</a>
-        <p class="job-meta">Jun. 2023 – Sep. 2023 · Gijón, Asturias</p>
-        <p class="job-description">Creación de contenido visual, desarrollo web y comunicación de marca.</p>
+        <p class="job-meta" data-i18n="cv.zerotekMeta">Jun. 2023 – Sep. 2023 · Gijón, Asturias</p>
+        <p class="job-description" data-i18n="cv.zerotekDesc">Creación de contenido visual, desarrollo web y comunicación de marca.</p>
         <ul class="job-points">
-          <li>Diseño y desarrollo de sitios web sobre WordPress.</li>
-          <li>Producción fotográfica, edición de vídeo y material gráfico digital.</li>
-          <li>Implementación de identidad visual según las necesidades del cliente.</li>
+          <li data-i18n="cv.zerotekPoint1">Diseño y desarrollo de sitios web sobre WordPress.</li>
+          <li data-i18n="cv.zerotekPoint2">Producción fotográfica, edición de vídeo y material gráfico digital.</li>
+          <li data-i18n="cv.zerotekPoint3">Implementación de identidad visual según las necesidades del cliente.</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section class="education">
-    <h2 class="section-title reveal">Formación</h2>
+    <h2 class="section-title reveal" data-i18n="cv.educationTitle">Formación</h2>
     <div class="education-card reveal">
       <div class="education-main">
         <div class="education-logos">
           <img class="education-logo education-logo-uva" src="CV/UniversidadValladolid.webp" alt="Universidad de Valladolid">
           <img class="education-logo education-logo-eii" src="CV/eii Uva.webp" alt="Escuela de Ingenierías Industriales">
         </div>
-        <h3 class="education-degree">Grado en Ingeniería en Diseño Industrial y<br>Desarrollo de Producto</h3>
-        <p class="education-institution">Universidad de Valladolid</p>
+        <h3 class="education-degree" data-i18n="cv.degree">Grado en Ingeniería en Diseño Industrial y<br>Desarrollo de Producto</h3>
+        <p class="education-institution" data-i18n="cv.university">Universidad de Valladolid</p>
         <p class="job-meta">2021 – 2026</p>
-        <a class="education-tfg" href="tfg.html">TFG: «Belleza y velocidad: el diseño automovilístico como expresión estética»</a>
+        <a class="education-tfg" href="tfg.html" data-i18n="cv.tfgLink">TFG: «Belleza y velocidad: el diseño automovilístico como expresión estética»</a>
       </div>
       <ul class="education-awards" data-reveal-group>
         <li>
           <a class="education-award" href="rail-folding-package.html">
             <img class="education-award-logo" src="CV/Worldstar.webp" alt="">
-            <span>Speciality Packaging Bronze Award, WorldStar Student (2025)</span>
+            <span data-i18n="cv.award1">Speciality Packaging Bronze Award, WorldStar Student (2025)</span>
           </a>
         </li>
         <li>
           <a class="education-award" href="rail-folding-package.html">
             <img class="education-award-logo" src="CV/Liderpack.png" alt="">
-            <span>Premio Liderpack, Diseño Joven (2024)</span>
+            <span data-i18n="cv.award2">Premio Liderpack, Diseño Joven (2024)</span>
           </a>
         </li>
         <li>
           <a class="education-award" href="rail-folding-package.html">
             <img class="education-award-logo" src="CV/envase y embalaje.png" alt="">
-            <span>Finalista, XV Premios Nacionales de Envase y Embalaje (2024)</span>
+            <span data-i18n="cv.award3">Finalista, XV Premios Nacionales de Envase y Embalaje (2024)</span>
           </a>
         </li>
       </ul>
@@ -190,7 +193,7 @@
   </section>
 
   <section class="software">
-    <h2 class="section-title reveal">Software</h2>
+    <h2 class="section-title reveal" data-i18n="cv.softwareTitle">Software</h2>
     <div class="software-marquee reveal">
       <div class="software-track">
         <div class="software-card">
@@ -270,42 +273,42 @@
   </section>
 
   <section class="additional-training">
-    <h2 class="section-title reveal">Formación Complementaria</h2>
+    <h2 class="section-title reveal" data-i18n="cv.trainingTitle">Formación Complementaria</h2>
     <ul class="training-list" data-reveal-group>
       <li class="training-item">
         <img class="training-icon" src="CV/inglés.svg" alt="">
-        <span>Inglés B2</span>
+        <span data-i18n="cv.training1">Inglés B2</span>
       </li>
       <li class="training-item">
         <img class="training-icon" src="CV/michelin.png" alt="">
-        <span>Curso Michelin Soft Skills (2026)</span>
+        <span data-i18n="cv.training2">Curso Michelin Soft Skills (2026)</span>
       </li>
       <li class="training-item">
         <img class="training-icon" src="CV/Carnet.webp" alt="">
-        <span>Carnet de conducir y coche propio</span>
+        <span data-i18n="cv.training3">Carnet de conducir y coche propio</span>
       </li>
     </ul>
   </section>
 
   <section class="cv-download">
     <div class="cv-download-actions" data-reveal-group>
-      <a class="cv-download-link" href="cv/CV_Nicolas_Vazquez.pdf" target="_blank" rel="noopener noreferrer">
+      <a class="cv-download-link" href="CV/CV_Nicolas_Vazquez.pdf" target="_blank" rel="noopener noreferrer">
         <span class="cv-download-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 4v10m0 0l-3.5-3.5M12 14l3.5-3.5"></path>
             <path d="M5 18h14"></path>
           </svg>
         </span>
-        CV en PDF
+        <span data-i18n="cv.downloadEs">CV en PDF</span>
       </a>
-      <a class="cv-download-link" href="cv/CV_Nicolas_Vazquez_EN.pdf" target="_blank" rel="noopener noreferrer">
+      <a class="cv-download-link" href="CV/CV_Nicolas_Vazquez_EN.pdf" target="_blank" rel="noopener noreferrer">
         <span class="cv-download-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 4v10m0 0l-3.5-3.5M12 14l3.5-3.5"></path>
             <path d="M5 18h14"></path>
           </svg>
         </span>
-        CV in English
+        <span data-i18n="cv.downloadEn">CV in English</span>
       </a>
     </div>
   </section>
@@ -313,16 +316,19 @@
 
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <img class="site-footer-logo" src="imagenes/nvg-blanco-nombre.webp" alt="Nicolás Vázquez García">
-    <nav class="site-footer-nav" aria-label="Pie de página">
-      <a href="cv.html">CV</a>
-      <a href="tfg.html">Proyectos</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="contacto.html">Contacto</a>
+    <a class="site-footer-logo-link" href="index.html" aria-label="Inicio" data-i18n-aria="nav.home">
+      <img class="site-footer-logo" src="imagenes/nvg-blanco-nombre.webp" alt="Nicolás Vázquez García">
+    </a>
+    <nav class="site-footer-nav" aria-label="Pie de página" data-i18n-aria="nav.footer">
+      <a href="cv.html" data-i18n="nav.cv">CV</a>
+      <button type="button" data-submenu-toggle data-i18n="nav.projects">Proyectos</button>
+      <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
     </nav>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

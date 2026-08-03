@@ -518,6 +518,30 @@ html:has(body.hero-page) {
   color: #ffffff;
 }
 
+/* El mismo selector ES/EN del menú, pero sobre el rojo de la portada: aquí
+   el activo va en blanco (en el menú, sobre fondo oscuro, va en claro). */
+.lang-switch--hero {
+  margin-top: clamp(4px, 1.2vw, 12px);
+  font-size: clamp(13px, 1.2vw, 15px);
+}
+
+.lang-switch--hero .lang-option {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.15s ease;
+}
+
+.lang-switch--hero .lang-option:hover {
+  color: #ffffff;
+}
+
+.lang-switch--hero .lang-option.is-active {
+  color: #ffffff;
+}
+
+.lang-switch--hero .lang-divider {
+  color: rgba(255, 255, 255, 0.45);
+}
+
 @media (max-width: 760px) {
   .hero-split {
     flex-direction: column;
@@ -3766,6 +3790,12 @@ body.page-lime .contact-location-icon svg {
   flex-wrap: wrap;
 }
 
+/* Flex para que los márgenes negativos del logo (que recortan su aire
+   sobrante) sigan definiendo el alto ahora que va envuelto en un enlace. */
+.site-footer-logo-link {
+  display: flex;
+}
+
 .site-footer-logo {
   height: 104px;
   width: auto;
@@ -3775,11 +3805,19 @@ body.page-lime .contact-location-icon svg {
 .site-footer-nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: clamp(16px, 3vw, 40px);
 }
 
-.site-footer-nav a {
+/* "Proyectos" es un <button> (abre el submenú) y el resto enlaces: se
+   igualan aquí para que no se distinga ninguno del resto. */
+.site-footer-nav a,
+.site-footer-nav button {
   position: relative;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -3788,7 +3826,8 @@ body.page-lime .contact-location-icon svg {
   transition: color 0.15s ease;
 }
 
-.site-footer-nav a::after {
+.site-footer-nav a::after,
+.site-footer-nav button::after {
   content: "";
   position: absolute;
   left: 0;
@@ -3801,11 +3840,13 @@ body.page-lime .contact-location-icon svg {
   transition: transform 0.3s ease;
 }
 
-.site-footer-nav a:hover {
+.site-footer-nav a:hover,
+.site-footer-nav button:hover {
   color: var(--color-accent);
 }
 
-.site-footer-nav a:hover::after {
+.site-footer-nav a:hover::after,
+.site-footer-nav button:hover::after {
   transform: scaleX(1);
 }
 
