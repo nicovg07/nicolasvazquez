@@ -211,7 +211,7 @@ if (revealEls.length && 'IntersectionObserver' in window) {
 // (una franja clara en una página oscura, o al revés): mientras estén
 // bajo el botón de menú fijo, la clase "nav-dark" deja que el CSS de
 // cada página decida cómo recolorear ese botón para que siga visible.
-const navContrastSections = document.querySelectorAll('.tfg-statement, .rail-challenge');
+const navContrastSections = document.querySelectorAll('.tfg-statement');
 if (navContrastSections.length && 'IntersectionObserver' in window) {
   const navObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -238,7 +238,7 @@ if (scrollProgressBar) {
 }
 
 if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  document.querySelectorAll('.job-tab, .tfg-gallery-item, .software-card, .about-focus-card, .bento-shot, .rail-frame:not(.rail-frame-static)').forEach((card) => {
+  document.querySelectorAll('.job-tab, .tfg-gallery-item, .software-card, .cv-focus-card, .bento-shot, .rail-frame:not(.rail-frame-static)').forEach((card) => {
     const maxTilt = 6;
     let targetX = 0;
     let targetY = 0;
@@ -277,7 +277,11 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   document.querySelectorAll('.about-cta-link').forEach((link) => {
     const inner = link.querySelector('.about-cta-link-inner');
     if (!inner) return;
-    const strength = 0.3;
+    /* Suave y con tope: la pastilla tiene fondo propio, así que un
+       desplazamiento grande la sacaría de su sitio y chocaría con la de al lado. */
+    const strength = 0.12;
+    const maxOffset = 10;
+    const clampOffset = (value) => Math.max(-maxOffset, Math.min(maxOffset, value));
     let targetX = 0;
     let targetY = 0;
     let currentX = 0;
@@ -295,8 +299,8 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
 
     link.addEventListener('mousemove', (event) => {
       const rect = link.getBoundingClientRect();
-      targetX = ((event.clientX - rect.left) - rect.width / 2) * strength;
-      targetY = ((event.clientY - rect.top) - rect.height / 2) * strength;
+      targetX = clampOffset(((event.clientX - rect.left) - rect.width / 2) * strength);
+      targetY = clampOffset(((event.clientY - rect.top) - rect.height / 2) * strength);
       if (!magnetRaf) magnetRaf = requestAnimationFrame(loop);
     });
 
@@ -371,22 +375,4 @@ if (stepGroup) {
 
   stepDots.forEach((dot, i) => dot.addEventListener('click', () => showStep(i)));
   showStep(0);
-}
-
-/* Si la captura de 3ds Max aún no está subida, la tarjeta muestra el hueco */
-const processCard = document.querySelector('[data-process]');
-if (processCard) {
-  const processImg = processCard.querySelector('[data-process-img]');
-  const markMissing = () => {
-    processCard.classList.add('is-missing');
-    const trigger = processCard.querySelector('.process-stage');
-    if (trigger) trigger.disabled = true;
-  };
-
-  if (!processImg) {
-    markMissing();
-  } else {
-    processImg.addEventListener('error', markMissing);
-    if (processImg.complete && processImg.naturalWidth === 0) markMissing();
-  }
 }

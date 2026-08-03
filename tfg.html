@@ -43,10 +43,25 @@
 
 <main>
   <section class="tfg">
-    <div class="tfg-hero reveal">
-      <h1 class="tfg-hero-title">Belleza <span class="tfg-hero-accent">y</span> velocidad</h1>
-      <p class="tfg-hero-subtitle">el diseño automovilístico como expresión estética</p>
-    </div>
+
+    <!-- Cabecera: portada del libro, defensa, título y tesis -->
+    <section class="tfg-cover">
+      <div class="tfg-cover-text reveal">
+        <p class="tfg-cover-eyebrow">Trabajo Fin de Grado · Ingeniería en Diseño Industrial y Desarrollo de Producto · Universidad de Valladolid</p>
+        <h1 class="tfg-cover-title">Belleza y velocidad<span>el diseño automovilístico como expresión estética</span></h1>
+        <p class="tfg-cover-thesis">La belleza automotriz no es un adorno, sino el resultado directo de resolver retos físicos y mecánicos: la estética es la consecuencia de una ingeniería brillante.</p>
+        <p class="tfg-cover-note">Publicación en curso — esto es solo un adelanto del proyecto completo.</p>
+      </div>
+      <div class="tfg-cover-media reveal">
+        <figure class="tfg-cover-figure">
+          <img src="imagenes/tfg/portada-libro.webp" width="1200" height="1698" decoding="async" alt="Portada del libro Belleza y velocidad, con un Ferrari 250 GTO rojo">
+        </figure>
+        <figure class="tfg-cover-figure tfg-cover-defensa">
+          <img src="imagenes/tfg/defensa-tfg.webp" width="1000" height="1764" decoding="async" alt="Nicolás Vázquez García durante la defensa de su Trabajo Fin de Grado">
+          <figcaption>Defensa del TFG, 2026</figcaption>
+        </figure>
+      </div>
+    </section>
 
     <div class="tfg-statement">
       <div class="tfg-statement-inner reveal">
@@ -54,112 +69,79 @@
         <p class="tfg-statement-body">Un recorrido por los coches del pueblo, las leyendas de los años 60 y el impacto del diseño automotriz en la relojería, accesorios y la arquitectura.</p>
         <p class="tfg-statement-conclusion">La belleza no es un añadido: es la consecuencia de una ingeniería brillante.</p>
       </div>
+      <img class="tfg-statement-art" src="imagenes/tfg/250gto-statement.webp" width="1600" height="725" loading="lazy" decoding="async" alt="" aria-hidden="true">
     </div>
 
+    <!-- Los tres bloques: puerta de entrada a las páginas de detalle -->
     <div class="tfg-block reveal">
-      <h2 class="tfg-block-title">Coches del pueblo</h2>
-      <div class="tfg-grid" data-reveal-group>
-        <article class="tfg-card" data-theme="beetle">
-          <div class="tfg-placeholder"><span>Beetle</span></div>
-          <div class="tfg-overlay"><span>Beetle</span></div>
-        </article>
-        <article class="tfg-card" data-theme="2cv">
-          <div class="tfg-placeholder"><span>2CV</span></div>
-          <div class="tfg-overlay"><span>2CV</span></div>
-        </article>
-        <article class="tfg-card" data-theme="fiat-500">
-          <div class="tfg-placeholder"><span>Fiat 500</span></div>
-          <div class="tfg-overlay"><span>Fiat 500</span></div>
-        </article>
-        <article class="tfg-card" data-theme="mini">
-          <div class="tfg-placeholder"><span>Mini</span></div>
-          <div class="tfg-overlay"><span>Mini</span></div>
-        </article>
+      <h2 class="tfg-block-title">Los tres bloques</h2>
+      <div class="tfg-features" data-reveal-group>
+
+        <a class="tfg-feature" href="tfg-coches-del-pueblo.html">
+          <img src="imagenes/tfg/coches-del-pueblo/campos-eliseos.webp" width="1350" height="766" loading="lazy" decoding="async" alt="Coches de época en la avenida de los Campos Elíseos de París, con el Arco de Triunfo al fondo">
+          <span class="tfg-feature-veil"></span>
+          <span class="tfg-feature-body">
+            <span class="tfg-feature-index">Bloque 01</span>
+            <h3 class="tfg-feature-title">Coches del pueblo</h3>
+            <span class="tfg-feature-reveal"><span>
+              <span class="tfg-feature-line">Cómo Beetle, 2CV, Fiat 500 y Mini demostraron que la escasez es compatible con la excelencia.</span>
+              <span class="tfg-feature-cue">Ver bloque →</span>
+            </span></span>
+          </span>
+        </a>
+
+        <a class="tfg-feature" href="tfg-trilogia-velocidad.html">
+          <img src="imagenes/tfg/trilogia-velocidad/lamborghini-miura.webp" width="1600" height="814" loading="lazy" decoding="async" alt="Lamborghini Miura con las puertas del capó abiertas">
+          <span class="tfg-feature-veil"></span>
+          <span class="tfg-feature-body">
+            <span class="tfg-feature-index">Bloque 02</span>
+            <h3 class="tfg-feature-title">Iconos de la velocidad. La década de 1960</h3>
+            <span class="tfg-feature-reveal"><span>
+              <span class="tfg-feature-line">Cómo la década de 1960 esculpió tres iconos de la velocidad: Jaguar E-Type, Ferrari 250 GTO y Lamborghini Miura.</span>
+              <span class="tfg-feature-cue">Ver bloque →</span>
+            </span></span>
+          </span>
+        </a>
+
+        <a class="tfg-feature" href="tfg-objeto-industrial.html">
+          <img src="imagenes/tfg/objeto-industrial/mcqueen-le-mans.webp" width="1600" height="1052" loading="lazy" decoding="async" alt="Steve McQueen junto a un Porsche 917 con los colores de Gulf">
+          <span class="tfg-feature-veil"></span>
+          <span class="tfg-feature-body">
+            <span class="tfg-feature-index">Bloque 03</span>
+            <h3 class="tfg-feature-title">Influencia como objeto industrial</h3>
+            <span class="tfg-feature-reveal"><span>
+              <span class="tfg-feature-line">De los relojes de Steve McQueen a la sede de BMW: cuando la estética del motor contagia todo lo demás.</span>
+              <span class="tfg-feature-cue">Ver bloque →</span>
+            </span></span>
+          </span>
+        </a>
+
       </div>
     </div>
 
-    <div class="tfg-block reveal">
-      <h2 class="tfg-block-title">Iconos de la velocidad (años 60)</h2>
-      <div class="tfg-grid" data-reveal-group>
-        <article class="tfg-card" data-theme="jaguar-e-type">
-          <div class="tfg-placeholder"><span>Jaguar E-Type</span></div>
-          <div class="tfg-overlay"><span>Jaguar E-Type</span></div>
-        </article>
-        <article class="tfg-card" data-theme="ferrari-250-gto">
-          <div class="tfg-placeholder"><span>Ferrari 250 GTO</span></div>
-          <div class="tfg-overlay"><span>Ferrari 250 GTO</span></div>
-        </article>
-        <article class="tfg-card" data-theme="lamborghini-miura">
-          <div class="tfg-placeholder"><span>Lamborghini Miura</span></div>
-          <div class="tfg-overlay"><span>Lamborghini Miura</span></div>
-        </article>
-      </div>
+    <div class="tfg-block tfg-gallery-head reveal" id="galeria">
+      <h2 class="tfg-block-title">Galería completa del libro</h2>
     </div>
 
-    <div class="tfg-block reveal">
-      <h2 class="tfg-block-title">Influencia como objeto industrial</h2>
-      <div class="tfg-grid" data-reveal-group>
-        <article class="tfg-card" data-theme="rolex-daytona">
-          <div class="tfg-placeholder"><span>Rolex Daytona</span></div>
-          <div class="tfg-overlay"><span>Rolex Daytona</span></div>
-        </article>
-        <article class="tfg-card" data-theme="omega-speedmaster">
-          <div class="tfg-placeholder"><span>Omega Speedmaster</span></div>
-          <div class="tfg-overlay"><span>Omega Speedmaster</span></div>
-        </article>
-        <article class="tfg-card" data-theme="tag-heuer-monaco">
-          <div class="tfg-placeholder"><span>TAG Heuer Monaco</span></div>
-          <div class="tfg-overlay"><span>TAG Heuer Monaco</span></div>
-        </article>
-        <article class="tfg-card" data-theme="porsche-design-chronograph">
-          <div class="tfg-placeholder"><span>Porsche Design Chronograph</span></div>
-          <div class="tfg-overlay"><span>Porsche Design Chronograph</span></div>
-        </article>
-        <article class="tfg-card" data-theme="persol-714">
-          <div class="tfg-placeholder"><span>Persol 714</span></div>
-          <div class="tfg-overlay"><span>Persol 714</span></div>
-        </article>
-        <article class="tfg-card" data-theme="equipaje-schedoni">
-          <div class="tfg-placeholder"><span>Equipaje Schedoni</span></div>
-          <div class="tfg-overlay"><span>Equipaje Schedoni</span></div>
-        </article>
-        <article class="tfg-card" data-theme="estilo-googie">
-          <div class="tfg-placeholder"><span>Estilo Googie</span></div>
-          <div class="tfg-overlay"><span>Estilo Googie</span></div>
-        </article>
-        <article class="tfg-card" data-theme="terminal-twa">
-          <div class="tfg-placeholder"><span>Terminal TWA</span></div>
-          <div class="tfg-overlay"><span>Terminal TWA</span></div>
-        </article>
-        <article class="tfg-card" data-theme="autogrill-pavesi">
-          <div class="tfg-placeholder"><span>Autogrill Pavesi</span></div>
-          <div class="tfg-overlay"><span>Autogrill Pavesi</span></div>
-        </article>
-        <article class="tfg-card" data-theme="bmw-munich">
-          <div class="tfg-placeholder"><span>Sede BMW Múnich</span></div>
-          <div class="tfg-overlay"><span>Sede BMW Múnich</span></div>
-        </article>
-      </div>
-    </div>
-
+    <!-- Galería existente con lightbox: se conserva sin modificar -->
     <div class="tfg-gallery" data-reveal-group>
-      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/bmw.jpeg" aria-label="Ampliar imagen del proyecto">
-        <img src="imagenes/tfg/bmw.jpeg" alt="">
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/bmw.webp" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/bmw.webp" alt="">
       </button>
-      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/ferrari.jpeg" aria-label="Ampliar imagen del proyecto">
-        <img src="imagenes/tfg/ferrari.jpeg" alt="">
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/ferrari.webp" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/ferrari.webp" alt="">
       </button>
-      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/ferrari2.jpeg" aria-label="Ampliar imagen del proyecto">
-        <img src="imagenes/tfg/ferrari2.jpeg" alt="">
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/ferrari2.webp" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/ferrari2.webp" alt="">
       </button>
-      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/mcqueen.jpeg" aria-label="Ampliar imagen del proyecto">
-        <img src="imagenes/tfg/mcqueen.jpeg" alt="">
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/mcqueen.webp" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/mcqueen.webp" alt="">
       </button>
-      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/mini.jpeg" aria-label="Ampliar imagen del proyecto">
-        <img src="imagenes/tfg/mini.jpeg" alt="">
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/mini.webp" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/mini.webp" alt="">
       </button>
-      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/miura.jpeg" aria-label="Ampliar imagen del proyecto">
-        <img src="imagenes/tfg/miura.jpeg" alt="">
+      <button type="button" class="tfg-gallery-item" data-lightbox-src="imagenes/tfg/miura.webp" aria-label="Ampliar imagen del proyecto">
+        <img src="imagenes/tfg/miura.webp" alt="">
       </button>
     </div>
   </section>
@@ -167,7 +149,7 @@
 
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <img class="site-footer-logo" src="imagenes/NVG_blanco_nombre.png" alt="Nicolás Vázquez García">
+    <img class="site-footer-logo" src="imagenes/nvg-blanco-nombre.webp" alt="Nicolás Vázquez García">
     <nav class="site-footer-nav" aria-label="Pie de página">
       <a href="cv.html">CV</a>
       <a href="tfg.html">Proyectos</a>

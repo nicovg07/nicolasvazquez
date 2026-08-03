@@ -1,0 +1,35 @@
+# =====================================================================
+#  Material fuente del TFG — NO SUBIR AL REPOSITORIO
+# =====================================================================
+# El libro "Belleza y velocidad" se publica próximamente con una
+# editorial. Ni el PDF completo, ni el guion de la defensa, ni las
+# páginas interiores del libro deben entrar en git:
+#
+#   - En un repositorio público, cualquier archivo queda accesible por
+#     su URL directa aunque no se enlace desde ninguna página.
+#   - Un archivo commiteado permanece en el historial aunque después se
+#     borre de la carpeta: se recupera con git log / git show.
+#
+# Archivos afectados hoy:
+#   TFG_completo_ Belleza y velocidad ... .pdf   libro entero (144 MB)
+#   Copia de guión tfg.pdf                       guion de la defensa
+#   TFG_03096-8_page-0001.jpg                    índice del libro
+imagenes/tfg/*.pdf
+imagenes/tfg/TFG_*.jpg
+
+# Nota: estas reglas NO afectan a las imágenes ya procesadas para la web
+# (imagenes/tfg/coches-del-pueblo/, trilogia-velocidad/ y
+# objeto-industrial/), porque "*" no cruza barras de directorio.
+
+# =====================================================================
+#  Herramientas locales
+# =====================================================================
+.claude/settings.local.json
+
+# =====================================================================
+#  Sistema operativo
+# =====================================================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

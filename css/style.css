@@ -598,6 +598,21 @@ body.page-red .menu-toggle[aria-expanded="true"] .menu-toggle-bar {
   background: #ffffff;
 }
 
+/* El menú abierto toma el rojo de marca de esta página, igual que en
+   Rail Folding Package usa su verde. El texto por defecto (var(--color-bg),
+   blanco) ya funciona sobre este rojo -- toda la página lo usa --, pero el
+   rojo de acento del hover por defecto casi no se distingue sobre el rojo
+   de marca, así que aquí se oscurece. */
+body.page-red .site-menu {
+  background: var(--color-brand);
+}
+
+body.page-red .site-menu-links a:hover,
+body.page-red .site-menu-links button:hover,
+body.page-red .submenu-back:hover {
+  color: #111111;
+}
+
 body.page-red .tfg-block-title {
   color: rgba(255, 255, 255, 0.85);
 }
@@ -612,11 +627,13 @@ body.page-red .tfg-block-title {
 }
 
 .tfg-statement {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  overflow: hidden;
   scroll-snap-align: start;
   margin-left: calc(-1 * clamp(24px, 8vw, 120px));
   margin-right: calc(-1 * clamp(24px, 8vw, 120px));
@@ -625,8 +642,33 @@ body.page-red .tfg-block-title {
 }
 
 .tfg-statement-inner {
+  position: relative;
+  z-index: 1;
   max-width: 680px;
   text-align: left;
+}
+
+/* Ferrari 250 GTO pegado al margen derecho: la propia foto ya viene
+   recortada a media carrocería, así que el corte hace de sangrado natural
+   contra el borde de la pantalla. */
+.tfg-statement-art {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: 0;
+  width: clamp(280px, 34vw, 560px);
+  height: auto;
+  transform: translateY(-50%);
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.22));
+  pointer-events: none;
+}
+
+/* Con el texto a max-width:680px, por debajo de este ancho no queda
+   hueco a la derecha sin que el coche invada las líneas. */
+@media (max-width: 1250px) {
+  .tfg-statement-art {
+    display: none;
+  }
 }
 
 .tfg-statement-lead {
@@ -734,7 +776,7 @@ body.has-js .reveal.is-visible {
   overflow: hidden;
   padding: 0;
   border: none;
-  border-radius: 2px;
+  border-radius: 10px;
   background: #f2f2f2;
   transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
   transition: transform 0.5s ease;
@@ -780,6 +822,7 @@ body.has-js .reveal.is-visible {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
+  border-radius: 10px;
   background: #f2f2f2;
 }
 
@@ -788,6 +831,12 @@ body.has-js .reveal.is-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.tfg-card--photo img {
+  object-fit: contain;
+  padding: clamp(14px, 2.4vw, 32px);
+  background: #f2f2f2;
 }
 
 .tfg-placeholder {
@@ -832,6 +881,493 @@ body.has-js .reveal.is-visible {
   text-transform: uppercase;
   text-align: center;
   color: #ffffff;
+}
+
+/* --- TFG: cabecera con portada del libro y foto de la defensa ----------- */
+
+.tfg-cover {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+  min-height: 100vh;
+  padding: clamp(96px, 14vh, 150px) 0 clamp(48px, 8vh, 88px);
+  scroll-snap-align: start;
+}
+
+.tfg-cover-eyebrow {
+  margin: 0 0 clamp(20px, 2.4vw, 30px);
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tfg-cover-title {
+  margin: 0;
+  font-family: var(--font-family-alt);
+  font-size: clamp(34px, 4.6vw, 68px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.tfg-cover-title span {
+  display: block;
+  margin-top: 0.28em;
+  font-size: 0.44em;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #111111;
+}
+
+.tfg-cover-thesis {
+  margin: clamp(26px, 3vw, 38px) 0 0;
+  padding-left: clamp(16px, 1.6vw, 22px);
+  border-left: 3px solid #111111;
+  max-width: 46ch;
+  font-size: clamp(16px, 1.45vw, 21px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.tfg-cover-note {
+  margin: clamp(22px, 2.6vw, 32px) 0 0;
+  font-size: clamp(12px, 1.05vw, 14px);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.tfg-cover-media {
+  display: grid;
+  /* La portada (0.71:1) es más ancha de proporción que la foto de la
+     defensa (0.57:1): con este reparto ambas acaban a la misma altura. */
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(14px, 1.8vw, 26px);
+  align-items: start;
+}
+
+.tfg-cover-figure {
+  margin: 0;
+}
+
+.tfg-cover-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 30px 64px -30px rgba(0, 0, 0, 0.6);
+}
+
+.tfg-cover-figure figcaption {
+  margin-top: 12px;
+  font-size: clamp(11px, 0.95vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* --- TFG: las tres tarjetas de entrada a los bloques -------------------- */
+
+.tfg-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.8vw, 26px);
+}
+
+.tfg-feature {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  border-radius: 10px;
+  background: #f2f2f2;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.tfg-feature img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1), filter 0.5s ease;
+}
+
+.tfg-feature:hover img,
+.tfg-feature:focus-visible img {
+  transform: scale(1.06);
+  filter: blur(3px) brightness(0.5);
+}
+
+.tfg-feature-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78) 4%, rgba(0, 0, 0, 0) 62%);
+  transition: background 0.45s ease;
+}
+
+.tfg-feature:hover .tfg-feature-veil,
+.tfg-feature:focus-visible .tfg-feature-veil {
+  background: rgba(10, 10, 12, 0.32);
+}
+
+.tfg-feature-body {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: clamp(18px, 2.1vw, 30px);
+}
+
+.tfg-feature-index {
+  display: block;
+  margin-bottom: 8px;
+  font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.tfg-feature-title {
+  margin: 0;
+  font-size: clamp(19px, 1.75vw, 28px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+/* El texto se despliega en hover: grid 0fr -> 1fr anima la altura sin
+   tener que fijar un max-height a ojo. */
+.tfg-feature-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.tfg-feature:hover .tfg-feature-reveal,
+.tfg-feature:focus-visible .tfg-feature-reveal {
+  grid-template-rows: 1fr;
+}
+
+.tfg-feature-reveal > * {
+  overflow: hidden;
+}
+
+.tfg-feature-line {
+  display: block;
+  margin: 12px 0 0;
+  max-width: 34ch;
+  font-size: clamp(13px, 1.05vw, 15px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease 0.08s, transform 0.4s ease 0.08s;
+}
+
+.tfg-feature-cue {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease 0.16s, transform 0.4s ease 0.16s;
+}
+
+.tfg-feature:hover .tfg-feature-line,
+.tfg-feature:focus-visible .tfg-feature-line,
+.tfg-feature:hover .tfg-feature-cue,
+.tfg-feature:focus-visible .tfg-feature-cue {
+  opacity: 1;
+  transform: none;
+}
+
+/* Sin hover (tactil) no hay forma de revelar: se muestra siempre */
+@media (hover: none) {
+  .tfg-feature-reveal {
+    grid-template-rows: 1fr;
+  }
+
+  .tfg-feature-line,
+  .tfg-feature-cue {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .tfg-cover {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .tfg-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- TFG: accesorios con la misma anatomía que .tfg-feature, pero con alto
+   explícito en vez de aspect-ratio, porque estas descripciones son mucho
+   más largas que las de "Los tres bloques" y no cabrían en 3/2. --------- */
+.tfg-accessory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: clamp(300px, 24vw, 380px);
+  gap: clamp(14px, 1.8vw, 26px);
+}
+
+.tfg-feature.tfg-accessory-card {
+  aspect-ratio: auto;
+  background: linear-gradient(155deg, #2b2b32, #131317);
+}
+
+@media (max-width: 860px) {
+  .tfg-accessory-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: clamp(300px, 46vw, 340px);
+  }
+}
+
+@media (max-width: 560px) {
+  .tfg-accessory-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: clamp(280px, 90vw, 380px);
+  }
+}
+
+/* Arquitectura: mismas tarjetas, pero solo 4 piezas -> 2 columnas anchas
+   en vez de 3, que además encajan mejor con fotos de edificios apaisadas. */
+.tfg-architecture-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: clamp(280px, 22vw, 380px);
+  gap: clamp(14px, 1.8vw, 26px);
+}
+
+@media (max-width: 700px) {
+  .tfg-architecture-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: clamp(300px, 78vw, 400px);
+  }
+}
+
+/* Encabezado de la galería del libro. Va como hermano previo para no tener
+   que tocar el marcado de la galería, que se conserva tal cual. */
+.tfg-gallery-head {
+  margin-top: clamp(56px, 8vh, 100px);
+}
+
+.tfg-gallery-head + .tfg-gallery {
+  margin-top: 24px;
+}
+
+/* --- Páginas de detalle de cada bloque ---------------------------------- */
+
+/* Las páginas de detalle son de lectura larga: el scroll-snap que hereda
+   .page-red de la portada del TFG estorba, así que aquí se desactiva. */
+html:has(body.page-detail) {
+  scroll-snap-type: none;
+}
+
+.detail {
+  padding: 0 clamp(24px, 8vw, 120px) clamp(64px, 9vh, 110px);
+}
+
+.detail-hero {
+  padding: clamp(104px, 15vh, 168px) 0 clamp(40px, 6vh, 72px);
+}
+
+.detail-back {
+  display: inline-block;
+  margin-bottom: clamp(24px, 3vw, 40px);
+  font-size: clamp(12px, 1.05vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.detail-back:hover,
+.detail-back:focus-visible {
+  color: #ffffff;
+}
+
+.detail-eyebrow {
+  margin: 0 0 16px;
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+.detail-title {
+  margin: 0;
+  max-width: 18ch;
+  font-family: var(--font-family-alt);
+  font-size: clamp(40px, 6.4vw, 96px);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.detail-lead {
+  margin: clamp(24px, 3vw, 36px) 0 0;
+  max-width: 52ch;
+  font-size: clamp(17px, 1.6vw, 24px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(14px, 1.8vw, 24px);
+}
+
+.detail-shot {
+  --rx: 0deg;
+  --ry: 0deg;
+  display: block;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: #f2f2f2;
+  cursor: zoom-in;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.5s ease;
+}
+
+.detail-shot:hover {
+  transition-duration: 0.15s;
+}
+
+.detail-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.detail-shot:hover img,
+.detail-shot:focus-visible img {
+  transform: scale(1.05);
+  opacity: 0.92;
+}
+
+/* Banda blanca para el texto: en rojo sobre blanco se lee mucho mejor
+   un bloque largo que en blanco sobre rojo. */
+.detail-body {
+  margin: clamp(56px, 8vh, 104px) calc(-1 * clamp(24px, 8vw, 120px)) 0;
+  padding: clamp(56px, 8vh, 96px) clamp(24px, 8vw, 120px);
+  background: #ffffff;
+}
+
+.detail-body-inner {
+  max-width: 44rem;
+}
+
+.detail-body p {
+  margin: 0 0 clamp(20px, 2.4vw, 28px);
+  font-size: clamp(16px, 1.35vw, 20px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: #111111;
+}
+
+.detail-body p:last-child {
+  margin-bottom: 0;
+}
+
+.detail-body p strong {
+  font-weight: 700;
+  color: var(--color-brand);
+}
+
+.detail-closing {
+  margin: clamp(28px, 3.6vw, 44px) 0 0;
+  padding-top: clamp(20px, 2.4vw, 28px);
+  border-top: 1px solid rgba(17, 17, 17, 0.14);
+  font-size: clamp(14px, 1.15vw, 16px);
+  font-style: italic;
+  color: #6a6a6a;
+}
+
+.detail-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+  margin-top: clamp(48px, 7vh, 88px);
+}
+
+.detail-cta {
+  display: inline-block;
+  padding: 14px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  font-size: clamp(12px, 1.05vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.detail-cta:hover,
+.detail-cta:focus-visible {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: var(--color-brand);
+}
+
+.detail-cta--solid {
+  border-color: #111111;
+  background: #111111;
+}
+
+.detail-cta--solid:hover,
+.detail-cta--solid:focus-visible {
+  border-color: #111111;
+  background: transparent;
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tfg-feature img,
+  .tfg-feature-reveal,
+  .tfg-feature-line,
+  .tfg-feature-cue,
+  .detail-shot,
+  .detail-shot img {
+    transition-duration: 0.01ms;
+  }
+
+  .detail-shot {
+    transform: none;
+  }
 }
 
 /* CV */
@@ -914,6 +1450,7 @@ body.page-cv .cv-bio {
   scroll-snap-align: start;
 }
 
+body.page-cv .cv-focus,
 body.page-cv .experience {
   scroll-snap-align: start;
 }
@@ -1024,7 +1561,42 @@ body.page-dark .menu-toggle-bar {
 }
 
 body.page-dark .menu-toggle:hover .menu-toggle-bar {
-  background: var(--color-accent);
+  background: #111111;
+}
+
+/* El menú abierto toma el azul de identidad de Autodesk 3ds Max. Sobre
+   ese azul el texto oscuro da ~7:1 de contraste (el mismo tono que ya
+   usa la tarjeta de la portada); en blanco solo llega a ~2.8:1. */
+body.page-dark .site-menu {
+  background: #39A5CC;
+}
+
+body.page-dark .site-menu-links a,
+body.page-dark .site-menu-links button,
+body.page-dark .submenu-back {
+  color: #111111;
+}
+
+body.page-dark .site-menu-links a:hover,
+body.page-dark .site-menu-links button:hover,
+body.page-dark .submenu-back:hover {
+  color: #ffffff;
+}
+
+body.page-dark .lang-option {
+  color: rgba(17, 17, 17, 0.55);
+}
+
+body.page-dark .lang-option.is-active {
+  color: #111111;
+}
+
+body.page-dark .lang-divider {
+  color: rgba(17, 17, 17, 0.55);
+}
+
+body.page-dark .menu-toggle[aria-expanded="true"] .menu-toggle-bar {
+  background: #111111;
 }
 
 .bento {
@@ -1055,11 +1627,12 @@ body.page-dark .menu-toggle:hover .menu-toggle-bar {
 
 .bento-scene   { grid-column: 1 / 12;  grid-row: 1 / 8; }
 .bento-text    { grid-column: 12 / 21; grid-row: 1 / 8; }
-.bento-process { grid-column: 1 / 9;   grid-row: 8 / 11; }
 
-/* Los cuatro detalles se auto-colocan a continuación del "behind the scenes",
-   rellenando las doce columnas que quedan libres en la banda inferior. */
-.bento-shot { grid-row: 8 / 11; grid-column: span 3; }
+/* Los cuatro detalles se reparten toda la banda inferior: más estrechos
+   los dos retratos del producto, más anchos los dos detalles apaisados. */
+.bento-shot { grid-row: 8 / 11; }
+.bento-shot-portrait { grid-column: span 3; }
+.bento-shot-wide     { grid-column: span 7; }
 
 /* --- Escena principal: crossfade entre los estudios de luz --------------- */
 
@@ -1122,6 +1695,20 @@ body.page-dark .menu-toggle:hover .menu-toggle-bar {
 .scene-stage:focus-visible .scene-zoom {
   opacity: 1;
   transform: none;
+}
+
+.scene-logo {
+  position: absolute;
+  z-index: 3;
+  top: clamp(14px, 1.6vw, 22px);
+  left: clamp(14px, 1.6vw, 22px);
+  width: clamp(28px, 2.4vw, 38px);
+  height: auto;
+  padding: 5px;
+  border-radius: 9px;
+  background: rgba(10, 10, 12, 0.65);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
 }
 
 .scene-panel {
@@ -1244,25 +1831,27 @@ body.page-dark .menu-toggle:hover .menu-toggle-bar {
   gap: clamp(10px, 1.6vh, 20px);
   padding: clamp(64px, 6vw, 92px) clamp(24px, 2.6vw, 44px) clamp(24px, 2.6vw, 44px);
   border-color: transparent;
-  background: var(--color-brand);
+  /* Azul de la identidad de Autodesk 3ds Max. Sobre este tono claro el
+     texto oscuro da ~7:1 de contraste frente a ~2.8:1 en blanco. */
+  background: #39A5CC;
 }
 
 .bento-badge {
   align-self: flex-start;
   padding: 7px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(17, 17, 17, 0.4);
   border-radius: 999px;
   font-size: clamp(9px, 0.75vw, 11px);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   white-space: nowrap;
-  color: #ffffff;
+  color: #111111;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .bento-text:hover .bento-badge {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(17, 17, 17, 0.1);
   transform: translateY(-2px);
 }
 
@@ -1272,7 +1861,7 @@ body.page-dark .menu-toggle:hover .menu-toggle-bar {
   font-weight: 700;
   line-height: 0.95;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: #111111;
 }
 
 .bento-copy {
@@ -1281,12 +1870,12 @@ body.page-dark .menu-toggle:hover .menu-toggle-bar {
   font-size: clamp(12px, 1vw, 16px);
   font-weight: 300;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(17, 17, 17, 0.82);
 }
 
 .bento-copy strong {
   font-weight: 700;
-  color: #ffffff;
+  color: #111111;
 }
 
 .bento-meta {
@@ -1300,100 +1889,7 @@ body.page-dark .menu-toggle:hover .menu-toggle-bar {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-/* --- Behind the scenes -------------------------------------------------- */
-
-.bento-process {
-  background: #101013;
-}
-
-.process-logo {
-  position: absolute;
-  z-index: 3;
-  top: 14px;
-  right: 14px;
-  width: clamp(28px, 2.4vw, 38px);
-  height: auto;
-  padding: 5px;
-  border-radius: 9px;
-  background: rgba(10, 10, 12, 0.65);
-  backdrop-filter: blur(6px);
-  pointer-events: none;
-}
-
-.bento-process.is-missing .process-logo {
-  background: none;
-  backdrop-filter: none;
-  padding: 0;
-  opacity: 0.85;
-}
-
-.process-stage {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: zoom-in;
-}
-
-.process-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.8;
-  transition: opacity 0.4s ease, transform 0.6s ease;
-}
-
-.process-stage:hover .process-img,
-.process-stage:focus-visible .process-img {
-  opacity: 1;
-  transform: scale(1.03);
-}
-
-.process-fallback {
-  display: none;
-}
-
-/* Si la captura todavía no existe, la tarjeta explica dónde ponerla */
-.bento-process.is-missing .process-stage {
-  display: none;
-}
-
-.bento-process.is-missing .process-fallback {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  height: 100%;
-  margin: 0;
-  padding: clamp(20px, 2.4vw, 34px);
-  border: 1px dashed rgba(255, 255, 255, 0.22);
-  border-radius: var(--bento-radius);
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.bento-process.is-missing .process-fallback strong {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.process-fallback code {
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 11px;
-  color: var(--color-accent-light);
-  overflow-wrap: anywhere;
+  color: rgba(17, 17, 17, 0.65);
 }
 
 /* --- Detalles con tilt 3D ----------------------------------------------- */
@@ -1427,8 +1923,7 @@ body.page-dark .menu-toggle:hover .menu-toggle-bar {
   transform: scale(1.06);
 }
 
-.shot-tag,
-.process-tag {
+.shot-tag {
   position: absolute;
   bottom: 12px;
   left: 12px;
@@ -1448,9 +1943,7 @@ body.page-dark .menu-toggle:hover .menu-toggle-bar {
 }
 
 .bento-shot:hover .shot-tag,
-.bento-shot:focus-visible .shot-tag,
-.process-stage:hover .process-tag,
-.process-stage:focus-visible .process-tag {
+.bento-shot:focus-visible .shot-tag {
   opacity: 1;
   transform: none;
 }
@@ -1465,20 +1958,20 @@ body.page-dark .menu-toggle:hover .menu-toggle-bar {
   }
 
   .bento-scene,
-  .bento-text,
-  .bento-process {
+  .bento-text {
     grid-column: 1 / -1;
     grid-row: auto;
   }
 
-  .bento-scene   { aspect-ratio: 16 / 10; }
-  .bento-process { aspect-ratio: 16 / 9; }
+  .bento-scene { aspect-ratio: 16 / 10; }
 
   .bento-text {
     padding: clamp(64px, 12vw, 88px) clamp(24px, 6vw, 44px) clamp(28px, 6vw, 44px);
   }
 
-  .bento-shot {
+  .bento-shot,
+  .bento-shot-portrait,
+  .bento-shot-wide {
     grid-column: span 1;
     grid-row: auto;
     aspect-ratio: 4 / 5;
@@ -1512,8 +2005,7 @@ body.page-dark .menu-toggle:hover .menu-toggle-bar {
 @media (prefers-reduced-motion: reduce) {
   .scene-frame,
   .bento-shot,
-  .bento-shot img,
-  .process-img {
+  .bento-shot img {
     transition-duration: 0.01ms;
   }
 
@@ -1745,18 +2237,59 @@ body.page-rail .section-title {
   transform: none;
 }
 
-/* --- El reto ------------------------------------------------------------ */
+/* --- El reto, objetivos y requisitos ------------------------------------ */
 
-.rail-challenge {
-  padding: clamp(64px, 10vh, 120px) clamp(24px, 8vw, 120px);
+.rail-brief {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: 88vh;
+}
+
+.rail-brief-challenge {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(64px, 11vh, 120px) clamp(24px, 6vw, 72px) clamp(56px, 8vh, 96px);
   background: var(--color-brand);
   color: var(--rail-mist);
 }
 
-.rail-challenge-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
+.rail-brief-art {
+  position: absolute;
+  z-index: 0;
+  right: -4%;
+  bottom: -6%;
+  width: 62%;
+  max-width: 560px;
+  height: auto;
+  opacity: 0.96;
+  filter: sepia(0.18) saturate(0.8) brightness(0.94);
+  mask-image: linear-gradient(135deg, transparent 4%, rgba(0, 0, 0, 0.65) 22%, #000 40%);
+  -webkit-mask-image: linear-gradient(135deg, transparent 4%, rgba(0, 0, 0, 0.65) 22%, #000 40%);
+  pointer-events: none;
+}
+
+.rail-brief-challenge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(200deg, rgba(14, 61, 42, 0) 32%, rgba(14, 61, 42, 0.6) 64%, var(--color-brand) 94%);
+  pointer-events: none;
+}
+
+.rail-brief-challenge-inner {
+  position: relative;
+  z-index: 1;
+  max-width: min(640px, 100%);
+}
+
+.rail-brief-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(36px, 5vh, 56px);
+  padding: clamp(64px, 11vh, 120px) clamp(24px, 6vw, 72px);
+  background: var(--rail-panel);
 }
 
 .rail-challenge-label {
@@ -1770,7 +2303,7 @@ body.page-rail .section-title {
 
 .rail-challenge-text {
   margin: 0;
-  font-size: clamp(28px, 4.4vw, 62px);
+  font-size: clamp(28px, 3.2vw, 48px);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -2121,6 +2654,30 @@ body.page-rail .section-title {
     grid-template-columns: 1fr;
   }
 
+  .rail-brief {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .rail-brief-challenge {
+    padding-bottom: clamp(200px, 62vw, 320px);
+  }
+
+  .rail-brief-challenge-inner {
+    max-width: none;
+  }
+
+  .rail-challenge-text {
+    font-size: clamp(24px, 6.4vw, 34px);
+    line-height: 1.25;
+  }
+
+  .rail-brief-art {
+    right: -8%;
+    bottom: -4%;
+    width: 74%;
+  }
+
   .rail-parts {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2156,6 +2713,20 @@ body.page-rail .section-title {
 
 /* Sobre mí */
 
+.about-tag {
+  display: block;
+  margin: 0 0 16px;
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.about-tag--light {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .about-hero {
   padding: 96px clamp(24px, 8vw, 120px) 64px;
 }
@@ -2175,15 +2746,6 @@ body.page-rail .section-title {
 
 .about-hero-accent {
   color: var(--color-accent);
-}
-
-.about-hero-subtitle {
-  margin: 20px 0 0;
-  max-width: 56ch;
-  font-size: clamp(16px, 1.8vw, 20px);
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--color-text-muted);
 }
 
 .about-story {
@@ -2213,85 +2775,77 @@ body.page-rail .section-title {
   font-weight: 700;
 }
 
-.about-focus {
+/* --- Galería: 15 fotos en filas justificadas ------------------------------- */
+
+.about-gallery {
   padding: 96px clamp(24px, 8vw, 120px);
-  border-top: 1px solid #e4e4e4;
 }
 
-.about-focus-intro {
-  margin: 0 0 48px;
+.about-gallery-note {
+  margin: 0 0 32px;
   max-width: 60ch;
-  font-size: clamp(16px, 1.8vw, 20px);
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--color-text-muted);
-}
-
-.about-focus-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(28px, 3vw, 48px);
-}
-
-.about-focus-card {
-  --rx: 0deg;
-  --ry: 0deg;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: 24px 16px 20px 0;
-  border-top: 3px solid var(--color-accent);
-  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
-  transition: transform 0.4s ease, background-color 0.3s ease;
-}
-
-.about-focus-card::before {
-  content: attr(data-num);
-  position: absolute;
-  top: -0.28em;
-  right: 0.1em;
-  z-index: -1;
-  font-size: clamp(90px, 12vw, 160px);
-  font-weight: 700;
-  line-height: 1;
-  color: #f2f2f2;
-  transition: color 0.3s ease;
-}
-
-.about-focus-card:hover {
-  background-color: #fafafa;
-  transition-duration: 0.15s;
-}
-
-.about-focus-card:hover::before {
-  color: #ececec;
-}
-
-.about-focus-index {
-  display: block;
-  margin-bottom: 16px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--color-accent);
-}
-
-.about-focus-title {
-  margin: 0 0 14px;
-  font-size: clamp(18px, 2vw, 22px);
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.about-focus-text {
-  margin: 0 0 12px;
   font-size: 15px;
-  line-height: 1.55;
+  font-style: italic;
   color: var(--color-text-muted);
 }
 
-.about-focus-text:last-child {
-  margin-bottom: 0;
+/* Filas justificadas. Dentro de una fila cada foto reparte el ancho libre en
+   proporción a su ratio (--r) y usa ese mismo ratio como aspect-ratio, así que
+   todas acaban con idéntica altura y la fila cubre el ancho exacto: el bloque
+   queda recto por los cuatro lados sin recortar ninguna imagen. */
+.about-gallery-grid {
+  --about-gallery-gap: clamp(10px, 1.2vw, 16px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--about-gallery-gap);
+}
+
+.about-gallery-row {
+  display: flex;
+  gap: var(--about-gallery-gap);
+}
+
+.about-gallery-shot {
+  flex: var(--r) 1 0;
+  aspect-ratio: var(--r);
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.about-gallery-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+.about-gallery-shot:hover img,
+.about-gallery-shot:focus-visible img {
+  filter: brightness(0.88);
+}
+
+/* Tablet y móvil: las filas se parten en 2 y 1 columna. Aquí el borde inferior
+   ya no puede quedar recto sin recortar mucho, así que prima no recortar. */
+@media (max-width: 900px) {
+  .about-gallery-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .about-gallery-shot {
+    flex: 0 0 calc(50% - var(--about-gallery-gap) / 2);
+  }
+}
+
+@media (max-width: 560px) {
+  .about-gallery-shot {
+    flex-basis: 100%;
+  }
 }
 
 @property --mesh-x {
@@ -2332,103 +2886,364 @@ body.page-rail .section-title {
   50% { --mesh-x: 55%; --mesh-y: 60%; }
 }
 
+.about-passions-lead {
+  margin: 0 0 14px;
+  max-width: 40ch;
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
 .about-passions-intro {
   margin: 0 0 48px;
   max-width: 60ch;
   font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 300;
+  font-style: italic;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.75);
 }
 
+/* Tarjetas con la misma anatomía que los bloques del TFG. Las filas llevan
+   altura fija en vez de aspect-ratio para que las tres de arriba y las dos
+   de abajo midan igual pese a ocupar distinto ancho. */
 .about-passions-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: clamp(280px, 25vw, 340px);
+  gap: clamp(14px, 1.8vw, 26px);
+}
+
+.about-passion-card {
+  position: relative;
+  grid-column: span 2;
+  overflow: hidden;
+  border-radius: 10px;
+  background: linear-gradient(155deg, #2b2b32, #131317);
+  color: #ffffff;
+}
+
+.about-passion-card:nth-child(4),
+.about-passion-card:nth-child(5) {
+  grid-column: span 3;
+}
+
+.about-passion-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1), filter 0.5s ease;
+}
+
+.about-passion-card:hover img {
+  transform: scale(1.06);
+  filter: blur(3px) brightness(0.5);
+}
+
+.about-passion-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78) 4%, rgba(0, 0, 0, 0) 62%);
+  transition: background 0.45s ease;
+}
+
+.about-passion-card:hover .about-passion-veil {
+  background: rgba(10, 10, 12, 0.32);
+}
+
+.about-passion-body {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: clamp(18px, 2.1vw, 30px);
+}
+
+.about-passion-index {
+  display: block;
+  margin-bottom: 8px;
+  font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.about-passion-title {
+  margin: 0;
+  font-size: clamp(19px, 1.75vw, 28px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.about-passion-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.about-passion-card:hover .about-passion-reveal {
+  grid-template-rows: 1fr;
+}
+
+.about-passion-reveal > * {
+  overflow: hidden;
+}
+
+.about-passion-line {
+  margin: 12px 0 0;
+  max-width: 46ch;
+  font-size: clamp(13px, 1.05vw, 15px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease 0.08s, transform 0.4s ease 0.08s;
+}
+
+.about-passion-card:hover .about-passion-line {
+  opacity: 1;
+  transform: none;
+}
+
+/* Sin hover (táctil) no hay forma de desplegarlo: se muestra siempre */
+@media (hover: none) {
+  .about-passion-reveal {
+    grid-template-rows: 1fr;
+  }
+
+  .about-passion-line {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.about-cta {
+  display: flex;
+  align-items: center;
+  /* flex-start en vez de space-between: así los botones se quedan pegados
+     al texto (con un hueco generoso) en vez de ir al borde derecho, y el
+     texto conserva todo su ancho natural para no romper las 3 líneas. */
+  justify-content: flex-start;
+  /* El hueco crece 1:1 con el ancho de ventana (en vez de un % de ella),
+     así el texto conserva siempre los ~700px que necesita para sus 3 líneas
+     y solo el sobrante empuja los botones hacia la derecha. */
+  gap: clamp(64px, calc(100vw - 1320px), 560px);
+  padding: clamp(80px, 10vw, 128px) clamp(24px, 8vw, 120px);
+}
+
+.about-cta-text {
+  margin: 0;
+  /* Los <br> del HTML ya fijan las 3 líneas; sin tope de ancho para que
+     "aplico esta filosofía en" no se parta a su vez por falta de sitio. */
+  max-width: 36ch;
+  font-size: clamp(34px, 6vw, 72px);
+  font-weight: 700;
+  /* 1.08 y no menos: en minúscula acentuada (ó, í) un interlineado más
+     apretado hace que la tilde toque la línea de encima. */
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* Columna a la derecha del titular: los dos botones apilados y con el
+   mismo peso visual, sin uno "principal" y otro "secundario". */
+.about-cta-actions {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: min(300px, 100%);
+  gap: clamp(12px, 1.4vw, 16px);
+}
+
+.about-cta-link {
+  display: block;
+  text-decoration: none;
+}
+
+/* La pastilla es la capa que desplaza el efecto magnético del JS, por eso
+   lleva ella el fondo y el borde en vez del propio enlace. */
+.about-cta-link-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 14px 24px;
+  border: 1px solid var(--color-text);
+  border-radius: 999px;
+  background: var(--color-text);
+  color: #ffffff;
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  will-change: transform;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.about-cta-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--color-text);
+  transition: color 0.25s ease, transform 0.3s ease;
+}
+
+.about-cta-btn-icon svg {
+  width: 52%;
+  height: 52%;
+}
+
+.about-cta-link:hover .about-cta-link-inner {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.about-cta-link:hover .about-cta-btn-icon {
+  color: var(--color-accent);
+  transform: translateX(3px);
+}
+
+/* El titular a 3 líneas + la columna de botones solo caben en fila a partir
+   de ~1350px; por debajo, aunque sea un portátil normal (1280-1366), se
+   apilan para que ninguna de las 3 líneas se parta a su vez por falta de sitio. */
+@media (max-width: 1350px) {
+  .about-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-cta-actions {
+    width: 100%;
+  }
+}
+
+/* La altura de fila es fija para que el texto se despliegue en hover sin
+   mover el resto de la página, así que cada tramo necesita alto suficiente
+   para el texto más largo al ancho de tarjeta que le toca. */
+
+/* 2 columnas: las cuatro primeras en parejas y la quinta a todo el ancho,
+   para que no quede un hueco suelto al final. */
+@media (max-width: 1100px) {
+  .about-passions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: clamp(260px, 30vw, 320px);
+  }
+
+  .about-passion-card,
+  .about-passion-card:nth-child(4) {
+    grid-column: span 1;
+  }
+
+  .about-passion-card:nth-child(5) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-passions-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: clamp(260px, 58vw, 300px);
+  }
+
+  .about-passion-card,
+  .about-passion-card:nth-child(5) {
+    grid-column: span 1;
+  }
+}
+
+/* CV: áreas de enfoque */
+
+.cv-focus {
+  padding: 88px clamp(24px, 8vw, 120px) 96px;
+}
+
+.cv-focus-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(28px, 3vw, 48px);
 }
 
-.about-passion-item {
-  transition: transform 0.3s ease;
+.cv-focus-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 24px 16px 20px 0;
+  border-top: 3px solid var(--color-accent);
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.4s ease, background-color 0.3s ease;
 }
 
-.about-passion-item:hover {
-  transform: translateY(-6px);
-}
-
-.about-passion-icon {
-  display: block;
-  margin-bottom: 20px;
-  font-size: 36px;
-  line-height: 1;
-  transition: transform 0.3s ease;
-}
-
-.about-passion-item:hover .about-passion-icon {
-  transform: scale(1.15);
-}
-
-.about-passion-title {
-  margin: 0 0 10px;
-  font-size: clamp(17px, 1.8vw, 20px);
+.cv-focus-card::before {
+  content: attr(data-num);
+  position: absolute;
+  top: -0.28em;
+  right: 0.1em;
+  z-index: -1;
+  font-size: clamp(90px, 12vw, 160px);
   font-weight: 700;
+  line-height: 1;
+  color: #f2f2f2;
   transition: color 0.3s ease;
 }
 
-.about-passion-item:hover .about-passion-title {
-  color: var(--color-accent-light);
+.cv-focus-card:hover {
+  background-color: #fafafa;
+  transition-duration: 0.15s;
 }
 
-.about-passion-text {
-  margin: 0;
+.cv-focus-card:hover::before {
+  color: #ececec;
+}
+
+.cv-focus-index {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+}
+
+.cv-focus-title {
+  margin: 0 0 14px;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.cv-focus-text {
+  margin: 0 0 12px;
   font-size: 15px;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--color-text-muted);
 }
 
-.about-cta {
-  padding: 96px clamp(24px, 8vw, 120px);
-  text-align: center;
-}
-
-.about-cta-text {
-  margin: 0 0 40px;
-  max-width: 32ch;
-  margin-inline: auto;
-  font-size: clamp(20px, 2.6vw, 30px);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  text-align: center;
-}
-
-.about-cta-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(24px, 4vw, 56px);
-}
-
-.about-cta-link {
-  isolation: isolate;
-}
-
-.about-cta-link-inner {
-  display: inline-flex;
-  align-items: center;
-  gap: 18px;
-  will-change: transform;
+.cv-focus-text:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 900px) {
-  .about-focus-grid,
-  .about-passions-grid {
+  .cv-focus-grid {
     grid-template-columns: 1fr;
   }
 }
 
 /* Experiencia laboral */
 
+/* El espacio superior lo pone ya .cv-focus, que va justo antes */
 .experience {
-  padding: 88px clamp(24px, 8vw, 120px) 96px;
+  padding: 0 clamp(24px, 8vw, 120px) 96px;
 }
 
 .job-tabs {
