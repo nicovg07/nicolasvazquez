@@ -3071,6 +3071,22 @@ body.page-rail .section-title {
   text-decoration: none;
 }
 
+/* "Explora mis proyectos" despliega el submenú en vez de ir a una página, así
+   que es un <button>: hay que quitarle su aspecto propio (fondo, borde, fuente)
+   para que quede igual que el enlace de al lado, porque toda la pastilla la
+   pinta .about-cta-link-inner. El width evita que el botón se encoja a su
+   contenido y salga más estrecho que el enlace. */
+button.about-cta-link {
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
 /* La pastilla es la capa que desplaza el efecto magnético del JS, por eso
    lleva ella el fondo y el borde en vez del propio enlace. */
 .about-cta-link-inner {

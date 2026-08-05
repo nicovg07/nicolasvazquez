@@ -1,7 +1,8 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const siteMenu = document.getElementById('site-menu');
 const projectsMenu = document.getElementById('projects-menu');
-// Hay dos: el del menú principal y el del pie de página.
+// Tres: el del menú principal, el del pie de página y el botón "Explora mis
+// proyectos" de Sobre mí.
 const projectsToggles = document.querySelectorAll('[data-submenu-toggle]');
 const menuProjectsToggle = siteMenu.querySelector('[data-submenu-toggle]');
 const projectsBack = document.querySelector('[data-submenu-back]');
@@ -28,9 +29,9 @@ projectsToggles.forEach((toggle) => {
   toggle.addEventListener('click', () => {
     siteMenu.classList.remove('is-open');
     projectsMenu.classList.add('is-open');
-    // Desde el pie el menú no estaba abierto, así que el scroll sigue suelto
-    // y el botón hamburguesa sigue marcado como cerrado: hay que igualarlo
-    // a openMenu() para que ese botón cierre el panel al pulsarlo.
+    // Desde el pie o desde Sobre mí el menú no estaba abierto, así que el
+    // scroll sigue suelto y el botón hamburguesa sigue marcado como cerrado:
+    // hay que igualarlo a openMenu() para que ese botón cierre el panel.
     document.body.classList.add('menu-open');
     menuToggle.setAttribute('aria-expanded', 'true');
   });
