@@ -46,7 +46,7 @@ const I18N_EN = {
   'cv.docTitle': 'CV — Nicolás Vázquez García',
   'cv.docDesc': 'CV of Nicolás Vázquez García, industrial design and product development engineer.',
   'cv.profileTitle': 'Professional profile',
-  'cv.profileText': '<strong>Industrial Design Engineer</strong> with experience in <strong>automotive</strong> and technical engineering, looking to take the next step towards the <strong>retail</strong> sector or <strong>product design</strong> in its purest form. I combine <strong>technical rigour, project management and precise documentation</strong> with a strong sensitivity for <strong>form, function and the user/client experience</strong>. <strong>Proactive, adaptable and team-oriented</strong>. Based in Asturias, with <strong>full availability for national and international mobility</strong>.',
+  'cv.profileText': '<strong>Industrial Design and Product Development Engineer</strong> with experience in <strong>automotive</strong> and technical engineering, looking to take the next step towards the <strong>retail</strong> sector or <strong>product design</strong> in its purest form. I combine <strong>technical rigour, project management and precise documentation</strong> with a strong sensitivity for <strong>form, function and the user/client experience</strong>. <strong>Proactive, adaptable and team-oriented</strong>. Based in Asturias, with <strong>full availability for national and international mobility</strong>.',
 
   'cv.focusTitle': 'Focus areas',
   'cv.focusHint': 'where I add value',
@@ -119,7 +119,7 @@ const I18N_EN = {
 
   'about.story1': 'Engineering, its technical precision and product design fit the way I am, the way I see the world, my passions and my lifestyle.',
   'about.story2': 'My fascination with technology and form goes back a long way; I could say it began by obsessively studying every car on the street, in adverts and anywhere else. And although the automotive world has always been a central pillar in my life, the transformation the sector is going through makes me reflect on how technology must evolve without losing the essence and the emotion of the product.',
-  'about.story3': 'I have always been a curious person. The first option I considered was Architecture, when I was just seven, drawn by the ability to design spaces. However, after weighing up different engineering paths, I chose the <strong>Degree in Industrial Design and Product Development Engineering</strong>, driven by a constant attraction to where the aesthetic and the mechanical meet.',
+  'about.story3': 'I have always been a curious person. The first option I considered was Architecture, when I was just seven, drawn by the ability to design spaces. But my real passion was always cars, and I believe that is where my sense of aesthetics began to take shape: in car magazines, in automotive design books and at the industry trade fairs I walked around as a teenager. From looking so closely I learnt to recognise when a form is balanced, and to ask myself why. That is why, after weighing up different engineering paths, I chose the <strong>Degree in Industrial Design and Product Development Engineering</strong>, driven by a constant attraction to where the aesthetic and the mechanical meet.',
   'about.story4': 'For me, design has never been a mere surface finish, but the technical answer to a real need: a process where form is the direct consequence of function, feasibility and performance.',
   'about.story5': 'Over time, I have come to understand that the analytical eye with which I looked at cars can be applied to any field. My training allows me to merge technical rigour with a sensitivity for detail, understanding the entire product life cycle: from the idea in a sketch to its final materialisation.',
 
@@ -129,11 +129,11 @@ const I18N_EN = {
   'about.passion1Title': 'Motor culture',
   'about.passion1Text': 'Cars will always be one of my passions; I believe they are the object that has given human beings the most freedom. The passion and precision of the competitive spirit moves me, influences me and fascinates me.',
   'about.passion2Title': 'Watchmaking',
-  'about.passion2Text': 'I am passionate about watchmaking: I find it fascinating to see just how far engineering and high precision can be condensed into such small sizes. I cannot live without a watch on my wrist.',
+  'about.passion2Text': 'I am passionate about watchmaking: I find it fascinating to see just how far engineering and high precision can be condensed into objects of such a small size. I cannot live without a watch on my wrist.',
   'about.passion3Title': 'Sport',
-  'about.passion3Text': 'It is where nature and wellbeing meet precision and engineering. I love practising it, but I also love analysing technical advances and seeing how cutting-edge technology and materials are applied.',
+  'about.passion3Text': 'It is where nature and wellbeing meet precision and engineering. I enjoy practising it, but what I love is analysing technical advances and seeing how cutting-edge technology and materials are applied.',
   'about.passion4Title': 'Economics and politics',
-  'about.passion4Text': 'As a person and as a professional, I find it essential to understand why things happen in the world as they constantly do. We have to move forward, think critically and adapt to change without losing our values.',
+  'about.passion4Text': 'I consider it essential, for both my personal and professional growth, to keep up with what is happening in the world, digging into the whys in order to understand and evolve, with a critical mind and the ability to adapt to change, without losing our values.',
   'about.passion5Title': 'Nature',
   'about.passion5Text': 'It is where I disconnect, where I feel most human and have my best ideas — the place that makes me reflect, keep pushing to reach the top and surpass myself.',
 
